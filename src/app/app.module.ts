@@ -14,6 +14,7 @@ import { ProductDetailsComponent } from './Components/ProductDetails/ProductDeta
 import { RegisterComponent } from './Components/Register/Register.component';
 import { LoginComponent } from './Components/Login/Login.component';
 import { NewProductComponent } from './Components/NewProduct/NewProduct.component';
+import { EditeProductComponent } from './Components/EditeProduct/EditeProduct.component';
 import { ErrorComponent } from './Components/Error/Error.component';
 
 
@@ -28,6 +29,7 @@ import { ErrorComponent } from './Components/Error/Error.component';
       RegisterComponent,
       LoginComponent,
       NewProductComponent,
+      EditeProductComponent,
       ErrorComponent
    ],
   imports: [

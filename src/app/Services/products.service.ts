@@ -8,7 +8,7 @@ export class ProductsService {
 
   constructor(private HttpClient :HttpClient) { }
 
-  BaseURL="https://localhost:7154/api/Product";
+  BaseURL="https://localhost:7154/api/Products";
 
   GetAllProducts(){
     return this.HttpClient.get(this.BaseURL);
@@ -25,6 +25,9 @@ export class ProductsService {
   }
   DeleteProduct(id:any){
     return this.HttpClient.delete(`${this.BaseURL}/${id}`);
+  }
+  GetProductWithPromotion(){
+    return this.HttpClient.get(`${this.BaseURL}/GetProductsWithPormotion`);
   }
 
 }

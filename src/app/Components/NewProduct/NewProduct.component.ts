@@ -13,9 +13,19 @@ export class NewProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  Addd(){
-    let product={}
-    this.service.AddNewProduct(product).subscribe()
+  Add(Title:any,Description:any,price:any,quantity:any,categoryId:any,imageUrl:any,isPromoted:any,promotionPercentage:any,overAllRating:any){
+    let product={
+      "title": Title,
+      "description": Description,
+      "price": price,
+      "quantity": quantity,
+      "categoryId": categoryId,
+      "imageUrl": imageUrl,
+      "isPromoted": isPromoted,
+      "promotionPercentage": promotionPercentage,
+      "overAllRating": overAllRating
+    }
+    this.service.AddNewProduct(product).subscribe();
   }
 
 

@@ -1,22 +1,89 @@
-<p>
-  NewProduct works!
-</p>
+
+
+<div  class="height  justify-content-center align-items-center m-2 ">
+  <div class="card p-5">
+      <div class="justify-content-between  align-items-center ">
+          <div class="mt-2 row">
+            <label class="w-25">Title</label>
+            <input #Title class="form-control w-75" type="text">
+          </div>
+          <div class="mt-2 row">
+            <label class=" w-25">Description</label>
+            <input #Description class="form-control w-75" type="text">
+          </div>
+          <div class="mt-2 row">
+            <label class="w-25">price</label>
+            <input #price class="form-control w-75" type="number">
+          </div>
+          <div class="mt-2 row">
+            <label class="w-25">quantity</label>
+            <input #quantity class="form-control w-75" type="number">
+          </div>
+          <div class="mt-2 row">
+            <label class="w-25">CategoryId</label>
+            <input #categoryId class="form-control w-75" type="number">
+          </div>
+          <div class="mt-2 row">
+            <label class=" w-25">imageUrl</label>
+            <input #imageUrl class="form-control w-75" type="text">
+          </div>
+
+
+
+          <div class="mt-2 row">
+            <label class="w-25">isPromoted</label>
+
+              <input #isPromoted class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios1" value=1 >
+              <label class="form-check-label  w-25" for="exampleRadios1">
+                True
+              </label>
+
+              <input #isPromoted class="form-check-input  " type="radio" name="exampleRadios" id="exampleRadios2" value=0>
+              <label class="form-check-label  w-25" for="exampleRadios2">
+                False
+              </label>
+
+
+          </div>
+
+
+          <div class="mt-2 row">
+            <label class="w-25">promotionPercentage</label>
+            <input #promotionPercentage class="form-control w-75" type="number">
+          </div>
+          <div class="mt-2 row">
+            <label class="w-25">overAllRating</label>
+            <input #overAllRating class="form-control w-75" type="number">
+          </div>
+
+         <button class="btn btn-success m-3 row" (click)="Add(Title.value,Description.value,+price.value,+quantity.value,+categoryId.value,imageUrl.value,+isPromoted.value,+promotionPercentage.value,+overAllRating.value )"  >Add Product</button>
+      </div>
+
+
+    </div>
+</div>
 
 
 <!-- {
-  "id": 6,
   "title": "body Loshan",
   "description": "Bain Fluidealiste Sulfate-Free Shampoo for Frizzy Hair",
   "price": 50,
   "quantity": 4,
   "categoryId": 1,
-  "category": {
-    "id": 1,
-    "name": "Haaaaaair care",
-    "productList": []
-  },
   "imageUrl": "https://www.kerastase.com.eg/media/catalog/product/cache/a8a0ec143d899e0909d530f1f20bcb19/g/e/genesis-bain-nutri-fortifiant-shampoo-for-hair-fall-lifestyle_19_1.jpg",
   "isPromoted": true,
   "promotionPercentage": 20,
   "overAllRating": 3
+} -->
+
+<!-- {
+  "title": "string",
+  "description": "string",
+  "price": 0,
+  "quantity": 0,
+  "categoryId": 0,
+  "imageUrl": "string",
+  "isPromoted": true,
+  "promotionPercentage": 0,
+  "overAllRating": 0
 } -->

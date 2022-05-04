@@ -29,8 +29,4 @@ export class ProductsService {
   GetProductWithPromotion(){
     return this.HttpClient.get(`${this.BaseURL}/GetProductsWithPormotion`);
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> 0e64265e23098da6df678574f1c88e7924e9f370
 }

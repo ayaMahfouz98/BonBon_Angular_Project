@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /*Our Website Buttons*/
 button{
+<<<<<<< HEAD
   width:150px;
   height:40px;
   color: white;
@@ -26,3 +27,30 @@ button:hover {
    box-shadow:15px 15px 15px 15px rgba(0,0,0,0.5);
    opacity: 1;
 }
+=======
+    width:150px;
+    height:40px;
+    color: white;
+    background-color:thistle;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: medium;
+    -webkit-transition: all 1s ease;
+
+            }
+  
+ button::after{
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: medium;
+
+ }    
+
+ button:hover {
+     -webkit-transform : scale(1.1,1.1); /*focused*/
+     box-shadow:15px 15px 15px 15px rgba(0,0,0,0.5);
+     opacity: 1;
+ }
+>>>>>>> 0e64265e23098da6df678574f1c88e7924e9f370

@@ -19,6 +19,8 @@ import { ErrorComponent } from './Components/Error/Error.component';
 import { PromotionsComponent } from './Components/Promotions/Promotions.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
       EditeProductComponent,
       ErrorComponent,
-      PromotionsComponent
+      PromotionsComponent,
+      SearchProductComponent
 
    ],
   imports: [
@@ -44,7 +47,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     AppRoutingModule,
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule
 
   ],
   providers: [],

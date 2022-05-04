@@ -1,68 +1,69 @@
-<div class="height  justify-content-center align-items-center m-2 ">
-  <div class=" p-5">
-    <div class="justify-content-between  align-items-center ">
 
-      <div class="mt-2 row">
-        <label class="w-25">Title</label>
-        <input #Title class="form-control w-75" type="text" value="{{Product.title}}">
-      </div>
-      <div class="mt-2 row">
-        <label class=" w-25">Description</label>
-        <input #Description class="form-control w-75" type="text" value="{{Product.description}}">
-      </div>
-      <div class="mt-2 row">
-        <label class="w-25">price</label>
-        <input #price class="form-control w-75" type="number" value="{{Product.price}}">
-      </div>
-      <div class="mt-2 row">
-        <label class="w-25">quantity</label>
-        <input #quantity class="form-control w-75" type="number" value="{{Product.quantity}}">
-      </div>
-      <div class="mt-2 row">
-        <label class="w-25">CategoryId</label>
-        <input #categoryId class="form-control w-75" type="number" value="{{Product.categoryId}}">
-      </div>
-      <div class="mt-2 row">
-        <label class=" w-25">imageUrl</label>
-        <input #imageUrl class="form-control w-75" type="text" value="{{Product.imageUrl}}">
-      </div>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://codepen.io/skjha5993/pen/bXqWpR.css">
+    <title>Registration Form Using Bootstrap 4</title>
+</head>
+<body>
 
 
+    <div class="container mt-5">
+        <form>
+        <div class="row jumbotron">
+            <div class="col-sm-6 form-group">
+                <label for="name-f">Title</label>
+                <input type="text" #Title class="form-control"  value="{{Product.title}}"  required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="name-l">Description</label>
+                <input #Description type="text" class="form-control"  value="{{Product.description}}"  required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="email">Price</label>
+                <input #price type="email" class="form-control"  value="{{Product.price}}" required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="address-1">Quantity</label>
+                <input #quantity type="number" class="form-control" value="{{Product.quantity}}"  required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="Rating">Rating</label>
+                <input #overAllRating type="address" class="form-control" value="{{Product.overAllRating}}"   required>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="Rating">Image</label>
+              <input #imageUrl type="text" class="form-control" value="{{Product.imageUrl}}"   required>
+          </div>
+            <div class="col-6 form-group">
+                <label for="Sale">Sale</label>
+                <input #promotionPercentage type="address" class="form-control d-inline" name="Sale" id="Sale"  required>
+              </div>
+              <div class="col-6 form-group">
 
-      <div class="mt-2 row">
-        <label class="w-25">isPromoted</label>
+                <label for="Sale">Category</label>
+                <select class="form-control mb-3" name="cat" id="prdCat"  #categoryId>
+                  <option *ngFor="let cat of AllCategories" [value]="cat.id">{{cat.name}}</option>
+                </select>
+              </div>
 
-        <input #isPromoted class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios1" value=1
-          checked>
-        <label class="form-check-label  w-25" for="exampleRadios1">
-          True
-        </label>
+                <div class="col-6 form-group">
+                <input #isPromoted type="checkbox" class="form-check d-inline" value="1" id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
+                </div>
 
-        <input #isPromoted class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value=0>
-        <label class="form-check-label  w-25" for="exampleRadios2">
-          False
-        </label>
-
-
-      </div>
-
-
-      <div class="mt-2 row">
-        <label class="w-25">promotionPercentage</label>
-        <input #promotionPercentage class="form-control w-75" type="number" value="{{Product.promotionPercentage}}">
-      </div>
-      <div class="mt-2 row">
-        <label class="w-25">overAllRating</label>
-        <input #overAllRating class="form-control w-75" type="number" value="{{Product.overAllRating}}">
-      </div>
-
-      <div class="mt-2 row align-items-center">
-        <button class="btn btn-success m-3  w-25"
-          (click)="Edit(Title.value,Description.value,+price.value,+quantity.value,+categoryId.value,imageUrl.value,+isPromoted.value,+promotionPercentage.value,+overAllRating.value )">Save
-          Changes</button>
-      </div>
+         
+            <div class="mt-2 row align-items-center">
+              <button class="btn1 btn m-3 w-25"
+                (click)="Edit(Title.value,Description.value,+price.value,+quantity.value,+categoryId.value,imageUrl.value,+isPromoted.value,+promotionPercentage.value,+overAllRating.value )">Save
+                Changes</button>
+            </div>
+        </div>
+        </form>
     </div>
 
 
-  </div>
-</div>
+</body>
+</html>

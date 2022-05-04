@@ -31,12 +31,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       RegisterComponent,
       LoginComponent,
       NewProductComponent,
-
       EditeProductComponent,
       ErrorComponent,
-      PromotionsComponent
-
-   ],
+      PromotionsComponent  
+     ],
   imports: [
     BrowserModule,
     HttpClientModule,

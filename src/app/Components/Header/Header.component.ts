@@ -1,27 +1,35 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { isEmpty } from 'rxjs';
 
 @Component({
   selector: 'app-Header',
   templateUrl: './Header.component.html',
   styleUrls: ['./Header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  Pname:string = " ";
+export class HeaderComponent implements OnInit,OnChanges {
+
+  Pname:string = "Search";
+
   @Output() myEvent = new EventEmitter();
 
   constructor(private router: Router) { }
 
+  ngOnChanges(): void {
+
+    this.SendName(this.Pname);
+  }
+
   ngOnInit() {
   }
 
-  SendName(Pname:any){
+  SendName(Pname:string){
 
-    if(this.Pname==""){
+    console.log(Pname)
+    if( this.Pname ==""){
       this.router.navigate(['/Products']);
     }else{
       this.myEvent.emit(this.Pname);
-      console.log(this.Pname);
       this.router.navigate([`/searchProduct/${Pname}`]);
     }
   }

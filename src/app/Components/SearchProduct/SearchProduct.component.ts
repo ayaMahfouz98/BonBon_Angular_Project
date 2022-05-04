@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
+import { BrowserModule } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-SearchProduct',
@@ -13,7 +14,7 @@ export class SearchProductComponent implements OnInit,OnChanges {
 
  @Input() name:any;
 
-  constructor(private activatedRoute:ActivatedRoute,private productsService:ProductsService) {
+  constructor(private activatedRoute:ActivatedRoute,private productsService:ProductsService,private router: Router) {
     this.ProductName= activatedRoute.snapshot.params["name"];
 
    }
@@ -23,11 +24,18 @@ export class SearchProductComponent implements OnInit,OnChanges {
 
     this.ProductName= this.activatedRoute.snapshot.params["name"];
 
-    this.productsService.SearchProductByName(this.ProductName).subscribe(
-      (data)=>{ console.log(data)
-        this.AllProducts=data ;},
-      (err)=>{console.log(err)}
-    );
+    if(this.ProductName==""){
+      this.router.navigate(['/Products']);
+    }else{
+      this.productsService.SearchProductByName(this.ProductName).subscribe(
+        (data)=>{ console.log(data)
+          this.AllProducts=data ;},
+        (err)=>{console.log(err)}
+      );
+
+    }
+
+
   }
 
   ngOnInit() {

@@ -2,25 +2,25 @@
 /*Our Website Buttons*/
 button{
 
-    width:150px;
-    height:40px;
-    color: white;
-    background-color:thistle;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    font-size: medium;
-    -webkit-transition: all 1s ease;
+  width:150px;
+  height:40px;
+  color: white;
+  background-color:thistle;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: medium;
+  -webkit-transition: all 1s ease;
 
-            }
-  
- button::after{
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    font-size: medium;
+          }
 
- }    
+button::after{
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: medium;
+
+}
 
 button:hover {
    -webkit-transform : scale(1.1,1.1); /*focused*/

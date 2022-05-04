@@ -17,7 +17,7 @@ export class PromotionsComponent implements OnInit {
       this.AllProductsWithPormotion=data ;
       console.log(data)
     },
-      (err)=>{console.log(err)});               
+      (err)=>{console.log(err)});
 }
 image:String="https://fakeimg.pl/100/100";
 customOptions: any = {

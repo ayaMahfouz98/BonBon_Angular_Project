@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
 import { Router } from "@angular/router";
 @Component({
@@ -6,9 +6,12 @@ import { Router } from "@angular/router";
   templateUrl: './ProductItem.component.html',
   styleUrls: ['./ProductItem.component.css']
 })
-export class ProductItemComponent implements OnInit {
+export class ProductItemComponent implements OnInit,OnChanges {
 
   constructor(private service:ProductsService,private router: Router) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit() {
   }

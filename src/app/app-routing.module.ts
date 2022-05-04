@@ -7,12 +7,14 @@ import { NewProductComponent } from './Components/NewProduct/NewProduct.componen
 import { ProductDetailsComponent } from './Components/ProductDetails/ProductDetails.component';
 import { ProductsComponent } from './Components/Products/Products.component';
 import { RegisterComponent } from './Components/Register/Register.component';
+import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 
 const routes: Routes = [
   {path:"",component:ProductsComponent},
   {path:"Products",component:ProductsComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
   {path:"EditeProduct/:id",component:EditeProductComponent},
+  {path:"searchProduct/:name",component:SearchProductComponent},
   {path:"Login",component:LoginComponent},
   {path:"Register",component:RegisterComponent},
   {path:"NewProduct",component:NewProductComponent},

@@ -20,9 +20,12 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="" type="submit">Search</button>
+        <!-- [(ngModel)]="Pname" -->
+        <input #Pname [value]="Pname" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="" type="button" routerLink="/searchProduct/{{Pname.value}" value="Search" (click)="SendName(Pname.value)" >
+
       </form>
     </div>
   </div>
 </nav>
+

@@ -29,4 +29,7 @@ export class ProductsService {
   GetProductWithPromotion(){
     return this.HttpClient.get(`${this.BaseURL}/GetProductsWithPormotion`);
   }
+  SearchProductByName(name:any){
+    return this.HttpClient.get(`${this.BaseURL}/searchProduct/${name}`);
+  }
 }

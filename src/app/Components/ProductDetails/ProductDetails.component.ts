@@ -18,7 +18,7 @@ Product:any;
   }
 
   ngOnInit() {
-    this.service.GetProductById(this.ProductId).subscribe(
+    this.service.GetProductById( 2).subscribe(
       (data)=>{
         console.log(data);
         this.Product=data;

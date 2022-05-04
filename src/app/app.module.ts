@@ -15,7 +15,9 @@ import { RegisterComponent } from './Components/Register/Register.component';
 import { LoginComponent } from './Components/Login/Login.component';
 import { NewProductComponent } from './Components/NewProduct/NewProduct.component';
 import { ErrorComponent } from './Components/Error/Error.component';
-
+import { PromotionsComponent } from './Components/Promotions/Promotions.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,18 @@ import { ErrorComponent } from './Components/Error/Error.component';
       RegisterComponent,
       LoginComponent,
       NewProductComponent,
-      ErrorComponent
+      ErrorComponent,
+      PromotionsComponent
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

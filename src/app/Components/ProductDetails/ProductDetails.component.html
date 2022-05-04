@@ -1,16 +1,50 @@
-  <div  class="height d-flex justify-content-center align-items-center m-2">
-    <div class="card p-5">
-        <div class="justify-content-between  align-items-center ">
-            <div class="mt-2">
-                <h4 class="text-uppercase">{{Product.title}}</h4>
-            </div>
-            <div class="image"> <img src={{Product.imageUrl}} width="200"> </div>
-        </div>
 
-        <p>{{Product.description}}</p>
-        <h2>EGP {{Product.price}}</h2>
 
-        <input  type="button" class="btn btn-success m-2" value="Add to cart">
-      </div>
-</div>
+	
+	<div class="container">
+		<div class="card">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+						
+						<div class="preview-pic tab-content">
+						  <div class="card-image">
+                <img class="h-100"src={{Product?.imageUrl}}  />
+              </div>
+						</div>
 
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{Product.title}}</h3>
+            <h6 class="product-code">Product code: {{Product.id}}</h6>
+
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+						</div>
+						<h4 class="price"><span>{{Product.price| currency:'USD'}}</span></h4>
+
+						<p class="product-description">{{Product.description}}</p>
+						<div class="available" [ngSwitch]=" Product.quantity">
+							<div class="text-danger" *ngSwitchCase="0">Out Of Stock</div>
+							<div class="text-warning"*ngSwitchCase="1">Last Item!</div>
+							<div class="text-warning" *ngSwitchCase="2">Last 2 items!</div>
+							<div class="avl" *ngSwitchDefault>{{Product.quantity}} Items Available.</div>
+						  </div>
+						<hr>
+						<h6>Qunatity</h6>
+					    <input class="quantity mb-2"type="number" value="1"/>
+     					<div class="action">
+							<button class="add-to-cart btn btn-default" type="button">Add to cart</button>
+                            <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>

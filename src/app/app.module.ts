@@ -33,7 +33,6 @@ import { SearchProductComponent } from './Components/SearchProduct/SearchProduct
       RegisterComponent,
       LoginComponent,
       NewProductComponent,
-
       EditeProductComponent,
       ErrorComponent,
       PromotionsComponent,

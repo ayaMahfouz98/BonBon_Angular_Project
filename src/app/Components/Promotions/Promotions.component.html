@@ -4,7 +4,14 @@
 <owl-carousel-o [options]="customOptions" class="col-lg-2">
 <ng-container *ngFor="let prd of AllProductsWithPormotion; let i = index">
   <ng-template carouselSlide>
-            <div class="card-sl m-3 ">
+            <div class="card-sl m-3 "> 
+                    
+                     <div class="ribbon">
+                        <div class="wrap">
+                          <span class="ribbon6">{{prd.promotionPercentage}} % OFF
+                        </span>
+                    </div>
+                    </div>
                 <div class="card-image">
                     <img class="h-100"src={{prd?.imageUrl}}  />
                 </div>
@@ -16,8 +23,9 @@
                       {{prd.description}}
                 </div>
                 <div class="card-text">
-                    {{prd.price}}
-                </div>
+                    {{prd.price | currency:'USD'}}
+                </div> 
+           
                 <a href="#" class="card-button "> Buy now!</a>
         </div>
   </ng-template> 

@@ -1,0 +1,20 @@
+label {
+    font-weight: 600;
+    color: #555;
+}
+body {
+  background-image:url(https://i.pinimg.com/564x/93/eb/92/93eb927bc16ec82ee48d63f218bc6386.jpg);
+}
+.btn1 {
+    background-color:rgba(170, 221, 136, 0.788); 
+    border: none;
+    text-transform: UPPERCASE;
+    color: #fff;
+    font-weight:300px;
+    width: 62%;      
+    margin-right:15px ; 
+ }
+.jumbotron{
+    background-color: #c5c3ad;
+    
+}

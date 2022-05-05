@@ -7,10 +7,10 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
 constructor(private HttpClient :HttpClient) { }
-BaseURL="https://localhost:7154/api/Auth";
+BaseURL="https://localhost:7154";
 
 Register(user:any){
-  return this.HttpClient.post(`${this.BaseURL}/Rsgister`,user);
+  return this.HttpClient.post(`${this.BaseURL}/Register`,user);
 }
 
 }

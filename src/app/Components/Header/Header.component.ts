@@ -9,7 +9,7 @@ import { isEmpty } from 'rxjs';
 })
 export class HeaderComponent implements OnInit,OnChanges {
 
-  Pname:string = "Search";
+  Pname = "Search";
 
   @Output() myEvent = new EventEmitter();
 
@@ -26,10 +26,10 @@ export class HeaderComponent implements OnInit,OnChanges {
   SendName(Pname:string){
 
     console.log(Pname)
-    if( this.Pname ==""){
+    if( Pname ==""){
       this.router.navigate(['/Products']);
     }else{
-      this.myEvent.emit(this.Pname);
+      this.myEvent.emit(Pname);
       this.router.navigate([`/searchProduct/${Pname}`]);
     }
   }

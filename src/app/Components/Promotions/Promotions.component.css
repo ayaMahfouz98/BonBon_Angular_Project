@@ -61,14 +61,14 @@
         padding: 10px 0;
         width: 100%;
         color: white;
-        background-color:thistle;
+        background-color:rgb(243, 111, 111);
         border-radius: 0 0 8px 8px;
     }
 
     .card-button:hover {
         text-decoration: none;
         color: white;
-        background-color:thistle;
+        background-color:rgb(226, 103, 103);
         color: #fff;
 
     }

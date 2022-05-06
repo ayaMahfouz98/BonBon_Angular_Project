@@ -13,7 +13,7 @@
   
       <div class="container mt-5">
           <form>
-          <div class="row jumbotron">
+        <div class="row jumbotron">
               <div class="col-sm-6 form-group">
                   <label for="name-f">Title</label>
                   <input type="text" #Title class="form-control"  value="{{Product.title}}"  required>
@@ -40,24 +40,24 @@
             </div>
               <div class="col-6 form-group">
                   <label for="Sale">Sale</label>
-                  <input #promotionPercentage type="address" class="form-control d-inline" name="Sale" id="Sale"  required>
+                  <input #promotionPercentage type="address" class="form-control d-inline" name="Sale" id="Sale" value="{{Product.promotionPercentage}}" required>
                 </div>
                 <div class="col-6 form-group">
   
-                  <label for="Sale">Category</label>
-                  <select class="form-control mb-3" name="cat" id="prdCat"  #categoryId>
-                    <option *ngFor="let cat of AllCategories" [value]="cat.id">{{cat.name}}</option>
+                  <label for="prdCat">Category</label>
+                  <select class="form-control mb-3" name="cat" id="prdCat"  [(ngModel)]="selectedCatID" >
+                    <option *ngFor="let cat of AllCategories; let i = index" [value]="cat.id">{{cat.name}}</option>
                   </select>
                 </div>
   
                   <div class="col-6 form-group">
-                  <input #isPromoted type="checkbox" class="form-check d-inline" value="1" id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
+                  <input [(ngModel)]="isPromoted" checked type="checkbox" class="form-check d-inline"  id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
                   </div>
   
            
               <div class="mt-2 row align-items-center">
                 <button class="btn1 btn m-3 w-25"
-                  (click)="Edit(Title.value,Description.value,+price.value,+quantity.value,+categoryId.value,imageUrl.value,+isPromoted.value,+promotionPercentage.value,+overAllRating.value )">Save
+                  (click)="Edit(Title.value,Description.value,+price.value,+quantity.value,+selectedCatID.value,imageUrl.value,+isPromoted.value,+promotionPercentage.value,+overAllRating.value )">Save
                   Changes</button>
               </div>
           </div>

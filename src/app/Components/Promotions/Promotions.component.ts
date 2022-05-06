@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductsService } from 'src/app/Services/products.service';
+//import { OwlOptions } from 'ngx-owl-carousel-o';
+
 
 @Component({
   selector: 'app-Promotions',
@@ -15,7 +16,7 @@ export class PromotionsComponent implements OnInit {
     this.service.GetProductWithPromotion().subscribe(
       (data)=>{
       this.AllProductsWithPormotion=data ;
-      console.log(data)
+      console.log("ll"+data)
     },
       (err)=>{console.log(err)});
 }

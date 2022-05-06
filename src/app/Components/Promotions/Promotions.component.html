@@ -2,7 +2,7 @@
 <h3 class=" ">On sale</h3>
 
 <owl-carousel-o [options]="customOptions" class="col-lg-2">
-<ng-container *ngFor="let prd of AllProductsWithPormotion; let i = index">
+<ng-container *ngFor="let prd of AllProductsWithPormotion.value; let i = index;">
   <ng-template carouselSlide>
             <div class="card-sl m-3 ">
                 <div class="card-image">

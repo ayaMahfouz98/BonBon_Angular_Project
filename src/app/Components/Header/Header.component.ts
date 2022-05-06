@@ -9,7 +9,7 @@ import { isEmpty } from 'rxjs';
 })
 export class HeaderComponent implements OnInit,OnChanges {
 
-  Pname = "Search";
+  Pname:string = "Search";
 
   @Output() myEvent = new EventEmitter();
 

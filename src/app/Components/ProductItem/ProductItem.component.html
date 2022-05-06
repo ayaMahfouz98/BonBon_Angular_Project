@@ -1,21 +1,19 @@
-
-
-  <div  class="height d-flex justify-content-center  align-items-center m-2">
-    <div class="card p-5">
-        <div class="justify-content-between  align-items-center ">
-            <div class="mt-2">
-                <h4 class="text-uppercase">{{Product.title}}</h4>
-            </div>
-            <div class="image"> <img src={{Product.imageUrl}} width="200"> </div>
-        </div>
-
-        <p>{{Product.description}}</p>
-        <h2>EGP {{Product.price}}</h2>
-
-        <input  type="button" class="btn btn-success m-2" value="Add to cart">
-        <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" role="button">Details</a>
-        <a class="btn btn-dark m-2" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
-        <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
-        <!-- <button class="btn btn-dark m-2" (click)="Delete(Product.id)"  >Delete Product</button> -->
+<div class="height d-flex justify-content-center  align-items-center m-2">
+  <div class="card p-5">
+    <div class="justify-content-between  align-items-center ">
+      <div class="mt-2">
+        <h4 class="text-uppercase">{{Product.title}}</h4>
       </div>
+      <div class="image"> <img src={{Product.imageUrl}} width="200"> </div>
+    </div>
+
+    <p>{{Product.description}}</p>
+    <h2>EGP {{Product.price}}</h2>
+
+    <input type="button" class="btn btn-success m-2" value="Add to cart">
+    <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" role="button">Details</a>
+    <a class="btn btn-dark m-2" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
+    <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
+    <!-- <button class="btn btn-dark m-2" (click)="Delete(Product.id)"  >Delete Product</button> -->
+  </div>
 </div>

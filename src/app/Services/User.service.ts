@@ -12,5 +12,8 @@ BaseURL="https://localhost:7154";
 Register(user:any){
   return this.HttpClient.post(`${this.BaseURL}/Register`,user);
 }
+Login(user:any){
+  return this.HttpClient.post(`${this.BaseURL}/Login`,user);
+}
 
 }

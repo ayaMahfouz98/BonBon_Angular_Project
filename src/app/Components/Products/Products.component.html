@@ -18,11 +18,15 @@
         <a class="btn btn-dark m-2" routerLink="/Products/{{pro.id}}" role="button">Update Product</a>
         <a class="btn btn-dark m-2" routerLink="/Products/{{pro.id}}" role="button">Delete Product</a>
       </div>
-</div> --><div style="padding-top: 120px; padding-left: 20px;">
+</div> -->
 
 <a  class="btn btn-dark m-t-5" routerLink="/NewProduct/" role="button">Add New Product</a>
-<div class="">
-<app-ProductItem  *ngFor=" let pro of AllProducts" [Product]="pro" ></app-ProductItem>
+<div class="container">
+<div class="row ">
+  <div >
+  <div class="d-inline col-6">
+    <app-ProductItem  *ngFor=" let pro of AllProducts;let i = index;" [Product]="pro" ></app-ProductItem>
+  </div>
 </div>
-
+</div>
 </div>

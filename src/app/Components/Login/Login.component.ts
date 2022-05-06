@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-Login',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+  Password='';
+  Login(
+    email: any,
+    password: any
+  ) {
+    let user = {
+      email: email,
+      password: password
+    };
+
+
+    if ((email != '') && (password != '')) {
+      
+          this.userService.Login(user).subscribe();
+          this.router.navigate(['/Error']); //================>   TODO ----> REDIRECT TO HOME
+    
+    }
   }
 
 }

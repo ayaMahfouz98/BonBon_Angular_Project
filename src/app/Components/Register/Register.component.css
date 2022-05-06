@@ -13,7 +13,7 @@ body {
 .card {
     border: none;
     padding: 20px;
-    background-color: #1c1e21;
+    background-color: rgb(226, 103, 103);
     color: #fff
 }
 
@@ -44,15 +44,15 @@ body {
 
 .form-control {
     height: 50px;
-    background-color: #1c1e21;
+    background-color: #ffede7;
     text-indent: 24px;
     font-size: 15px
 }
 
 .form-control:focus {
-    background-color: #25272a;
+    background-color: #ffede7;
     box-shadow: none;
-    color: #fff;
+    color: #7f4722;
     border-color: #4f63e7
 }
 
@@ -62,8 +62,9 @@ body {
 }
 
 .signup {
+    width: 100px;
     height: 50px;
-    font-size: 14px
+    font-size: 18px;
 }
 
 .social {

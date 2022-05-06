@@ -21,6 +21,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
+import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
+import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +35,12 @@ import { SearchProductComponent } from './Components/SearchProduct/SearchProduct
       RegisterComponent,
       LoginComponent,
       NewProductComponent,
-
       EditeProductComponent,
       ErrorComponent,
       PromotionsComponent,
-      SearchProductComponent
-
+      SearchProductComponent,
+      AboutUsDataComponent,
+      SidebarComponent
    ],
   imports: [
     BrowserModule,

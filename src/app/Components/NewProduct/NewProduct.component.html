@@ -30,7 +30,7 @@
 
 
 
-          <div class="mt-2 row">
+          <!-- <div class="mt-2 row">
             <label class="w-25">isPromoted</label>
 
               <input #isPromoted class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios1" value=1 >
@@ -44,8 +44,7 @@
               </label>
 
 
-          </div>
-
+          </div> -->
 
           <div class="mt-2 row">
             <label class="w-25">promotionPercentage</label>
@@ -55,6 +54,10 @@
             <label class="w-25">overAllRating</label>
             <input #overAllRating class="form-control w-75" type="number">
           </div>
+
+          <div class="col-6 form-group">
+            <input #isPromoted type="checkbox" class="form-check d-inline" value="1" id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
+            </div>
 
          <button class="btn btn-success m-3 row" (click)="Add(Title.value,Description.value,+price.value,+quantity.value,+categoryId.value,imageUrl.value,+isPromoted.value,+promotionPercentage.value,+overAllRating.value )"  >Add Product</button>
       </div>

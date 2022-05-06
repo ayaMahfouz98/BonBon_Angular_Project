@@ -1,21 +1,23 @@
-
-
-  <div  class="height d-flex justify-content-center  align-items-center m-2">
-    <div class="card p-5">
-        <div class="justify-content-between  align-items-center ">
-            <div class="mt-2">
-                <h4 class="text-uppercase">{{Product.title}}</h4>
-            </div>
-            <div class="image"> <img src={{Product.imageUrl}} width="200"> </div>
-        </div>
-
-        <p>{{Product.description}}</p>
-        <h2>EGP {{Product.price}}</h2>
-
-        <input  type="button" class="btn btn-success m-2" value="Add to cart">
-        <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" role="button">Details</a>
-        <a class="btn btn-dark m-2" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
-        <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
-        <!-- <button class="btn btn-dark m-2" (click)="Delete(Product.id)"  >Delete Product</button> -->
-      </div>
+  <div class="card-sl m-3 col-6 h-25">
+  <div class="card-image">
+      <img class="h-25"src={{Product?.imageUrl}}  />
+  </div>
+  <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+  <div class="card-heading">
+      {{Product.title}}
+  </div>
+  <div class="card-text h-5">
+        {{Product.description}}
+  </div>
+  <div class="card-price h-25">
+    <h4 class="price"><span>{{Product.price| currency:'USD'}}</span></h4>
+  </div>
+  <div class="action mb-2">
+    <button class="add-to-cart btn btn-default m-2" type="button">Add to cart</button>
+  </div>
+  <div class="action">
+    <a class="actions mb-2" routerLink="/Products/{{Product.id}}" role="button"><i class="fa fa-info-circle" aria-hidden="true"></i>    </a>
+    <a class="actions mb-2" routerLink="/EditeProduct/{{Product.id}}" role="button"><i class="fa fa-edit"></i></a>
+    <a class="actions mb-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button"><i class="fa fa-trash" aria-hidden="true"></i>    </a>
+  </div>
 </div>

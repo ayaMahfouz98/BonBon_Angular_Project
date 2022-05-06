@@ -1,25 +1,47 @@
-<div class="container mt-5 mb-5">
-  <div class="row d-flex align-items-center justify-content-center">
+<div style="padding-top: 100px;">
+  <div class="container mt-5 mb-5">
+    <div class="row d-flex align-items-center justify-content-center">
       <div class="col-md-6">
-          <div class="card px-5 py-5">
-              <!-- <span class="circle"><i class="fa fa-check"></i></span> -->
-              <h2 class="m-auto py-3 font-weight-bold">Sign Up</h2>
-              <div class="form-input"> <i class="fa fa-envelope"></i> <input #email type="text" class="form-control" placeholder="email address"> </div>
-              <div class="form-input"> <i class="fa fa-user"></i> <input #username type="text" class="form-control" placeholder="user name"> </div>
-              <div class="form-input"> <i class="fa fa-lock"></i> <input #password type="text" class="form-control" placeholder="password"> </div>
-              <div class="form-input"> <i class="fa fa-lock"></i> <input #confirmPassword type="text" class="form-control" placeholder="confirm password"> </div>
-              <div class="form-input"> <i class="fa fa-user"></i> <input #imgUrl type="text" class="form-control" placeholder="profile image url"> </div>
-              <div class="form-input">
-                <input #gender type="radio" name="gender" value="0"> Male<br>
-                <input #gender type="radio" name="gender" value="1"> Female<br>
-              </div>
-
-              <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" > <label class="form-check-label" for="flexCheckChecked"> I agree all the statements </label> </div>
-              <button class="btn btn-primary mt-4 signup" type="submit" (click)="Add(email.value, username.value, password.value, confirmPassword.value, imgUrl.value, gender.value)">Sign Up</button>
-              <div class="text-center mt-3"> <span>Or continue with these social profile</span> </div>
-              <div class="d-flex justify-content-center mt-4"> <span class="social"><i class="fa fa-google"></i></span> <span class="social"><i class="fa fa-facebook"></i></span> </div>
-              <div class="text-center mt-4"> <span>Already a member?</span> <a routerLink="/Login" class="text-decoration-none">Login</a> </div>
+        <div class="card px-5 py-5">
+          <!-- <span class="circle"><i class="fa fa-check"></i></span> -->
+          <h2 class="m-auto py-3 font-weight-bold">Sign Up</h2>
+          <div class="form-input"> <i class="fa fa-envelope"></i> <input #email type="text" class="form-control"
+              placeholder="Email address"> </div>
+          <!-- <div class="form-input"> <i class="fa fa-user"></i> <input type="text" class="form-control"
+            placeholder="User name"> </div> -->
+          <div class="form-input"> <i class="fa fa-lock"></i> <input #password type="text" class="form-control"
+              [(ngModel)]="Password" placeholder="password ex:Aya_1234"> </div>
+          <div class="form-input"> <i class="fa fa-lock"></i> <input #confirmPassword type="text" class="form-control"
+              [(ngModel)]="Confirmpassword" placeholder="Confirmpassword ex:Aya_1234"> </div>
+          <span class=" rounded-pill " style="color: red; border:2 white;" *ngIf="Password!=Confirmpassword">
+            <li>notValid</li>
+            <li>Password must have at least one non alphanumeric character</li>
+            <li>Password must have at least one uppercase character('A'-'Z')</li>
+          </span>
+          <div class="form-input"> <i class="fa fa-user"></i> <input #profileImage type="text" class="form-control"
+              placeholder="Profile Image"> </div>
+          <div class="form-input">
+            <input #gender type="radio" name="gender" value="0"> Male<br>
+            <input #gender type="radio" name="gender" value="1"> Female<br>
           </div>
+
+
+          <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+            <label class="form-check-label" for="flexCheckChecked"> I agree all the statements </label>
+          </div>
+          <button class="btn btn-primary mt-4 signup rounded-pill" style="background-color: #DE7963;"
+            (click)="Register(email.value,password.value,confirmPassword.value,profileImage.value,+gender.value)">Register</button>
+          <div class="text-center mt-3"> <span>Or continue with these social profile</span> </div>
+          <div class="d-flex justify-content-center mt-4">
+            <span class="social"><i class="fa fa-google"></i></span>
+            <span class="social"><i class="fa fa-facebook"></i></span>
+          </div>
+          <div class="text-center mt-4">
+            <span>Already a member?</span><a routerLink="/Login" class="text-decoration-none">Login</a>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
+
 </div>

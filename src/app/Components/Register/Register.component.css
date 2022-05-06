@@ -32,6 +32,7 @@ body {
 .form-input {
     position: relative;
     margin-bottom: 10px;
+    color: black;
     margin-top: 10px
 }
 

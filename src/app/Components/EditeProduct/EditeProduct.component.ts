@@ -11,47 +11,53 @@ import { CategoryService } from 'src/app/Services/Category.service';
   styleUrls: ['./EditeProduct.component.css']
 })
 export class EditeProductComponent implements OnInit {
-ProductId:any;
+ProductId:any = 3;
 Product:any;
 AllCategories:any;
-
+selectedCatID:any; 
+isPromoted:any = 1;
 //add categories list is it could be better
   constructor(private ActivatedRoute:ActivatedRoute,private servicePrd:ProductsService,private router: Router,private serviceCat:CategoryService) {
-    this.ProductId= ActivatedRoute.snapshot.params["id"];
+    //this.ProductId= ActivatedRoute.snapshot.params["id"];
+   // console.log(this.ProductId)
    }
-   
+
    ngOnInit() {
-     this.servicePrd.GetProductById(this.ProductId).subscribe(
-       (data)=>{
-         console.log(data);
-         this.Product=data;
-       },
-       (err)=>{console.log(err)}
-     );
+   
 
 //Adding categories for editing
-     this.serviceCat.GetAllCategories().subscribe(
-       
+this.serviceCat.GetAllCategories().subscribe(
+  (data)=>{
+      this.AllCategories=data;
+      console.log("c"+data);
+
+    },
+  (err)=>{console.log(err)}
+);
+
+this.servicePrd.GetProductById(3).subscribe(
       (data)=>{
-          this.AllCategories=data;
-        },
+        this.Product=data;
+        this.selectedCatID=this.Product.categoryId;
+      },
       (err)=>{console.log(err)}
     );
    }
 
-   Edit(Title:any,Description:any,price:any,quantity:any,categoryId:any,imageUrl:any,isPromoted:any,promotionPercentage:any,overAllRating:any){
+   Edit(Title:any,Description:any,price:any,quantity:any,selectedCatID:any,imageUrl:any,isPromoted:any,promotionPercentage:any,overAllRating:any){
     let product={
       "id":this.ProductId,
       "title": Title,
       "description": Description,
       "price": price,
       "quantity": quantity,
-      "categoryId": categoryId,
+      "categoryId": this.selectedCatID,
       "imageUrl": imageUrl,
-      "isPromoted": isPromoted,
+      "isPromoted": false,
       "promotionPercentage": promotionPercentage,
       "overAllRating": overAllRating
     }
+    console.log(product, this.ProductId)
     this.servicePrd.UpdateProductById(this.ProductId,product).subscribe();
     this.router.navigate(['/Products']);
 

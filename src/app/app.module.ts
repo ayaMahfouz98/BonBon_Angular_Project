@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
+import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
       PromotionsComponent,
       SearchProductComponent,
       AboutUsDataComponent,
-      SidebarComponent
+      SidebarComponent,
+      SearchByCategoryComponent
    ],
   imports: [
     BrowserModule,

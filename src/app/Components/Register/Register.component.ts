@@ -42,4 +42,18 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
+
+  Add(email:any, username:any, password:any, confirmPassword:any, imgUrl:any, gender:any){
+    let user = {
+      "username": username,
+      "email": email,
+      "password": password,
+      "confirmPassword": confirmPassword,
+      "profileImage": imgUrl,
+      "gender": gender,
+      "role": null
+    }
+    this.userService.Register(user).subscribe();
+  }
+
 }

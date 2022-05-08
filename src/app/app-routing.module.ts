@@ -10,21 +10,30 @@ import { ProductsComponent } from './Components/Products/Products.component';
 import { PromotionsComponent } from './Components/Promotions/Promotions.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
+import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+
 import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
 import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
 import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
 
 
+import { LayoutComponent } from './Components/layout/layout.component';
+import { HomeComponent } from './Components/home/home.component';
+import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
+
+
 
 
 const routes: Routes = [
-  {path:"",component:ProductsComponent,children:[
-    {path:"AboutUs",component:AboutUsDataComponent},
-    {path:"Promotions",component:PromotionsComponent}
+  {path:"",component:LayoutComponent,children:[
+    {path: '',redirectTo:'/Home',pathMatch:'full'},
+    {path:'Home',component:HomeComponent}
 
   ]},
+  {path:"Cart",component:ShoppingCartComponent},
   {path:"Products",component:ProductsComponent},
+  {path:"myOrders",component:UserOrderComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
   {path:"EditeProduct/:id",component:EditeProductComponent},
   {path:"searchProduct/:name",component:SearchProductComponent},

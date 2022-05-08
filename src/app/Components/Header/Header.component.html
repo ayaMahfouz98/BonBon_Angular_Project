@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oleo+Script&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-lg  navbar-scroll shadow-0" style="background-color: #ffede7;">
   <div class="container-fluid">
-
+    
    <!-- <img src="../../../assets/icons8-candy-58.png" class="logo mr-5"/>-->
     <a class="navbar-brand ml-5" href="/Home">BonBon</a>
     <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
@@ -49,10 +49,12 @@
       </ul>
 
       <form class="d-flex">
+        <a class="nav-link" routerLink="/Cart" routerLinkActive="active"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
         <!-- [(ngModel)]="Pname" -->
         <!-- [value]="Pname" -->
         <input #Pname  class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <input class="search p-1 btn btn-default" type="button" routerLink="/searchProduct/{{Pname.value}"
+        <input class="search p-1 btn btn-default" type="button" routerLink="/searchProduct/{{Pname.value}}"
           value="Search" (click)="SendName(Pname.value)">
       </form>
     </div>

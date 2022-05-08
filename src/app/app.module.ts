@@ -27,9 +27,15 @@ import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.co
 import { ShoppingCartitemComponent } from './Components/ShoppingCartitem/ShoppingCartitem.component';
 import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+
+import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
+import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
+import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
+
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +54,13 @@ import { HomeComponent } from './Components/home/home.component';
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
+
+      SearchByCategoryComponent,
+      AllCategoriesComponent,
+      EditCategoryComponent,
+      NewCategoryComponent
+
+
       ShoppingCartComponent,
       ShoppingCartitemComponent,
       UserOrderComponent,
@@ -55,6 +68,7 @@ import { HomeComponent } from './Components/home/home.component';
       HomeSliderComponent,
       LayoutComponent,
       HomeComponent
+
    ],
   imports: [
     BrowserModule,

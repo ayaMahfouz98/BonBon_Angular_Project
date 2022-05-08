@@ -50,10 +50,12 @@
       </ul>
 
       <form class="d-flex">
+        <a class="nav-link" routerLink="/Cart" routerLinkActive="active"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
         <!-- [(ngModel)]="Pname" -->
         <!-- [value]="Pname" -->
         <input #Pname  class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <input class="search p-1 btn btn-default" type="button" routerLink="/searchProduct/{{Pname.value}"
+        <input class="search p-1 btn btn-default" type="button" routerLink="/searchProduct/{{Pname.value}}"
           value="Search" (click)="SendName(Pname.value)">
       </form>
     </div>

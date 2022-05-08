@@ -5,6 +5,9 @@
     margin-left: 20px;
     font-family: 'Dancing Script', cursive;
   }
+  i{
+    color: rgb(226, 103, 103);
+  }
 
 
   .navbar-scroll .nav-link,

@@ -13,12 +13,16 @@ import { UserService } from 'src/app/Services/User.service';
 export class RegisterComponent implements OnInit {
    Confirmpassword = '';
    Password = '';
+   Gender = '';
    Email = '';
    User = '';
 
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {}
+  message:any;
+  
+
 
   Register(
     username: any,
@@ -26,25 +30,43 @@ export class RegisterComponent implements OnInit {
     password: any,
     confirmPassword: any,
     profileImage: any,
-    gender: any
-  )
-  {
+    ) 
+    {
     let user = {
       username: username,
       email: email,
       password: password,
       confirmPassword: confirmPassword,
       profileImage: profileImage||null,
-      gender: gender,
+      gender: this.Gender,
     };
-
-
-    if (!(email == '')) {
+  
+    if ((email != '')&&(username != '')&&(this.Gender != '')) {
       if (password == confirmPassword) {
-          this.userService.Register(user).subscribe();
-          //this.router.navigate(['/Login']); ================>   TODO ----> REDIRECT TO HOME
+    this.userService.GetUserByEmailforRegister(user).subscribe(
+      (data)=>{
+            if(data==null) 
+            {
+              this.userService.Register(user).subscribe();
+              this.router.navigate(['/Error']);// ================>   TODO ----> REDIRECT TO HOME
+            }
+            else
+            {
+              this.message="This email is taken, Please enter another one"
+            }
+          
+        },
+      
+      (err) =>{console.log(err)}
+    )
       }
     }
+    else
+    {
+      this.message="You miss some fields, Please enter all required data"
+    }
+
+
   }
 
   Add(email:any, username:any, password:any, confirmPassword:any, imgUrl:any, gender:any){

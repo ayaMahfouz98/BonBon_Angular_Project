@@ -16,4 +16,11 @@ Login(user:any){
   return this.HttpClient.post(`${this.BaseURL}/api/Auth/Login`,user);
 }
 
+GetUserByEmailforRegister(user: {}){
+  return this.HttpClient.post(`${this.BaseURL}/api/UserProfile/GetUserByEmailforRegister`,user);
+}
+
+GetUserByEmailforLogin(user: {}){
+  return this.HttpClient.post(`${this.BaseURL}/api/UserProfile/GetUserByEmailforLogin`,user);
+}
 }

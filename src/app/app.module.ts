@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { SearchProductComponent } from './Components/SearchProduct/SearchProduct
 import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchB
       AboutUsDataComponent,
       SidebarComponent,
       SearchByCategoryComponent
+      HomeSliderComponent
    ],
   imports: [
     BrowserModule,
@@ -52,10 +54,11 @@ import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchB
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule,
-    CommonModule
-
+    CommonModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

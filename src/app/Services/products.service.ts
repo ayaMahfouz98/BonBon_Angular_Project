@@ -32,4 +32,8 @@ export class ProductsService {
   SearchProductByName(name:any){
     return this.HttpClient.get(`${this.BaseURL}/searchProduct/${name}`);
   }
+  // FilterProducts/{CategotyId}
+  FilterProducts(CategotyId:any){
+   return this.HttpClient.get(`${this.BaseURL}/FilterProducts/${CategotyId}`)
+  }
 }

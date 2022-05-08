@@ -1,0 +1,25 @@
+<div style="padding-top: 120px; padding-left: 20px;">
+
+  <a class="btn btn-dark m-2" routerLink="/NewProduct/" role="button">Add New Product</a>
+
+  <div *ngFor="let pro of AllProducts">
+    <div class="height d-flex justify-content-center  align-items-center m-2">
+      <div class="card p-5">
+        <div class="justify-content-between  align-items-center ">
+          <div class="mt-2">
+            <h4 class="text-uppercase">{{pro.title}}</h4>
+          </div>
+          <div class="image"> <img src={{pro.imageUrl}} width="200"> </div>
+        </div>
+
+        <p>{{pro.description}}</p>
+        <h2>EGP {{pro.price}} </h2>
+
+        <input type="button" class="btn btn-success m-2" value="Add to cart">
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

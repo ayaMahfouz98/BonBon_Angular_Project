@@ -50,7 +50,7 @@ import { HomeComponent } from './Components/home/home.component';
       SidebarComponent,
       ShoppingCartComponent,
       ShoppingCartitemComponent,
-      UserOrderComponent
+      UserOrderComponent,
       SearchByCategoryComponent,
       HomeSliderComponent,
       LayoutComponent,

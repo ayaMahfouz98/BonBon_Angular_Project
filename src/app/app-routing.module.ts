@@ -11,13 +11,15 @@ import { PromotionsComponent } from './Components/Promotions/Promotions.componen
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+import { LayoutComponent } from './Components/layout/layout.component';
+import { HomeComponent } from './Components/home/home.component';
 
 
 
 const routes: Routes = [
-  {path:"",component:ProductsComponent,children:[
-    {path:"AboutUs",component:AboutUsDataComponent},
-    {path:"Promotions",component:PromotionsComponent}
+  {path:"",component:LayoutComponent,children:[
+    {path: '',redirectTo:'/Home',pathMatch:'full'},
+    {path:'Home',component:HomeComponent}
 
   ]},
   {path:"Products",component:ProductsComponent},

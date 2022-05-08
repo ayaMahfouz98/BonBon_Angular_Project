@@ -10,6 +10,7 @@ import { ProductsComponent } from './Components/Products/Products.component';
 import { PromotionsComponent } from './Components/Promotions/Promotions.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
+import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path:'Home',component:HomeComponent}
 
   ]},
+  {path:"Cart",component:ShoppingCartComponent},
   {path:"Products",component:ProductsComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
   {path:"EditeProduct/:id",component:EditeProductComponent},

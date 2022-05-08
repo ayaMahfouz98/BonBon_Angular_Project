@@ -23,6 +23,9 @@ import { CommonModule } from '@angular/common';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
+import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
+import { ShoppingCartitemComponent } from './Components/ShoppingCartitem/ShoppingCartitem.component';
+import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
@@ -45,6 +48,9 @@ import { HomeComponent } from './Components/home/home.component';
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
+      ShoppingCartComponent,
+      ShoppingCartitemComponent,
+      UserOrderComponent
       SearchByCategoryComponent,
       HomeSliderComponent,
       LayoutComponent,

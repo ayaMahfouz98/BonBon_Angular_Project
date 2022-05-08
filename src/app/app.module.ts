@@ -25,6 +25,8 @@ import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.compo
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
+import { LayoutComponent } from './Components/layout/layout.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { HomeSliderComponent } from './Components/home-slider/home-slider.compon
       AboutUsDataComponent,
       SidebarComponent,
       SearchByCategoryComponent,
-      HomeSliderComponent
+      HomeSliderComponent,
+      LayoutComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,

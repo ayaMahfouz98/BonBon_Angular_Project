@@ -1,4 +1,5 @@
   <div class="card-sl">
+
   <div class="card-image">
       <img class="h-25 "src={{Product?.imageUrl}}  />
   </div>
@@ -15,9 +16,5 @@
   <div class="action mb-2">
     <button  class="add-to-cart btn btn-default m-2" type="button" [hidden]="Product?.quantity==0">Add to cart</button>
   </div>
-  <div class="action">
-    <a class="actions mb-2" routerLink="/Products/{{Product.id}}" role="button"><i class="fa fa-info-circle" aria-hidden="true"></i>  </a>
-    <a class="actions mb-2" routerLink="/EditeProduct/{{Product.id}}" role="button"><i class="fa fa-edit"></i></a>
-    <a class="actions mb-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button"><i class="fa fa-trash" aria-hidden="true"></i>  </a>
-  </div>
+
 </div>

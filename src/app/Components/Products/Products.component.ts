@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
    this.productsService.GetAllProducts().subscribe(
-     (data)=>{//console.log(data)
+     (data)=>{
                this.AllProducts=data ;},
      (err)=>{console.log(err)}
    );

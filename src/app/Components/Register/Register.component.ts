@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import { isEmpty } from 'rxjs';
 import { UserService } from 'src/app/Services/User.service';
 
@@ -8,10 +9,13 @@ import { UserService } from 'src/app/Services/User.service';
   templateUrl: './Register.component.html',
   styleUrls: ['./Register.component.css'],
 })
+
 export class RegisterComponent implements OnInit {
    Confirmpassword = '';
    Password = '';
    Gender = '';
+   Email = '';
+   User = '';
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -64,4 +68,18 @@ export class RegisterComponent implements OnInit {
 
 
   }
+
+  Add(email:any, username:any, password:any, confirmPassword:any, imgUrl:any, gender:any){
+    let user = {
+      "username": username,
+      "email": email,
+      "password": password,
+      "confirmPassword": confirmPassword,
+      "profileImage": imgUrl,
+      "gender": gender,
+      "role": null
+    }
+    this.userService.Register(user).subscribe();
+  }
+
 }

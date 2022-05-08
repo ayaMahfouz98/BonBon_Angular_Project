@@ -10,6 +10,9 @@ import { ProductsComponent } from './Components/Products/Products.component';
 import { PromotionsComponent } from './Components/Promotions/Promotions.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
+import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+
+
 
 const routes: Routes = [
   {path:"",component:ProductsComponent,children:[
@@ -26,6 +29,7 @@ const routes: Routes = [
   {path:"Register",component:RegisterComponent},
   {path:"NewProduct",component:NewProductComponent},
   {path:"DeleteProduct",component:ProductsComponent},
+  {path:"SearchByCategory/:id",component:SearchByCategoryComponent},
   {path:"**",component:ErrorComponent}
 ];
 

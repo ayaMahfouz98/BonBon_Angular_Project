@@ -1,20 +1,18 @@
   <div class="card-sl">
 
   <div class="card-image">
-      <img class="h-25 "src={{Product?.imageUrl}}  />
+      <img class=" "src={{Product?.imageUrl}}  />
   </div>
   <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
   <div class="card-heading">
       {{Product.title}}
   </div>
-  <!-- <div class="card-text h-5">
-        {{Product.description}}
-  </div> -->
-  <div class="card-price h-25">
-    <h4 class="price"><span>{{Product.price| currency:'EGP'}}</span></h4>
+
+  <div class=" ms-3">
+    <h4 class="price"><span>{{Product.price | currency:'EGP'}}</span></h4>
   </div>
-  <div class="action mb-2">
-    <button  class="add-to-cart btn btn-default m-2" type="button" [hidden]="Product?.quantity==0">Add to cart</button>
+  <div class="">
+    <button  class="add-to-cart btn btn-default col-12" type="button">Add to cart</button>
   </div>
 
 </div>

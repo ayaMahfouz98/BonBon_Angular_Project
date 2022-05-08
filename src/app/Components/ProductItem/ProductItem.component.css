@@ -1,5 +1,5 @@
 span{
-    font-family: 'Oleo Script', cursive;
+    font-size: medium ;
    }
 
 
@@ -13,14 +13,11 @@ span{
 
           border-radius: 8px;
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-         
           
       }
 
       .card-image img {
-          max-height: 50%;
           max-width: 100%;
-          min-height: 50%;
           border-radius: 8px 8px 0px 0;
       }
 
@@ -38,11 +35,7 @@ span{
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
       }
 
-      .actions {
-        color: #da624f;
-        padding: 30px;
-        font-size: 25px;
-    }
+ 
       .card-action:hover {
           color: #fff;
           background: #E26D5C;
@@ -50,7 +43,7 @@ span{
       }
 
       .card-heading {
-          font-size: 18px;
+          font-size: 20px;
           font-weight: bold;
           background: #fff;
           padding: 10px 15px;
@@ -69,7 +62,6 @@ span{
           display: flex;
           justify-content: center;
           padding: 10px 0;
-          width: 100%;
           color: white;
           background-color:rgb(243, 111, 111);
           border-radius: 0 0 8px 8px;
@@ -82,38 +74,11 @@ span{
           color: #fff;
 
       }
-      /* @-webkit-keyframes pulse {
-          0% {
-              -moz-transform: scale(0.9);
-              -ms-transform: scale(0.9);
-              -webkit-transform: scale(0.9);
-              transform: scale(0.9);
-          }
-
-          70% {
-              -moz-transform: scale(1);
-              -ms-transform: scale(1);
-              -webkit-transform: scale(1);
-              transform: scale(1);
-              box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
-          }
-
-          100% {
-              -moz-transform: scale(0.9);
-              -ms-transform: scale(0.9);
-              -webkit-transform: scale(0.9);
-              transform: scale(0.9);
-              box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
-          }
-      } */
-
-
-  .product-title, .rating, .product-description, .price, .vote, .sizes {
-    margin-bottom: 15px;
-    }
+ 
+ 
     .price{
-      font-size:40px;
-      color: rgb(211, 108, 108);    }
+      color: rgb(211, 108, 108);  
+      }
   .product-title {
     margin-top: 0; }
 
@@ -129,8 +94,7 @@ span{
     border: none;
     text-transform: UPPERCASE;
     color: #fff;
-    font-weight:300px;
-    width: 62%;
+    font-weight:500;
      }
     .add-to-cart:hover, .like:hover {
       background-color:#AD8;

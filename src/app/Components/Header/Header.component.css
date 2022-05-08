@@ -9,27 +9,28 @@
     color: rgb(226, 103, 103);
   }
 
+
   .navbar-scroll .nav-link,
   .navbar-scroll .fa-bars {
     color: #7f4722;
   }
-  
+
   .navbar-scrolled .nav-link,
   .navbar-scrolled .fa-bars {
     color: #7f4722;
   }
-  
+
   .navbar-scrolled {
     background-color: #ffede7;
   }
   .search {
-    background-color:#AD8; 
+    background-color:rgb(226, 103, 103);
     border: none;
     text-transform: UPPERCASE;
     color: #fff;
     font-weight:300px;
-    width: 62%;      
-    margin-right:15px ; 
+    width: 62%;
+    margin-right:15px ;
  }
 
  .logo{

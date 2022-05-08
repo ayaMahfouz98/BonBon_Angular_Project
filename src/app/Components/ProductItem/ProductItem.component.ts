@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 })
 export class ProductItemComponent implements OnInit,OnChanges {
 
-  constructor(private service:ProductsService,private router: Router) { }
+  constructor(private service:ProductsService) { }
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
   }
@@ -20,7 +20,7 @@ export class ProductItemComponent implements OnInit,OnChanges {
 
 Delete(id:any){
   this.service.DeleteProduct(id).subscribe();
-  // this.router.navigate(['/Products']);
+ // this.router.navigate(['/Products']);
   window.location.reload();
 
 }

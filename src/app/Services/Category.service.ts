@@ -25,4 +25,6 @@ UpdateCategoryById(id:any,Category:any){
 DeleteCategory(id:any){
   return this.HttpClient.delete(`${this.BaseURL}/${id}`);
 }
+
+
 }

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,10 @@ import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
 import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
 import { ShoppingCartitemComponent } from './Components/ShoppingCartitem/ShoppingCartitem.component';
 import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
+import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
+import { LayoutComponent } from './Components/layout/layout.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,10 @@ import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
       ShoppingCartComponent,
       ShoppingCartitemComponent,
       UserOrderComponent
+      SearchByCategoryComponent,
+      HomeSliderComponent,
+      LayoutComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
@@ -56,10 +64,11 @@ import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule,
-    CommonModule
-
+    CommonModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

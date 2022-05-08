@@ -23,6 +23,9 @@ import { CommonModule } from '@angular/common';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
+import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
+import { ShoppingCartitemComponent } from './Components/ShoppingCartitem/ShoppingCartitem.component';
+import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
       PromotionsComponent,
       SearchProductComponent,
       AboutUsDataComponent,
-      SidebarComponent
+      SidebarComponent,
+      ShoppingCartComponent,
+      ShoppingCartitemComponent,
+      UserOrderComponent
    ],
   imports: [
     BrowserModule,

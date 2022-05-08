@@ -10,6 +10,7 @@ import { ProductsComponent } from './Components/Products/Products.component';
 import { PromotionsComponent } from './Components/Promotions/Promotions.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
+import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
 
 const routes: Routes = [
   {path:"",component:ProductsComponent,children:[
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path:"Promotions",component:PromotionsComponent}
 
   ]},
+  {path:"Cart",component:ShoppingCartComponent},
   {path:"Products",component:ProductsComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
   {path:"EditeProduct/:id",component:EditeProductComponent},

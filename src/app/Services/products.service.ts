@@ -29,6 +29,11 @@ export class ProductsService {
   GetProductWithPromotion(){
     return this.HttpClient.get(`${this.BaseURL}/GetProductsWithPormotion`);
   }
+
+  GetProductsRecommended(num:number)
+  {
+    return this.HttpClient.get(`${this.BaseURL}/getProductRecommende/${num}`);
+  }
   SearchProductByName(name:any){
     return this.HttpClient.get(`${this.BaseURL}/searchProduct/${name}`);
   }

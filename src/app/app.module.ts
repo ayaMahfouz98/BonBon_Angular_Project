@@ -24,6 +24,8 @@ import { SearchProductComponent } from './Components/SearchProduct/SearchProduct
 import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+import { LayoutComponent } from './Components/layout/layout.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchB
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
-      SearchByCategoryComponent
+      SearchByCategoryComponent,
+      LayoutComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,

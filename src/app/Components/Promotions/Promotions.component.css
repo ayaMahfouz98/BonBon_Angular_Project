@@ -9,6 +9,7 @@
 
     /* Card Styles */
 
+    
     .card-sl {
         border-radius: 8px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -18,7 +19,13 @@
     .card-image img {
         max-height: 100%;
         max-width: 100%;
+        min-height: 100%;
+        
         border-radius: 8px 8px 0px 0;
+    }
+    .cardbody
+    {
+      min-height: 60%;
     }
 
     .card-action {

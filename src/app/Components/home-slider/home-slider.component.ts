@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomeSliderComponent {
 
-  //images = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/900/500`);
-
-  // images = [1, 2, 3].map((n) => `assets/Images/slider${n}.png`);
 
   images = [
     'https://assets.vogue.in/photos/5ce41d389cc0c04346f9c1a5/master/pass/Skincare-and-haircare-products-with-natural-ingredients.jpg',

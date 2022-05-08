@@ -36,6 +36,10 @@ import { HomeSliderComponent } from './Components/home-slider/home-slider.compon
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
 
+//pagination
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
+
 
 @NgModule({
   declarations: [
@@ -58,7 +62,7 @@ import { HomeComponent } from './Components/home/home.component';
       SearchByCategoryComponent,
       AllCategoriesComponent,
       EditCategoryComponent,
-      NewCategoryComponent
+      NewCategoryComponent,
 
 
       ShoppingCartComponent,
@@ -79,7 +83,8 @@ import { HomeComponent } from './Components/home/home.component';
     CarouselModule,
     BrowserAnimationsModule,
     CommonModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

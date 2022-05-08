@@ -43,7 +43,7 @@ import { HomeSliderComponent } from './Components/home-slider/home-slider.compon
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
-      SearchByCategoryComponent
+      SearchByCategoryComponent,
       HomeSliderComponent
    ],
   imports: [

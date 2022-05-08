@@ -24,6 +24,9 @@ import { SearchProductComponent } from './Components/SearchProduct/SearchProduct
 import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
+import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
+import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,11 @@ import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchB
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
-      SearchByCategoryComponent
+      SearchByCategoryComponent,
+      AllCategoriesComponent,
+      EditCategoryComponent,
+      NewCategoryComponent
+
    ],
   imports: [
     BrowserModule,

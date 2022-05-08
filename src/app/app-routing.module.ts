@@ -11,6 +11,10 @@ import { PromotionsComponent } from './Components/Promotions/Promotions.componen
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
+import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
+import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
+
 
 
 
@@ -30,6 +34,9 @@ const routes: Routes = [
   {path:"NewProduct",component:NewProductComponent},
   {path:"DeleteProduct",component:ProductsComponent},
   {path:"SearchByCategory/:id",component:SearchByCategoryComponent},
+  {path:"AllCategories",component:AllCategoriesComponent},
+  {path:"EditeCategory/:id",component:EditCategoryComponent},
+  {path:"NewCategory",component:NewCategoryComponent},
   {path:"**",component:ErrorComponent}
 ];
 

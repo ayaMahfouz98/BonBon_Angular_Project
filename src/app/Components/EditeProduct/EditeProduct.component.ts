@@ -14,16 +14,16 @@ export class EditeProductComponent implements OnInit {
 ProductId:any = 3;
 Product:any;
 AllCategories:any;
-selectedCatID:any; 
+selectedCatID:any;
 isPromoted:any = 1;
 //add categories list is it could be better
   constructor(private ActivatedRoute:ActivatedRoute,private servicePrd:ProductsService,private router: Router,private serviceCat:CategoryService) {
-    //this.ProductId= ActivatedRoute.snapshot.params["id"];
+    this.ProductId= ActivatedRoute.snapshot.params["id"];
    // console.log(this.ProductId)
    }
 
    ngOnInit() {
-   
+
 
 //Adding categories for editing
 this.serviceCat.GetAllCategories().subscribe(
@@ -35,7 +35,7 @@ this.serviceCat.GetAllCategories().subscribe(
   (err)=>{console.log(err)}
 );
 
-this.servicePrd.GetProductById(3).subscribe(
+this.servicePrd.GetProductById(this.ProductId).subscribe(
       (data)=>{
         this.Product=data;
         this.selectedCatID=this.Product.categoryId;
@@ -60,6 +60,7 @@ this.servicePrd.GetProductById(3).subscribe(
     console.log(product, this.ProductId)
     this.servicePrd.UpdateProductById(this.ProductId,product).subscribe();
     this.router.navigate(['/Products']);
+
 
   }
 

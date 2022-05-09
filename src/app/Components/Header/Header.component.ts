@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Input,
   OnChanges,
   OnInit,
   Output,
@@ -8,6 +9,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { isEmpty } from 'rxjs';
 import { CategoryService } from 'src/app/Services/Category.service';
+import { UserService } from 'src/app/Services/User.service';
 
 @Component({
   selector: 'app-Header',
@@ -15,23 +17,30 @@ import { CategoryService } from 'src/app/Services/Category.service';
   styleUrls: ['./Header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnChanges {
+  isUserLogged:boolean;
 
   Pname: string = 'Search';
   CategoryId:any;
+  Email:any;
 
   @Output() myEvent = new EventEmitter();
 
-  constructor(private router:Router, private CategoryService: CategoryService ,private activatedRoute:ActivatedRoute)
+  constructor(private userService:UserService,private router:Router, private CategoryService: CategoryService ,private activatedRoute:ActivatedRoute)
   {
+    this.isUserLogged=this.userService.isUserLogged;
+    this.Email=this.userService.UserEmail;
+    console.log(this.Email)
+     }
 
-  }
-  AllCategories: any;
-
-  ngOnChanges(): void {
-    this.SendName(this.Pname);
-  }
-
-  ngOnInit() {
+     AllCategories: any;
+     
+     ngOnChanges(): void {
+       this.SendName(this.Pname);
+       
+      }
+      UserEmail:any;
+      ngOnInit() {
+    this.UserEmail=this.Email;
     this.CategoryService.GetAllCategories().subscribe(
       (data) => {
         this.AllCategories = data;
@@ -40,7 +49,22 @@ export class HeaderComponent implements OnInit, OnChanges {
         console.log(err);
       }
     );
+
+
+    this.userService.getloggedStatus().subscribe(status=>{
+      this.isUserLogged=status;
+    });
   }
+
+ Logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    localStorage.clear();
+
+    this.userService.Logout().subscribe();
+    this.isUserLogged= this.userService.isUserLogged;
+  }
+
 
   SendName(Pname: string) {
     console.log(Pname);

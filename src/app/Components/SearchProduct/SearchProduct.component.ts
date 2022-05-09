@@ -40,12 +40,24 @@ export class SearchProductComponent implements OnInit,OnChanges {
 
   ngOnInit() {
 
-    this.productsService.SearchProductByName(this.ProductName).subscribe(
-      (data)=>{
-        this.AllProducts=data ;
-        console.log(this.AllProducts)},
-      (err)=>{console.log(err)}
+    // this.productsService.SearchProductByName(this.ProductName).subscribe(
+    //   (data)=>{
+    //     this.AllProducts=data ;
+    //     console.log(this.AllProducts)},
+    //   (err)=>{console.log(err)}
+    // );
+
+    this.activatedRoute.paramMap.subscribe(
+      (paramMap)=>{
+        this.ProductName= String(paramMap.get('name'));
+        this.productsService.SearchProductByName(this.ProductName).subscribe(
+          (data)=>{ console.log(data)
+            this.AllProducts=data ;},
+          (err)=>{console.log(err)}
+        );
+      }
     );
+
 
   }
 

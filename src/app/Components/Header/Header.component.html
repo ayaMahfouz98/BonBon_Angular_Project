@@ -1,6 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oleo+Script&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-lg  navbar-scroll shadow-0" style="background-color: #ffede7;">
   <div class="container-fluid">
+    
    <!-- <img src="../../../assets/icons8-candy-58.png" class="logo mr-5"/>-->
     <a class="navbar-brand ml-5" href="/Home">BonBon</a>
     <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
@@ -23,6 +24,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/Register" routerLinkActive="active">Register</a>
+
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,9 +34,7 @@
             <li><a class="dropdown-item" href="#">Orders</a></li>
             <li><a class="dropdown-item" href="#">Users</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">All Categories</a></li>
-            <li><a class="dropdown-item" href="#">Delete Category</a></li>
-            <li><a class="dropdown-item" href="#">Add Category</a></li>
+            <li><a class="dropdown-item" routerLink="/AllCategories">All Categories</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -58,6 +58,20 @@
         <input class="search p-1 btn btn-default" type="button" routerLink="/searchProduct/{{Pname.value}}"
           value="Search" (click)="SendName(Pname.value)">
       </form>
+ <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a class="nav-link" [hidden]="isUserLogged" routerLink="/Login" routerLinkActive="active">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [hidden]="isUserLogged" routerLink="/Register" routerLinkActive="active">Register</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [hidden]="!isUserLogged" routerLink="/GetUser/{{UserEmail}}" routerLinkActive="active" >{{UserEmail}}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [hidden]="!isUserLogged" routerLink="/Home" routerLinkActive="active" (click)="Logout()">Logout</a>
+  </li>
+ </ul>
     </div>
   </div>
 </nav>

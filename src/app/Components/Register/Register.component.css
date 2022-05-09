@@ -13,8 +13,8 @@ body {
 .card {
     border: none;
     padding: 20px;
-    /* background-color: rgb(226, 103, 103); */
-    background-color:#E6B0AA;
+
+    background-color: #E6B0AA;
     color: #fff
 }
 

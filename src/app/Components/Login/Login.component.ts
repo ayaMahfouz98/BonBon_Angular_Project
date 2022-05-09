@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/User.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -11,16 +13,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) {}
+  @Output() myEvent=new EventEmitter();
  
-  ngOnInit(){}
+  isUserLogged: boolean=false;
+
+  constructor(private userService: UserService, private router: Router/*,private toastr: ToastrService*/) {
+    this.isUserLogged= this.userService.isUserLogged;
+  
+  }
+ 
+  ngOnInit(){
+  }
+
 
   message:any;
 
   Password='';
   Email='';
   
-  //userExist={};
   Login() {
   
     let user = {
@@ -31,13 +41,26 @@ export class LoginComponent implements OnInit {
     if ((this.Email != '') && (this.Password != '')) {
     this.userService.GetUserByEmailforLogin(user).subscribe(
 
-      (data)=>{
-      console.log(data)
-       if(data!=null)
+
+      (data:any)=>{
+         if(data!=null)
         {
-            this.userService.Login(user).subscribe();
-             this.router.navigate(['/Error']); //================>   TODO ----> REDIRECT TO HOME
-      }
+          localStorage.setItem('email', data.email)
+        
+          this.userService.Login(user).subscribe(
+            (data:any)=>{
+              localStorage.setItem('token', data.token)
+              this.router.navigate(['/Home']); //================>   TODO ----> REDIRECT TO HOME
+            },
+            err => {
+              if (err.status == 400)
+              console.log('Incorrect username or password.', 'Authentication failed.')
+              else
+              console.log(err);
+            }
+            );
+            this.isUserLogged= this.userService.isUserLogged;  
+            }
         else
         {
           this.message="This User is not found"

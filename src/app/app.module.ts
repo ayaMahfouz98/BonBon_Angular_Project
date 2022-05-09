@@ -3,6 +3,7 @@ import {HttpClientModule} from "@angular/common/http"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,10 +28,20 @@ import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.co
 import { ShoppingCartitemComponent } from './Components/ShoppingCartitem/ShoppingCartitem.component';
 import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+
+import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
+import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
+import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
+
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
+
 
 @NgModule({
   declarations: [
@@ -49,6 +60,10 @@ import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.co
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
+      SearchByCategoryComponent,
+      AllCategoriesComponent,
+      EditCategoryComponent,
+      NewCategoryComponent,
       ShoppingCartComponent,
       ShoppingCartitemComponent,
       UserOrderComponent,
@@ -56,7 +71,9 @@ import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.co
       HomeSliderComponent,
       LayoutComponent,
       HomeComponent,
-      OrderDetailsComponent
+      OrderDetailsComponent,
+      UserProfileComponent
+
    ],
   imports: [
     BrowserModule,
@@ -67,7 +84,8 @@ import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.co
     CarouselModule,
     BrowserAnimationsModule,
     CommonModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

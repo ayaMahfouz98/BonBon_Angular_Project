@@ -1,0 +1,26 @@
+
+<h1 class="alert alert-primary rounded-pill text-center w-50 m-auto mb-3 mt-3" style="background-color: blanchedalmond;">All Categories</h1>
+<a  class="btn btn-dark m-t-5 m-4" routerLink="/NewCategory/" role="button">Add New Category</a>
+<table class="table table-bordered table-striped text-center">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let s of ">
+      <td>{{s.name}}</td>
+      <td>{{s.age}}</td>
+    </tr> -->
+    <tr *ngFor="let cat of AllCategories">
+      <td>{{cat.id}}</td>
+      <td>{{cat.name}}</td>
+      <td><div class="action">
+        <a class="actions mb-2" routerLink="/EditeCategory/{{cat.id}}"  role="button"><i class="fa fa-edit"></i></a>
+        <a class="actions mb-2" routerLink="/AllCategories" (click)="Delete(cat.id)" role="button"><i class="fa fa-trash" aria-hidden="true"></i>  </a>
+      </div></td>
+    </tr>
+  </tbody>
+</table>

@@ -41,4 +41,18 @@ export class ProductsService {
   FilterProducts(CategotyId:any){
    return this.HttpClient.get(`${this.BaseURL}/FilterProducts/${CategotyId}`)
   }
+
+  SortProductsByAlpha(ascd:boolean){
+    return this.HttpClient.get(`${this.BaseURL}/SortProductsByAlpha/${ascd}`);
+  }
+
+  SortProductByPrice(cheap:boolean)
+  {
+    return this.HttpClient.get(`${this.BaseURL}/SortProductsByPrice/${cheap}`);
+  }
+
+  SortProductByBestSeller()
+  {
+    return this.HttpClient.get(`${this.BaseURL}/SortBestSeller`);
+  }
 }

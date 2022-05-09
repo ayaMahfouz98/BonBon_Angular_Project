@@ -3,6 +3,7 @@ import {HttpClientModule} from "@angular/common/http"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchB
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { HomeComponent } from './Components/home/home.component';
       SearchByCategoryComponent,
       HomeSliderComponent,
       LayoutComponent,
-      HomeComponent
+      HomeComponent,
+      UserProfileComponent
    ],
   imports: [
     BrowserModule,

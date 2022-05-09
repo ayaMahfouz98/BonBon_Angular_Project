@@ -13,6 +13,7 @@ import { SearchProductComponent } from './Components/SearchProduct/SearchProduct
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:"NewProduct",component:NewProductComponent},
   {path:"DeleteProduct",component:ProductsComponent},
   {path:"SearchByCategory/:id",component:SearchByCategoryComponent},
+  {path:"GetUser/:email",component:UserProfileComponent},
   {path:"**",component:ErrorComponent}
 ];
 

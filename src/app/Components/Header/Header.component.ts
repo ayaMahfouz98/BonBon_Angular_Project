@@ -43,7 +43,6 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.UserEmail=this.Email;
     this.CategoryService.GetAllCategories().subscribe(
       (data) => {
-        console.log(data);
         this.AllCategories = data;
       },
       (err) => {

@@ -15,9 +15,8 @@ export class ProductItemComponent implements OnInit,OnChanges {
 
   ngOnInit() {
   }
+
 @Input() Product:any;
-
-
 Delete(id:any){
   this.service.DeleteProduct(id).subscribe();
  // this.router.navigate(['/Products']);

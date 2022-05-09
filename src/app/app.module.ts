@@ -36,9 +36,9 @@ import { NewCategoryComponent } from './Components/NewCategory/NewCategory.compo
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
+import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 
-//pagination
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
@@ -71,6 +71,7 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
       HomeSliderComponent,
       LayoutComponent,
       HomeComponent,
+      OrderDetailsComponent,
       UserProfileComponent
 
    ],

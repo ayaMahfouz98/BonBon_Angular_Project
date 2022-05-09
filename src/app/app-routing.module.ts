@@ -22,6 +22,7 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
+import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
 
 
 
@@ -33,8 +34,10 @@ const routes: Routes = [
 
   ]},
   {path:"Cart",component:ShoppingCartComponent},
+  {path:"AboutUs",component:AboutUsDataComponent},
   {path:"Products",component:ProductsComponent},
   {path:"myOrders",component:UserOrderComponent},
+  {path:"OrderDetails/:id",component:OrderDetailsComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
   {path:"EditeProduct/:id",component:EditeProductComponent},
   {path:"searchProduct/:name",component:SearchProductComponent},

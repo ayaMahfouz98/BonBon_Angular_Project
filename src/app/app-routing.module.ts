@@ -10,10 +10,19 @@ import { ProductsComponent } from './Components/Products/Products.component';
 import { PromotionsComponent } from './Components/Promotions/Promotions.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
+import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+
+import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
+import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
+import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
+
+
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
+
 
 
 
@@ -23,7 +32,9 @@ const routes: Routes = [
     {path:'Home',component:HomeComponent}
 
   ]},
+  {path:"Cart",component:ShoppingCartComponent},
   {path:"Products",component:ProductsComponent},
+  {path:"myOrders",component:UserOrderComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
   {path:"EditeProduct/:id",component:EditeProductComponent},
   {path:"searchProduct/:name",component:SearchProductComponent},
@@ -34,6 +45,9 @@ const routes: Routes = [
   {path:"DeleteProduct",component:ProductsComponent},
   {path:"SearchByCategory/:id",component:SearchByCategoryComponent},
   {path:"GetUser/:email",component:UserProfileComponent},
+  {path:"AllCategories",component:AllCategoriesComponent},
+  {path:"EditeCategory/:id",component:EditCategoryComponent},
+  {path:"NewCategory",component:NewCategoryComponent},
   {path:"**",component:ErrorComponent}
 ];
 

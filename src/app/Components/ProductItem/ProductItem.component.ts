@@ -10,7 +10,7 @@ export class ProductItemComponent implements OnInit,OnChanges {
 
   constructor(private service:ProductsService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
+    
   }
 
   ngOnInit() {

@@ -24,11 +24,24 @@ import { CommonModule } from '@angular/common';
 import { SearchProductComponent } from './Components/SearchProduct/SearchProduct.component';
 import { AboutUsDataComponent } from './Components/AboutUsData/AboutUsData.component';
 import { SidebarComponent } from './Components/Sidebar/Sidebar.component';
+import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.component';
+import { ShoppingCartitemComponent } from './Components/ShoppingCartitem/ShoppingCartitem.component';
+import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
+
+import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
+import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
+import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
+
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+
+//pagination
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
+
 
 @NgModule({
   declarations: [
@@ -47,11 +60,23 @@ import { UserProfileComponent } from './Components/user-profile/user-profile.com
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
+
+      SearchByCategoryComponent,
+      AllCategoriesComponent,
+      EditCategoryComponent,
+      NewCategoryComponent,
+
+
+      ShoppingCartComponent,
+      ShoppingCartitemComponent,
+      UserOrderComponent,
       SearchByCategoryComponent,
       HomeSliderComponent,
       LayoutComponent,
       HomeComponent,
       UserProfileComponent
+      
+
    ],
   imports: [
     BrowserModule,
@@ -62,7 +87,8 @@ import { UserProfileComponent } from './Components/user-profile/user-profile.com
     CarouselModule,
     BrowserAnimationsModule,
     CommonModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

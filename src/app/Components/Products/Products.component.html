@@ -20,13 +20,26 @@
       </div>
 </div> -->
 
-<a  class="btn btn-dark m-t-5" routerLink="/NewProduct/" role="button">Add New Product</a>
+<!-- <a  class="btn btn-dark m-t-5" routerLink="/NewProduct/" role="button">Add New Product</a>
 <div class="container">
 <div class="row ">
-  <div >
-  <div class="d-inline col-6 card-columns">
-    <app-ProductItem  *ngFor=" let pro of AllProducts;let i = index;" [Product]="pro" ></app-ProductItem>
-  </div>
-</div>
-</div>
-</div>
+  <div > -->
+    <section>
+      <div class=" container py-5">
+          <div class="row justify-content-center ">
+            <div class="col-md-8 col-lg-6 col-xl-4 mt-1 mb-2 p-3" *ngFor=" let pro of AllProducts 
+            | paginate: 
+            { itemsPerPage: 6, 
+              currentPage: page,
+             totalItems:totalLength}
+             ;let i = index"> 
+
+              <app-ProductItem   [Product]="pro" ></app-ProductItem>
+              </div>
+            
+              <pagination-controls class=" text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
+
+          </div>
+       </div>
+
+</section>

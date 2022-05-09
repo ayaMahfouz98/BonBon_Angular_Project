@@ -60,13 +60,10 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
-
       SearchByCategoryComponent,
       AllCategoriesComponent,
       EditCategoryComponent,
       NewCategoryComponent,
-
-
       ShoppingCartComponent,
       ShoppingCartitemComponent,
       UserOrderComponent,
@@ -75,7 +72,6 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
       LayoutComponent,
       HomeComponent,
       UserProfileComponent
-      
 
    ],
   imports: [

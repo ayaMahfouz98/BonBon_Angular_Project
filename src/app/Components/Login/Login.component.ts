@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     this.userService.GetUserByEmailforLogin(user).subscribe(
 
       (data)=>{
-  
       console.log(data)
        if(data!=null)
         {

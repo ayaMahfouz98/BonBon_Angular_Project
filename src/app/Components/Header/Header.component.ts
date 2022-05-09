@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.CategoryService.GetAllCategories().subscribe(
       (data) => {
-        console.log(data);
         this.AllCategories = data;
       },
       (err) => {

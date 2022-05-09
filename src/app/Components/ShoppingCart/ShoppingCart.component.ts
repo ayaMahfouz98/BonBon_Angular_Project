@@ -8,21 +8,20 @@ import { OrderService } from 'src/app/Services/Order.service';
 })
 export class ShoppingCartComponent implements OnInit,OnChanges {
 
-  constructor( private orderService :OrderService ) { }
+  constructor( private orderService :OrderService ) { 
+
+  }
   shoppingCartItems:any;
 
   ngOnInit() {
-   this.orderService.GetShoppingCartItems().subscribe(
-     (data)=>{console.log("CCCCCCCCCCCCC"+data)
-               this.shoppingCartItems=data ;},
-     (err)=>{console.log(err)}
-   );
+    this.orderService.GetShoppingCartItems().subscribe(
+      (data)=>{
+        console.log(data)
+        this.shoppingCartItems=data;
+      }
+     )
+   
   }
   ngOnChanges(){
-    this.orderService.GetShoppingCartItems().subscribe(
-      (data)=>{console.log("CCCCCCCCCCCCC"+data)
-                this.shoppingCartItems=data ;},
-      (err)=>{console.log(err)}
-    );
-   }
+}
 }

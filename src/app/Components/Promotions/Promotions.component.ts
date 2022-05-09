@@ -16,11 +16,9 @@ export class PromotionsComponent implements OnInit {
     this.service.GetProductWithPromotion().subscribe(
       (data)=>{
       this.AllProductsWithPormotion=data ;
-      console.log("ll"+data)
     },
       (err)=>{console.log(err)});
 }
-image:String="https://fakeimg.pl/100/100";
 customOptions: any = {
   loop: true,
   mouseDrag: true,

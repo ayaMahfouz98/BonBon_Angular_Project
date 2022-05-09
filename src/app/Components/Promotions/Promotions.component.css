@@ -108,6 +108,10 @@
         content: ""; 
         position: absolute;
       }
+      h3{
+        color:rgb(226, 103, 103);
+
+      }
       .wrap:before {
         width: 40px;
         height: 8px;

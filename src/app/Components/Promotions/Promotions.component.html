@@ -1,4 +1,4 @@
-<h4 class="text-center m-3">On sale</h4>
+<h3 class="text-center m-3">On sale</h3>
 <hr>
 <owl-carousel-o [options]="customOptions" class="col-lg-2">
     <ng-container *ngFor="let prd of AllProductsWithPormotion.value; let i = index">
@@ -24,7 +24,7 @@
                         {{prd.price | currency:'USD'}}
                     </div> 
                -->
-                    <a href="#" class="card-button "> Buy now!</a>
+                    <a href="#" class="card-button ">Buy now!</a>
             </div>
       </ng-template> 
     </ng-container> 

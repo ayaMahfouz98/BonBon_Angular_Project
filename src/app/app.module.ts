@@ -30,6 +30,7 @@ import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchB
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
+import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { HomeComponent } from './Components/home/home.component';
       SearchByCategoryComponent,
       HomeSliderComponent,
       LayoutComponent,
-      HomeComponent
+      HomeComponent,
+      OrderDetailsComponent
    ],
   imports: [
     BrowserModule,

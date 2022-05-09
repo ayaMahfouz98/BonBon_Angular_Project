@@ -44,12 +44,9 @@
         <div class="col-3">
         <label class=" m-2">FILTER BY</label>
         
-        <select name="" id="">
-          <option value="All Products" selected>All Products</option>
-          <option value="gamer">Gamer</option>
-          <option value="developer">Developer</option>
-          <option value="programmer">Programmer</option>
-          <option value="designer">Designer</option>
+        <select name="" id="" [(ngModel)] = "selecedCategoryid">
+          <option value="0" selected>All Products</option>
+          <option *ngFor="let item of AllCategories" [value]="item.id">{{item.name}}</option>
         </select>
         </div>
 

@@ -11,10 +11,13 @@ export class ProductsComponent implements OnInit{
   totalLength:any;
   page:number = 1;
   productsSelected:string="All Products";
+ 
   selecedSort:number=0;
+  selecedCategoryid:number=0;
   constructor( private productsService:ProductsService) { }
   
   AllProducts:any;
+  AllCategories:any;
 
   ngOnInit() {
    this.productsService.GetAllProducts().subscribe(

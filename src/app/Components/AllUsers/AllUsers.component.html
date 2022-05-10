@@ -5,7 +5,7 @@
 <table class="table table-bordered table-striped text-center">
   <thead>
     <tr>
-      <!-- <th>Profile Image</th> -->
+      <th>Profile Image</th>
       <th>User Name</th>
       <th>Email</th>
       <th>Gender</th>
@@ -15,13 +15,19 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of AllUsers">
-      <!-- <td>{{user.profileImage}}</td> -->
+      <td><img class="img-circle" style="width:100px ;" src="{{user.profileImage}}"></td>
       <td>{{user.userName}}</td>
       <td>{{user.email}}</td>
       <td *ngIf="user.gender==0">Male</td>
       <td *ngIf="user.gender==1">Female</td>
       <td>{{user.role}}</td>
       <td><div class="action">
+
+          <!-- <select #role [(ngModel)]="Role"  class=" w-25" [value]="user.role">
+            <option value="Customer">Customer</option>
+            <option value="Admin">Admin</option>
+          </select> -->
+
         <a class="actions mb-2" routerLink="/EditUser/{{user.email}}"  role="button"><i class="fa fa-edit"></i></a>
         <a class="actions mb-2" routerLink="/AllUsers" (click)="Delete(user.email)" role="button"><i class="fa fa-trash" aria-hidden="true"></i>  </a>
       </div></td>

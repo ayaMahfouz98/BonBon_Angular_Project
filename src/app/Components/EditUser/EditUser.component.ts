@@ -10,6 +10,8 @@ import { UserService } from 'src/app/Services/User.service';
 export class EditUserComponent implements OnInit {
   userEmail:any;
   user:any;
+  Role:any;
+  AllRoles:any;
   constructor(private ActivatedRoute:ActivatedRoute,private router:Router,private UserService:UserService) {
     this.userEmail = ActivatedRoute.snapshot.params['email'];
   }
@@ -25,29 +27,46 @@ export class EditUserComponent implements OnInit {
       }
     );
 
+    this.UserService.GetRoles().subscribe(
+      (data) => {
+        this.AllRoles = data;
+        console.log(this.AllRoles.roles);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
   }
-  // "username": "string",
-// "email": "user@example.com",
-// "password": "string",
-// "confirmPassword": "string",
-// "profileImage": "string",
-// "gender": 0,
-// "role": "string"
 
 
-  EditUser(username:any,email:any,password:any,confirmPassword:any,profileImage:any,gender:any,role:any){
+
+
+  EditRole(role:any){
     let user = {
-      username:username,
-      email: email,
-      password:password,
-      confirmPassword:confirmPassword,
-      profileImage:profileImage,
-      gender:gender,
-      role:role
+      "id": "",
+      "userName": "string",
+      "normalizedUserName": "string",
+      "email": this.user.email,
+      "normalizedEmail": "string",
+      "emailConfirmed": true,
+      "passwordHash": "string",
+      "securityStamp": "string",
+      "concurrencyStamp": "string",
+      "phoneNumber": "string",
+      "phoneNumberConfirmed": true,
+      "twoFactorEnabled": true,
+      "lockoutEnd": "2022-05-10T16:31:30.721Z",
+      "lockoutEnabled": true,
+      "accessFailedCount": 0,
+      "profileImage": "string",
+      "gender": 0,
 
+      "role":role
     };
-    this.UserService.EditUserProfile(
-      this.userEmail
+
+    this.UserService.EditRole(
+      this.user.email
       ,user
     ).subscribe();
     //this.router.navigate(['/AllCategories']);

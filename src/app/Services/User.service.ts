@@ -74,7 +74,7 @@ get UserEmail(): any
 
 get UserId(): any
 {
-  
+
   return localStorage.getItem('id');
 }
 
@@ -93,6 +93,15 @@ ForgetPassword(email:any)
 ResetPassword(ResetPasswordmodel:any)
 {
   return this.HttpClient.post(`${this.BaseURL}/api/Auth/ResetPassword`,ResetPasswordmodel);
+}
+
+EditRole(email:any,user:any){
+  return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditRole/${email}`,user);
+}
+
+
+GetRoles(){
+  return this.HttpClient.get(`${this.BaseURL}/api/Auth/GetRoles`);
 }
 
 }

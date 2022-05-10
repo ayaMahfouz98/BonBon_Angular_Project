@@ -8,6 +8,7 @@ import { UserService } from 'src/app/Services/User.service';
 })
 export class AllUsersComponent implements OnInit {
 AllUsers:any;
+Role="Change the role";
   constructor(private userService :UserService) { }
 
   ngOnInit() {

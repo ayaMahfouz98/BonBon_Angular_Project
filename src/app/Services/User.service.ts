@@ -47,6 +47,10 @@ GetUserProfile(email:any){
   return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetUser/${email}`);
 }
 
+GetUserById(id:any){
+  return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetUserById/${id}`);
+}
+
 EditUserProfile(id:any,user:any)
 {
   return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditUser/${id}`,user);

@@ -45,7 +45,8 @@ import { EditUserComponent } from './Components/EditUser/EditUser.component';
 
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
-import { EditProfileComponent } from './Components/edit-profile/edit-profile.component'; // <-- import the module
+import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
+import { AllOrdersComponent } from './components/all-orders/all-orders.component';
 
 
 
@@ -83,7 +84,8 @@ import { EditProfileComponent } from './Components/edit-profile/edit-profile.com
       ResetPasswordComponent,
       AllUsersComponent,
       EditUserComponent,
-      OrderDetailsComponent
+      OrderDetailsComponent,
+      AllOrdersComponent,
 
 
    ],

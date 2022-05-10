@@ -44,6 +44,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { SocialLoginModule, SocialAuthServiceConfig ,
   GoogleLoginProvider, FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
+import { AllOrdersComponent } from './components/all-orders/all-orders.component';
+
 
 
 @NgModule({
@@ -80,7 +83,8 @@ import { SocialLoginModule, SocialAuthServiceConfig ,
       ResetPasswordComponent,
       AllUsersComponent,
       EditUserComponent,
-      OrderDetailsComponent
+      OrderDetailsComponent,
+      AllOrdersComponent,
 
 
    ],

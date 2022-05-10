@@ -32,12 +32,16 @@ er
                                (click)="Login()">Login</button>
                      <div class="text-center mt-3"><a routerLink="/ForgetPassword" >Forget Password</a></div>
                   <div class="text-center mt-3"> <span>Or continue with these social profile</span> </div>
-                  <div class="d-flex justify-content-center mt-4"> <span class="social"><i class="fa fa-google"></i></span> <span
-                      class="social"><i class="fa fa-facebook"></i></span> <span class="social"><i
-                        class="fa fa-twitter"></i></span> <span class="social"><i class="fa fa-linkedin"></i></span> </div>
-                        
-                        <div class="text-center mt-4"> <span>Don't have an account? </span> <a routerLinkActive="active" routerLink="/Register"
-                          class="text-decoration-none">Register</a> </div>
+                  <div class="d-flex justify-content-center mt-4">
+                    <span class="social"><i class="fa fa-google" (click)="signInWithGoogle()"></i></span>
+                    <span class="social"><i class="fa fa-facebook" (click)="signInWithFacebook()"></i></span>
+                    <!-- <span class="social"><i class="fa fa-twitter"></i></span>
+                    <span class="social"><i class="fa fa-linkedin"></i></span> -->
+                  </div>
+
+                  <div class="text-center mt-4"> <span>Don't have an account? </span>
+                    <a routerLinkActive="active" routerLink="/Register" class="text-decoration-none">Register</a>
+                  </div>
               </div>
               </form>
             </div>

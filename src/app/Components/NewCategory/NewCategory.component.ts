@@ -14,10 +14,10 @@ export class NewCategoryComponent implements OnInit {
   }
 
   Add(name:any){
-    let product={
+    let Category={
       "name": name,
     }
-    this.CategoyService.AddNewCategory(product).subscribe();
+    this.CategoyService.AddNewCategory(Category).subscribe();
   }
 
 }

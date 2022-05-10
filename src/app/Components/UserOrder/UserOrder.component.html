@@ -1,17 +1,14 @@
 <div class="container py-5 h-100">
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col">
-      <div class="card">
+      <div >
+        <h4 class="text-center" style="color: rgb(226, 103, 103);">
+          Orders</h4>
+        <hr>
+      </div>        
         <div class="card-body p-4">
 
           <div class="row">
-
-            <div class=" mr-auto">
-              <h5 style="color: rgb(226, 103, 103);">
-                Orders</h5>
-              <hr>
-          
-            </div>
             <div class="col-12">
 
               <div class="card mb-3 ">
@@ -31,14 +28,14 @@
                       <div class="card-body">
                         <div class="d-flex justify-content-between">
 
-                              <h5 class="mb-0 offset-1 dt ">{{p.id}}</h5>
+                          <a routerLink="/OrderDetails"  (click)="openOrderDetails(p.id)" [(ngModel)]="selectedOrderID" ngDefaultControl ><h5 class="mb-0  dt ">{{p.id}}</h5></a>
                               <div  [ngSwitch]=" p.state">
                                 <div class="text-warning state " *ngSwitchCase="0">Pending</div>
-                                <div class="text-success state" *ngSwitchCase="1">Accepted</div>
-                                <div class="text-danger state"  *ngSwitchCase="2">Canceled</div>
+                                <div class="text-success state"  *ngSwitchCase="1">Accepted</div>
+                                <div class="text-danger state"   *ngSwitchCase="2">Canceled</div>
                                 </div>
-                              <h5 class="mb-0  dt">{{p.orderDate |  date:'longDate'}}</h5>
-                       </div>
+                                <h5 class="mb-0  dt">{{p.orderDate |  date:'longDate'}}</h5>
+                              </div>
                       </div>
                       </div>
                   </div>

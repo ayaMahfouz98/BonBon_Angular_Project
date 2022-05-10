@@ -11,7 +11,7 @@ export class UserService {
   private id: BehaviorSubject<any>;
 
 
-constructor(private HttpClient :HttpClient) { 
+constructor(private HttpClient :HttpClient) {
   this.isloggedSubject=new BehaviorSubject<boolean> (this.isUserLogged);
   this.email = new BehaviorSubject<any>(this.UserEmail);
   this.id = new BehaviorSubject<any>(this.UserId);
@@ -52,14 +52,14 @@ EditUserProfile(id:any,user:any)
   return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditUser/${id}`,user);
 }
 
-DeleteUserProfile(email:any,user:any)
+DeleteUserProfile(email:any)
 {
   return this.HttpClient.delete(`${this.BaseURL}/api/UserProfile/DeleteUser/${email}`);
 }
 
 GetAllUsers()
 {
-  return this.HttpClient.delete(`${this.BaseURL}/api/UserProfile/GetAllUsers`);
+  return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetAllUsers`);
 }
 get isUserLogged(): boolean
 {
@@ -68,7 +68,7 @@ get isUserLogged(): boolean
 
 get UserEmail(): any
 {
-  
+
   return localStorage.getItem('email');
 }
 
@@ -82,4 +82,17 @@ getloggedStatus(): Observable<boolean>
 {
   return this.isloggedSubject.asObservable();
 }
+
+ForgetPassword(email:any)
+{
+  console.log(email);
+  return this.HttpClient.post(`${this.BaseURL}/api/Auth/ForgetPassword`,email);
+
+}
+
+ResetPassword(ResetPasswordmodel:any)
+{
+  return this.HttpClient.post(`${this.BaseURL}/api/Auth/ResetPassword`,ResetPasswordmodel);
+}
+
 }

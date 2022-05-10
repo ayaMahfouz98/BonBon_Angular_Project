@@ -36,7 +36,12 @@ import { NewCategoryComponent } from './Components/NewCategory/NewCategory.compo
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
+import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { ForgetPasswordComponent } from './Components/ForgetPassword/ForgetPassword.component';
+import { ResetPasswordComponent } from './Components/ResetPassword/ResetPassword.component';
+import { AllUsersComponent } from './Components/AllUsers/AllUsers.component';
+import { EditUserComponent } from './Components/EditUser/EditUser.component';
 
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -61,13 +66,10 @@ import { EditProfileComponent } from './Components/edit-profile/edit-profile.com
       SearchProductComponent,
       AboutUsDataComponent,
       SidebarComponent,
-
       SearchByCategoryComponent,
       AllCategoriesComponent,
       EditCategoryComponent,
       NewCategoryComponent,
-
-
       ShoppingCartComponent,
       ShoppingCartitemComponent,
       UserOrderComponent,
@@ -76,8 +78,13 @@ import { EditProfileComponent } from './Components/edit-profile/edit-profile.com
       LayoutComponent,
       HomeComponent,
       UserProfileComponent,
-      EditProfileComponent
-      
+      EditProfileComponent,
+      ForgetPasswordComponent,
+      ResetPasswordComponent,
+      AllUsersComponent,
+      EditUserComponent,
+      OrderDetailsComponent
+
 
    ],
   imports: [
@@ -92,6 +99,7 @@ import { EditProfileComponent } from './Components/edit-profile/edit-profile.com
     NgbModule,
     NgxPaginationModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

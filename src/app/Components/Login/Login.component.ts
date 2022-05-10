@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     if ((this.Email != '') && (this.Password != '')) {
     this.userService.GetUserByEmailforLogin(user).subscribe(
 
+
       (data:any)=>{
          if(data!=null)
         {

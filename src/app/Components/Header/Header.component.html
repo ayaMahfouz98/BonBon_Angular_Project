@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oleo+Script&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-lg  navbar-scroll shadow-0" style="background-color: #ffede7;">
   <div class="container-fluid">
-    
+
    <!-- <img src="../../../assets/icons8-candy-58.png" class="logo mr-5"/>-->
     <a class="navbar-brand ml-5" href="/Home">BonBon</a>
     <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
@@ -17,15 +17,16 @@
           <a class="nav-link" routerLink="/Products">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-3" routerLink="/AboutUs">about us</a>
+          <a class="nav-link px-3" href="/AboutUs">About Us</a>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Admin(Only appear For admins)
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Orders</a></li>
-            <li><a class="dropdown-item" href="#">Users</a></li>
+            <li><a class="dropdown-item" routerLink="/AllUsers">Users</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" routerLink="/AllCategories">All Categories</a></li>
           </ul>

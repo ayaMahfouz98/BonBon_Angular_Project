@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.isUserLogged=this.userService.isUserLogged;
     this.Email=this.userService.UserEmail;
     console.log(this.Email)
-     }
+  }
 
      AllCategories: any;
      
@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.UserEmail=this.Email;
     this.CategoryService.GetAllCategories().subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
         this.AllCategories = data;
       },
       (err) => {
@@ -54,12 +54,15 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     this.userService.getloggedStatus().subscribe(status=>{
       this.isUserLogged=status;
+      console.log(this.isUserLogged)
     });
   }
 
  Logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('email');
+    localStorage.removeItem('id');
+
     localStorage.clear();
 
     this.userService.Logout().subscribe();

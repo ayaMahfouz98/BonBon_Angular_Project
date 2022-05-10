@@ -39,7 +39,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 
 //pagination
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {NgxPaginationModule} from 'ngx-pagination';
+import { EditProfileComponent } from './Components/edit-profile/edit-profile.component'; // <-- import the module
 
 
 
@@ -74,7 +75,8 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
       HomeSliderComponent,
       LayoutComponent,
       HomeComponent,
-      UserProfileComponent
+      UserProfileComponent,
+      EditProfileComponent
       
 
    ],

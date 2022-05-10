@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
     password: any,
     confirmPassword: any,
     profileImage: any,
+    gender:any
     ) 
     {
     let user = {
@@ -37,18 +38,18 @@ export class RegisterComponent implements OnInit {
       email: email,
       password: password,
       confirmPassword: confirmPassword,
-      profileImage: profileImage||null,
+      profileImage: profileImage|| null,
       gender: this.Gender,
     };
   
     if ((email != '')&&(username != '')&&(this.Gender != '')) {
       if (password == confirmPassword) {
     this.userService.GetUserByEmailforRegister(user).subscribe(
-      (data)=>{
+      (data:any)=>{
             if(data==null) 
             {
               this.userService.Register(user).subscribe();
-              this.router.navigate(['/Error']);// ================>   TODO ----> REDIRECT TO HOME
+              this.router.navigate(['/Login']);// ================>   TODO ----> REDIRECT TO HOME
             }
             else
             {
@@ -57,8 +58,13 @@ export class RegisterComponent implements OnInit {
           
         },
       
-      (err) =>{console.log(err)}
-    )
+        err => {
+          if (err.status == 400)
+          console.log('Incorrect username or password.', 'Authentication failed.')
+          else
+          console.log(err);
+            }
+                )
       }
     }
     else
@@ -69,17 +75,4 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  Add(email:any, username:any, password:any, confirmPassword:any, imgUrl:any, gender:any){
-    let user = {
-      "username": username,
-      "email": email,
-      "password": password,
-      "confirmPassword": confirmPassword,
-      "profileImage": imgUrl,
-      "gender": gender,
-      "role": null
-    }
-    this.userService.Register(user).subscribe();
   }
-
-}

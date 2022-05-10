@@ -8,10 +8,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class UserService {
   private isloggedSubject: BehaviorSubject<boolean>;
   private email: BehaviorSubject<any>;
+  private id: BehaviorSubject<any>;
+
 
 constructor(private HttpClient :HttpClient) { 
   this.isloggedSubject=new BehaviorSubject<boolean> (this.isUserLogged);
   this.email = new BehaviorSubject<any>(this.UserEmail);
+  this.id = new BehaviorSubject<any>(this.UserId);
+
 
 }
 BaseURL="https://localhost:7154";
@@ -43,9 +47,9 @@ GetUserProfile(email:any){
   return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetUser/${email}`);
 }
 
-EditUserProfile(email:any,user:any)
+EditUserProfile(id:any,user:any)
 {
-  return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditUser/${email}`,user);
+  return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditUser/${id}`,user);
 }
 
 DeleteUserProfile(email:any,user:any)
@@ -66,6 +70,12 @@ get UserEmail(): any
 {
   
   return localStorage.getItem('email');
+}
+
+get UserId(): any
+{
+  
+  return localStorage.getItem('id');
 }
 
 getloggedStatus(): Observable<boolean>

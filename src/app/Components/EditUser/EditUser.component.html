@@ -1,8 +1,8 @@
-<div class="height  justify-content-center align-items-center m-2 ">
+<div class="height  justify-content-center align-items-center m-2  ">
   <div class=" p-5">
     <div class="justify-content-between  align-items-center ">
 
-      <div class="mt-2 row">
+      <!-- <div class="mt-2 row">
         <label class="w-25">User Name</label>
         <input #username class="form-control w-75" type="text" value="{{user.userName}}">
       </div>
@@ -21,31 +21,29 @@
       </div>
       <div class="mt-2 row">
         <label class="w-25">Gender</label>
-        <!-- <input #gender *ngIf="user.gender==0" class="form-control w-75" type="text" value="Male">
-        <input #gender *ngIf="user.gender==1" class="form-control w-75" type="text" value="Female"> -->
+      </div> -->
 
-      </div>
       <div class="mt-2 row">
-        <label class="w-25">Role</label>
-        <input #role class="form-control w-75" type="text" value="{{user.role}}">
+        <label >Role</label>
+        <input #role class="form-control w-25" placeholder="Please Select the role " type="text" value="{{Role}}">
+        <select [(ngModel)]="Role" name="Role" class=" w-25"   >
+          <!-- <option value="Customer">Customer</option>
+          <option value="Admin">Admin</option> -->
+          <option *ngFor="let role of AllRoles.roles;" value="{{role}}">{{role}}</option>
+        </select>
       </div>
 
 
-      <!-- <div class="mt-2 row align-items-center"> -->
-        <button class="btn btn-success m-3 row w-25" (click)="EditUser(username.value,email.value,password.value,password.value,profileImage.value,1,role.value)">Save Changes</button>
+
+      <div class="mt-2 row align-items-center">
+        <button class="btn btn-success m-3 row w-25" (click)="EditRole(role.value)">Save Changes</button>
           <br>
-        <button class="btn btn-success m-3 row" style="width: 200px;" routerLink="/AllCategories"  >Back To All Categories</button>
-      <!-- </div> -->
+        <button class="btn btn-success m-3 row" style="width: 200px;" routerLink="/AllUsers"  >Back To All Users</button>
+      </div>
     </div>
 
 
   </div>
 </div>
 
-// "username": "string",
-// "email": "user@example.com",
-// "password": "string",
-// "confirmPassword": "string",
-// "profileImage": "string",
-// "gender": 0,
-// "role": "string"
+

@@ -27,7 +27,7 @@
         margin-top: -25px;
         margin-right: 20px;
         z-index: 2;
-        color: #da624f;
+        color: rgb(226, 103, 103);
         background: #fff;
         border-radius: 100%;
         padding: 15px;
@@ -124,6 +124,10 @@
       .wrap:before, .wrap:after {
         content: ""; 
         position: absolute;
+      }
+      h3{
+        color:rgb(226, 103, 103);
+
       }
       .wrap:before {
         width: 40px;

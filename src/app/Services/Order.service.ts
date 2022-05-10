@@ -10,16 +10,26 @@ export class OrderService {
 
   BaseURL="https://localhost:7154/api/Orders";
 
+  //admin
   GetAllOrders(){
     return this.HttpClient.get(this.BaseURL);
   }
+  ChangeOrderState (id:any){
+    return this.HttpClient.post(`${this.BaseURL}/changeOrderStateById/`,id);
+    }
+   
 
+  //user
+    GetOrdersByUserId(id:any){
+      return this.HttpClient.get(`${this.BaseURL}/GetOrdersByUserId/${id}`);
+    }
+    
   GetShoppingCartItems(){
-    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartItems`);
+    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartItems/`);
   }
   
   AddToShoppingCart(id:any){
-    return this.HttpClient.post(`${this.BaseURL}/AddItem/`,id);
+    return this.HttpClient.post(`${this.BaseURL}/AddItem/${id}`,id);
   }
 
   RemoveItemFromShoppingCart(id:any){
@@ -29,13 +39,7 @@ export class OrderService {
   CompleteOrder(id:any){
   return this.HttpClient.post(`${this.BaseURL}/completerOrder/`,id);
   }
-  ChangeOrderState (id:any){
-  return this.HttpClient.post(`${this.BaseURL}/changeOrderStateById/`,id);
+  GetOrderDetails(id:any){
+    return this.HttpClient.get(`${this.BaseURL}/GetOrderDetails/${id}`);
   }
- 
-  GetOrdersByUserId(id:any){
-    return this.HttpClient.get(`${this.BaseURL}/GetOrdersByUserId/${id}`);
-  }
-  
-
 }

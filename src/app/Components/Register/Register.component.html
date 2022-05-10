@@ -19,6 +19,7 @@
                 <span class=" rounded-pill text-center" style="color: red; border:2 white; list-style: none;"
                     *ngIf="User==''">
                   <li>Name is required!</li>
+                  <li>don't use any spaces</li>
                 </span>
 
             <div class="form-input"> <i class="fa fa-lock"></i> <input #password type="password" class="form-control"
@@ -40,7 +41,7 @@
             <div class="form-input"> <input #gender type="radio"  name="gender" value="0" > Male<br>
               <input #gender type="radio"  name="gender" value="1" > Female<br>
             </div>
-            
+
             <span class=" rounded-pill text-center " style="color: red; border:2 white;list-style: none;" *ngIf="message!=''">
               <li>{{message}}</li>
             </span>

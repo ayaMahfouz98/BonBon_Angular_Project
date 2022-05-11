@@ -38,7 +38,6 @@ import { ForgetPasswordComponent } from './Components/ForgetPassword/ForgetPassw
 import { ResetPasswordComponent } from './Components/ResetPassword/ResetPassword.component';
 import { AllUsersComponent } from './Components/AllUsers/AllUsers.component';
 import { EditUserComponent } from './Components/EditUser/EditUser.component';
-import { EditProfileComponent } from './Components/edit-profile/edit-profile.component'; // <-- import the module
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SocialLoginModule, SocialAuthServiceConfig ,

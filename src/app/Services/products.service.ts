@@ -42,17 +42,17 @@ export class ProductsService {
    return this.HttpClient.get(`${this.BaseURL}/FilterProducts/${CategotyId}`)
   }
 
-  SortProductsByAlpha(ascd:boolean){
-    return this.HttpClient.get(`${this.BaseURL}/SortProductsByAlpha/${ascd}`);
+  SortProductsByAlpha(ascd:boolean,catId:number){
+    return this.HttpClient.get(`${this.BaseURL}/SortProductsByAlpha/${ascd}/${catId}`);
   }
 
-  SortProductByPrice(cheap:boolean)
+  SortProductByPrice(cheap:boolean,catId:number)
   {
-    return this.HttpClient.get(`${this.BaseURL}/SortProductsByPrice/${cheap}`);
+    return this.HttpClient.get(`${this.BaseURL}/SortProductsByPrice/${cheap}/${catId}`);
   }
 
-  SortProductByBestSeller()
+  SortProductByBestSeller(catId:number)
   {
-    return this.HttpClient.get(`${this.BaseURL}/SortBestSeller`);
+    return this.HttpClient.get(`${this.BaseURL}/SortBestSeller/${catId}`);
   }
 }

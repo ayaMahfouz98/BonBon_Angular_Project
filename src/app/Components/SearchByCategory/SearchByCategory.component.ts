@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryService } from 'src/app/Services/Category.service';
 import { ProductsService } from 'src/app/Services/products.service';
 
 @Component({
@@ -12,11 +13,11 @@ export class SearchByCategoryComponent implements OnInit ,OnChanges{
   CategoryId:any;
   totalLength:any;
   page:number = 1;
-  productsSelected:string="All Products";
+  productsSelected:any;
  
   selecedSort:number=0;
 
-  constructor(private activatedRoute:ActivatedRoute,private productsService:ProductsService,private router:Router) {
+  constructor(private activatedRoute:ActivatedRoute,private productsService:ProductsService,private router:Router,private categoryService:CategoryService) {
     this.CategoryId= activatedRoute.snapshot.params["id"];
    }
 
@@ -69,20 +70,28 @@ export class SearchByCategoryComponent implements OnInit ,OnChanges{
 
            this.totalLength = count;
            }
+
+           
         },
         (err)=>{console.log(err)}
       );
+      this.categoryService.GetCategoryById(this.CategoryId).subscribe(
+        (data)=>{
+          this.productsSelected = data;
+        }
+      );
+      
     }
   );
 
   }
 
 
-  //doesn't work yet we have to implement in backend 3 more functoins that filter with sort
   sort(): void {
 
     console.log(this.selecedSort);
-    if(this.selecedSort==0)this.getAllProducts();
+    console.log(this.CategoryId);
+    if(this.selecedSort==0)this.filterAllProducts();
     else if(this.selecedSort==1)this.getBestSelling();
     else if(this.selecedSort==2 || this.selecedSort==3) this.sortByAlph();
     else if(this.selecedSort==4 || this.selecedSort==5) this.sortByPrice();
@@ -93,27 +102,33 @@ export class SearchByCategoryComponent implements OnInit ,OnChanges{
  {
    let ascd=false;
    if(this.selecedSort==2)ascd=true;
-   this.activatedRoute.paramMap.subscribe(
-    (paramMap)=>{
-      this.CategoryId= Number(paramMap.get('id'));
-      this.productsService.FilterProducts(this.CategoryId).subscribe(
-        (data)=>{ console.log(data)
-          this.AllProducts=data ;
+   this.productsService.SortProductsByAlpha(ascd,this.CategoryId).subscribe(
+   (data)=>{
+             this.AllProducts=data;
 
-      
-        
-          
-        },
-        (err)=>{console.log(err)}
-      );
-    }
-  );
+             let count=0;
+          for(let item of this.AllProducts)
+          {
+          count++;
+
+           this.totalLength = count;
+           }
+            }
+ );
  }
  
  private getBestSelling():void{
-   this.productsService.SortProductByBestSeller().subscribe(
+   this.productsService.SortProductByBestSeller(this.CategoryId).subscribe(
      (data)=>{
                this.AllProducts=data;
+
+               let count=0;
+          for(let item of this.AllProducts)
+          {
+          count++;
+
+           this.totalLength = count;
+           }
               }
    );
  }
@@ -121,19 +136,37 @@ export class SearchByCategoryComponent implements OnInit ,OnChanges{
  private sortByPrice():void{
    let cheap=false;
    if(this.selecedSort==4)cheap=true;
- this.productsService.SortProductByPrice(cheap).subscribe(
+ this.productsService.SortProductByPrice(cheap,this.CategoryId).subscribe(
    (data)=>{
              this.AllProducts=data;
+
+             let count=0;
+          for(let item of this.AllProducts)
+          {
+          count++;
+
+           this.totalLength = count;
+           }
             }
  );
  }
  
- private getAllProducts()
+ private filterAllProducts()
  {
-   this.productsService.GetAllProducts().subscribe(
+   this.productsService.FilterProducts(this.CategoryId).subscribe(
      (data)=>{
                this.AllProducts=data;
+
+               let count=0;
+          for(let item of this.AllProducts)
+          {
+          count++;
+
+           this.totalLength = count;
+           }
               }
    );
  }
+ 
+ 
 }

@@ -11,6 +11,8 @@ import { BrowserModule } from '@angular/platform-browser'
 export class SearchProductComponent implements OnInit,OnChanges {
   AllProducts:any;
   ProductName:any;
+  totalLength:number=0;
+  page:number = 1;
 
  @Input() name:any;
 
@@ -52,14 +54,23 @@ export class SearchProductComponent implements OnInit,OnChanges {
         this.ProductName= String(paramMap.get('name'));
         this.productsService.SearchProductByName(this.ProductName).subscribe(
           (data)=>{ console.log(data)
-            this.AllProducts=data ;},
+            this.AllProducts=data ;
+          
+            let count=0;
+            for(let item of this.AllProducts)
+            count++;
+
+             this.totalLength = count;},
           (err)=>{console.log(err)}
         );
+
+        
       }
     );
 
 
   }
-
+  
+  
 
 }

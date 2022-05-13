@@ -60,7 +60,7 @@ const routes: Routes = [
   {path:"EditeCategory/:id",component:EditCategoryComponent},
   {path:"NewCategory",component:NewCategoryComponent},
   {path:"ForgetPassword",component:ForgetPasswordComponent},
-  {path:"ResetPassword/:email",component:ResetPasswordComponent},
+  {path:"ResetPassword",component:ResetPasswordComponent},
   {path:"AllUsers",component:AllUsersComponent},
   {path:"EditUser/:email",component:EditUserComponent},
   {path:"AllOrders",component:AllOrdersComponent},

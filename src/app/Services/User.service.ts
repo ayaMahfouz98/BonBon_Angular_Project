@@ -81,7 +81,7 @@ export class UserService {
 
   ForgetPassword(email: any) {
     console.log(email);
-    return this.HttpClient.post(`${this.BaseURL}/api/Auth/ForgetPassword`, email);
+    return this.HttpClient.get(`${this.BaseURL}/api/Auth/ForgetPassword/${email}`);
 
   }
 

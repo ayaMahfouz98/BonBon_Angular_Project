@@ -7,7 +7,7 @@
           <div class="card px-5 py-5">
              <!-- <span class="circle"><i class="fa fa-check"></i></span> -->
              <div class="avatar m-auto">
-                <img alt="" src={{User.profileImage}} class="w-50 h-50 rounded-circle">
+                <img alt="" src={{User.profileImage}} class="w-50 h-50 rounded">
             </div>
             <div class="info">
                 <div class="title">
@@ -20,9 +20,10 @@
                 <a class="btn btn-secondary btn-sm" href="" style="margin-right:5%">
                     <i class="fa fa-pencil-square-o"></i> Edit Profile
                 </a>
+                
                 <a class="btn btn-danger btn-sm "
-                   href="">
-                    <i class="fa  fa-shopping-cart"></i> Show Orders
+                routerLink="myOrders"> 
+                    <i class="fa  fa-shopping-cart" ></i> Show Orders
                 </a>
             </div>
         </div>

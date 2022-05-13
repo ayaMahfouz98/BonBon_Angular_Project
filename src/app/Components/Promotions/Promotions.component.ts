@@ -15,9 +15,9 @@ export class PromotionsComponent implements OnInit {
   ngOnInit() {
     this.service.GetProductWithPromotion().subscribe(
       (data)=>{
-      this.AllProductsWithPormotion=data ;
+      this.AllProductsWithPormotion=data;
     },
-      (err)=>{console.log(err)});
+      (err)=>{});
 }
 customOptions: any = {
   loop: true,

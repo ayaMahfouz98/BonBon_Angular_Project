@@ -7,24 +7,39 @@ import { OrderService } from 'src/app/Services/Order.service';
   styleUrls: ['./ShoppingCart.component.css']
 })
 export class ShoppingCartComponent implements OnInit,OnChanges {
-  total:number = 0;
-  shipping: number = 0;
+  shoppingCartItems:any;
+  currentshoppingCart:any;
+  total:any;
+  cartNotEmpty:any;
   constructor( private orderService :OrderService ) { 
 
+    
+    if(this.orderService.shoppingCartExists == false){
+      this.orderService.GetShoppingCart().subscribe(
+        (data:any)=>{
+          this.currentshoppingCart = data.shoppingCart.shoppingCartId;
+          localStorage.setItem('cartToken', data.shoppingCart.shoppingCartId)
+        });
+    }
   }
-  shoppingCartItems:any;
+
 
   ngOnInit() {
-    this.orderService.GetShoppingCartItems().subscribe(
+      
+    this.orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe(
       (data:any)=>{
-        localStorage.setItem('cartToken', data.shoppingCartId)
-        console.log(data)
         this.shoppingCartItems=data;
-      }
-     )
-   
+        if(this.shoppingCartItems.length!=0)
+          this.cartNotEmpty = true;
+      })
   }
-  ngOnChanges(){
+  ngOnChanges(){}
 
+  
+CompleteOrder(){
+  this.orderService.CompleteOrder(localStorage.getItem('email'),localStorage.getItem('cartToken')).subscribe();
+  this.total =this.orderService. GetOrderTotal(localStorage.getItem('cartToken')).subscribe();
+  console.log("ff"+this.total);
 }
+
 }

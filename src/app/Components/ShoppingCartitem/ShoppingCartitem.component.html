@@ -1,20 +1,28 @@
-<div class="card mb-3 ">
+<div class="container  h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="card mb-3 ">
   <div class="card-body">
     <div class="d-flex justify-content-between">
-      <div class="d-flex align-items-center">
+      <div class="d-flex">
+        
         <div>
           <img
-            src="{{pd.imgUrl}}"
-            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+            src="{{pd.product.imageUrl}}"
+            class="img-fluid rounded-3" alt="Shopping item" style="width: 70px;">
         </div>
         <div class="ms-4">
-          <h5>{{pd.title}}</h5>
+          <h5>{{pd.product.title}}</h5>
         </div>
       </div>
       
-        <div class="mb-0  d-none d-lg-block"><h5 class="d-inline amt">{{pd.amount}} </h5><i class="fa fa-plus" aria-hidden="true"></i> <span class="vl"></span>
-         <i class="fa fa-minus" aria-hidden="true"></i> </div>
-     <h5 class="mb-0 ">{{pd.price | currency:"USD"}}</h5>
+        <div class="mb-0  d-none d-lg-block"><h5 class="d-inline amt">{{pd.amount}} </h5><i class="fa fa-plus" (click)="increaseAmount()"></i> <span class="vl"></span>
+         <i class="fa fa-minus"(click)="removeItem()" aria-hidden="true"></i> </div>
+     <h5 class="mb-0 ">{{pd.product.price | currency:"USD"}}</h5>
+     <i class="fa fa-times" (click)="removeItemTotalAmount()"  aria-hidden="true"></i>
+
    </div>
-  </div>
-  </div>
+   
+   </div>
+   </div>
+ 
+

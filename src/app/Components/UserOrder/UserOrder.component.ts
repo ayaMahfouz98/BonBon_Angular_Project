@@ -13,6 +13,9 @@ export class UserOrderComponent implements OnInit {
   userOrders:any;
   selectedOrderID:any;
   ngOnInit() {
+    //==>HERE
+    //to b updated in my profile 
+    //add autho
    this.orderService.GetOrdersByUserId("ca425ef0-c490-48f5-8eb6-e468f85f1890").subscribe(
      (data)=>{console.log(data)
                this.userOrders=data ;},
@@ -20,7 +23,6 @@ export class UserOrderComponent implements OnInit {
    );
   }
   openOrderDetails(prdId:number){
-    //No that is wrong: This id is brought by url this.prdListCat = this.staticPrdService.getProductByCatID(2);
     this.router.navigate(['/OrderDetails/',prdId])
   }
 }

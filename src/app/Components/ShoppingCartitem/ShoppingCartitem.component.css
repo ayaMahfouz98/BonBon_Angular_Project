@@ -1,0 +1,30 @@
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    .btn1 {
+        background-color:#AD8; 
+        border: none;
+        text-transform: UPPERCASE;
+        color: #fff;
+        font-weight:300px;
+        width: 100%;      
+        margin-right:15px ; 
+     }
+
+     .vl {
+        border-left: 1px solid rgb(203, 196, 196);
+        margin: 5px;
+        height: 1px;
+      }
+      i{
+          margin: 5px;
+          color: rgb(226, 103, 103);
+          font-weight: lighter;
+          cursor: pointer;
+      }
+      .amt{
+          margin-right: 10px;
+      }
+ 

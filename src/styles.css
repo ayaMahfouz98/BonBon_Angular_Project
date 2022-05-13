@@ -1,28 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 /*Our Website Buttons*/
-button {
+.add-to-cart {
 
-  width: 150px;
-  height: 40px;
   color: white;
-  background-color: thistle;
+  background-color: rgb(226, 103, 103);
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   outline: none;
   font-size: medium;
   -webkit-transition: all 1s ease;
-
+  padding: 10px;
 }
 
-button::after {
+.add-to-cart::after {
   border: none;
   border-radius: 10px;
   outline: none;
   font-size: medium;
 
 }
-
-button:hover {
+.add-to-cart:hover {
   -webkit-transform: scale(1.1, 1.1);
   /*focused*/
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);

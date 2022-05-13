@@ -1,8 +1,12 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oleo+Script&display=swap"/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oleo+Script&display=swap"
+/>
 
-<nav class="navbar navbar-expand-md navbar-scroll shadow-0"
-  style="background-color: #ffede7">
-
+<nav
+  class="navbar navbar-expand-md navbar-scroll shadow-0"
+  style="background-color: #ffede7"
+>
   <div class="container-fluid">
     <!-- <img src="../../../assets/icons8-candy-58.png" class="logo mr-5"/>-->
     <a class="navbar-brand ml-5" href="/Home">BonBon</a>
@@ -76,73 +80,72 @@
             </li>
           </ul>
         </li>
-        <form class="d-flex">
-          <a class="nav-link" routerLink="/Cart" routerLinkActive="active"
-            ><i class="fa fa-shopping-cart" aria-hidden="true"></i
-          ></a>
-
-          <!-- [(ngModel)]="Pname" -->
-          <!-- [value]="Pname" -->
-          <input
-            #Pname
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <input
-            class="search p-1 btn btn-default"
-            type="button"
-            routerLink="/searchProduct/{{ Pname.value }}"
-            value="Search"
-            (click)="SendName(Pname.value)"
-          />
-        </form>
-        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [hidden]="isUserLogged"
-              routerLink="/Login"
-              routerLinkActive="active"
-              >Login</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [hidden]="isUserLogged"
-              routerLink="/Register"
-              routerLinkActive="active"
-              >Register</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [hidden]="!isUserLogged"
-              routerLink="/GetUser/{{ UserEmail }}"
-              routerLinkActive="active"
-              >{{ UserEmail }}</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [hidden]="!isUserLogged"
-              routerLink="/Home"
-              routerLinkActive="active"
-              (click)="Logout()"
-              >Logout</a
-            >
-          </li>
       </ul>
 
-      <!-- </ul> -->
+      <form class="d-flex">
+        <a class="nav-link" routerLink="/Cart" routerLinkActive="active"
+          ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+        ></a>
+
+        <!-- [(ngModel)]="Pname" -->
+        <!-- [value]="Pname" -->
+        <input
+          #Pname
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <input
+          class="search p-1 btn btn-default"
+          type="button"
+          routerLink="/searchProduct/{{ Pname.value }}"
+          value="Search"
+          (click)="SendName(Pname.value)"
+        />
+      </form>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [hidden]="isUserLogged"
+            routerLink="/Login"
+            routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [hidden]="isUserLogged"
+            routerLink="/Register"
+            routerLinkActive="active"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [hidden]="!isUserLogged"
+            routerLink="/GetUser/{{ UserEmail }}"
+            routerLinkActive="active"
+            >{{ UserEmail }}</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [hidden]="!isUserLogged"
+            routerLink="/Home"
+            routerLinkActive="active"
+            (click)="Logout()"
+            >Logout</a
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
-
 
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js" integrity="sha512-8cU710tp3iH9RniUh6fq5zJsGnjLzOWLWdZqBMLtqaoZUA6AWIE34lwMB3ipUNiTBP5jEZKY95SfbNnQ8cCKvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

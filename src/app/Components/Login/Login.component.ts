@@ -36,25 +36,26 @@ export class LoginComponent implements OnInit {
 
     if ((this.Email != '') && (this.Password != '')) {
       this.userService.GetUserByEmailforLogin(user).subscribe(
-
-
         (data: any) => {
+          console.log(data);
           if (data != null) {
             localStorage.setItem('email', data.email)
             localStorage.setItem('id', data.id)
             this.userService.Login(user).subscribe(
               (data: any) => {
-                localStorage.setItem('token', data.token)
+                console.log(data);
+                localStorage.setItem('token', data.token);
+                this.isUserLogged = this.userService.isUserLogged;
+                console.log(this.isUserLogged);
                 this.router.navigate(['/Home']); //================>   TODO ----> REDIRECT TO HOME
               },
-              (err:any) => {
+              (err) => {
                 if (err.status == 400)
                   console.log('Incorrect username or password.', 'Authentication failed.')
                 else
                   console.log(err);
               }
             );
-            this.isUserLogged = this.userService.isUserLogged;
           }
           else {
             this.message = "This User is not found"
@@ -67,19 +68,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  signInWithGoogle(){
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then( (data:any) => {
-      console.log(data);
-      localStorage.setItem('google_auth', JSON.stringify(data));
-      this.router.navigate(['/Home']);
-    });
-  }
+  // signInWithGoogle(){
+  //   this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then( (data:any) => {
+  //     console.log(data);
+  //     localStorage.setItem('google_auth', JSON.stringify(data));
+  //     this.isUserLogged = this.userService.isUserLogged;
+  //     this.router.navigate(['/Home']);
+  //   });
+  // }
 
-  signInWithFacebook(){
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then( (data:any) => {
-      localStorage.setItem('facebook_auth', JSON.stringify(data));
-      this.router.navigate(['/Home']);
-    });
-  }
+  // signInWithFacebook(){
+  //   this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then( (data:any) => {
+  //     localStorage.setItem('facebook_auth', JSON.stringify(data));
+  //     this.isUserLogged = this.userService.isUserLogged;
+  //     this.router.navigate(['/Home']);
+  //   });
+  // }
 
 }

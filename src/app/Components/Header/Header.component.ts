@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit, OnChanges {
   constructor(private userService: UserService, private router: Router, private CategoryService: CategoryService, private activatedRoute: ActivatedRoute) {
     this.isUserLogged = this.userService.isUserLogged;
     this.Email = this.userService.UserEmail;
-    console.log(this.Email)
   }
 
 
@@ -42,24 +41,25 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    const storage_google = localStorage.getItem('google_auth');
-    const storage_facebook = localStorage.getItem('facebook_auth');
+    // const storage_google = localStorage.getItem('google_auth');
+    // const storage_facebook = localStorage.getItem('facebook_auth');
 
-    if(storage_google){
-      // this.userDetails = JSON.parse(storage_google);
-      this.UserEmail = JSON.parse(storage_google).email;
-    } else{
-      this.Logout();
-    }
+    // if(storage_google){
+    //   // this.userDetails = JSON.parse(storage_google);
+    //   this.Email = JSON.parse(storage_google).email;
+    // } else{
+    //   this.Logout();
+    // }
 
-    if(storage_facebook){
-      // this.userDetails = JSON.parse(storage_facebook);
-      this.UserEmail = JSON.parse(storage_facebook).email;
-    } else{
-      this.Logout();
-    }
+    // if(storage_facebook){
+    //   // this.userDetails = JSON.parse(storage_facebook);
+    //   this.Email = JSON.parse(storage_facebook).email;
+    // } else{
+    //   this.Logout();
+    // }
 
     this.UserEmail = this.Email;
+    // console.log(this.UserEmail);
 
     this.CategoryService.GetAllCategories().subscribe(
       (data:any) => {
@@ -72,6 +72,7 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     this.userService.getloggedStatus().subscribe((status:any) => {
       this.isUserLogged = status;
+      console.log(this.isUserLogged);
     });
   }
 
@@ -79,8 +80,8 @@ export class HeaderComponent implements OnInit, OnChanges {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('id');
-    localStorage.removeItem('google_auth');
-    localStorage.removeItem('facebook_auth');
+    // localStorage.removeItem('google_auth');
+    // localStorage.removeItem('facebook_auth');
     localStorage.clear();
 
     this.userService.Logout().subscribe();

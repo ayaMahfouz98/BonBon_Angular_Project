@@ -5,107 +5,97 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   private isloggedSubject: BehaviorSubject<boolean>;
   private email: BehaviorSubject<any>;
   private id: BehaviorSubject<any>;
 
+  constructor(private HttpClient: HttpClient) {
+    this.isloggedSubject = new BehaviorSubject<boolean>(this.isUserLogged);
+    this.email = new BehaviorSubject<any>(this.UserEmail);
+    this.id = new BehaviorSubject<any>(this.UserId);
+  }
 
-constructor(private HttpClient :HttpClient) {
-  this.isloggedSubject=new BehaviorSubject<boolean> (this.isUserLogged);
-  this.email = new BehaviorSubject<any>(this.UserEmail);
-  this.id = new BehaviorSubject<any>(this.UserId);
+  BaseURL = "https://localhost:7154";
 
+  Register(user: any) {
+    return this.HttpClient.post(`${this.BaseURL}/api/Auth/Register`, user);
+  }
 
-}
-BaseURL="https://localhost:7154";
+  Login(user: any) {
+    this.isloggedSubject.next(true);
+    return this.HttpClient.post(`${this.BaseURL}/api/Auth/Login`, user);
+  }
 
-Register(user:any){
-  return this.HttpClient.post(`${this.BaseURL}/api/Auth/Register`,user);
-}
-Login(user:any){
-  this.isloggedSubject.next(true);
-  return this.HttpClient.post(`${this.BaseURL}/api/Auth/Login`,user);
+  Logout() {
+    this.isloggedSubject.next(false);
+    return this.HttpClient.get(`${this.BaseURL}/api/Auth/Logout`);
+  }
 
-}
+  GetUserByEmailforRegister(user: {}) {
+    return this.HttpClient.post(`${this.BaseURL}/api/UserProfile/GetUserByEmailforRegister`, user);
+  }
 
-Logout()
-{
-  this.isloggedSubject.next(false);
-  return this.HttpClient.get(`${this.BaseURL}/api/Auth/Logout`);
-}
+  GetUserByEmailforLogin(user: {}) {
+    return this.HttpClient.post(`${this.BaseURL}/api/UserProfile/GetUserByEmailforLogin`, user);
+  }
 
-GetUserByEmailforRegister(user: {}){
-  return this.HttpClient.post(`${this.BaseURL}/api/UserProfile/GetUserByEmailforRegister`,user);
-}
+  GetUserProfile(email: any) {
+    return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetUser/${email}`);
+  }
 
-GetUserByEmailforLogin(user: {}){
-  return this.HttpClient.post(`${this.BaseURL}/api/UserProfile/GetUserByEmailforLogin`,user);
-}
+  GetUserById(id: any) {
+    return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetUserById/${id}`);
+  }
 
-GetUserProfile(email:any){
-  return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetUser/${email}`);
-}
+  EditUserProfile(id: any, user: any) {
+    return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditUser/${id}`, user);
+  }
 
-GetUserById(id:any){
-  return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetUserById/${id}`);
-}
+  DeleteUserProfile(email: any) {
+    return this.HttpClient.delete(`${this.BaseURL}/api/UserProfile/DeleteUser/${email}`);
+  }
 
-EditUserProfile(id:any,user:any)
-{
-  return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditUser/${id}`,user);
-}
+  GetAllUsers() {
+    return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetAllUsers`);
+  }
 
-DeleteUserProfile(email:any)
-{
-  return this.HttpClient.delete(`${this.BaseURL}/api/UserProfile/DeleteUser/${email}`);
-}
+  get isUserLogged(): boolean {
+    return (localStorage.getItem('token')) ? true : false
+  }
 
-GetAllUsers()
-{
-  return this.HttpClient.get(`${this.BaseURL}/api/UserProfile/GetAllUsers`);
-}
-get isUserLogged(): boolean
-{
-  return  (localStorage.getItem('token'))? true: false
-}
+  get UserEmail(): any {
 
-get UserEmail(): any
-{
+    return localStorage.getItem('email');
+  }
 
-  return localStorage.getItem('email');
-}
+  get UserId(): any {
 
-get UserId(): any
-{
+    return localStorage.getItem('id');
+  }
 
-  return localStorage.getItem('id');
-}
+  getloggedStatus(): Observable<boolean> {
+    return this.isloggedSubject.asObservable();
+  }
 
-getloggedStatus(): Observable<boolean>
-{
-  return this.isloggedSubject.asObservable();
-}
+  ForgetPassword(email: any) {
+    console.log(email);
+    return this.HttpClient.post(`${this.BaseURL}/api/Auth/ForgetPassword`, email);
 
-ForgetPassword(email:any)
-{
-  console.log(email);
-  return this.HttpClient.post(`${this.BaseURL}/api/Auth/ForgetPassword`,email);
+  }
 
-}
+  ResetPassword(ResetPasswordmodel: any) {
+    return this.HttpClient.post(`${this.BaseURL}/api/Auth/ResetPassword`, ResetPasswordmodel);
+  }
 
-ResetPassword(ResetPasswordmodel:any)
-{
-  return this.HttpClient.post(`${this.BaseURL}/api/Auth/ResetPassword`,ResetPasswordmodel);
-}
-
-EditRole(email:any,user:any){
-  return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditRole/${email}`,user);
-}
+  EditRole(email: any, user: any) {
+    return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditRole/${email}`, user);
+  }
 
 
-GetRoles(){
-  return this.HttpClient.get(`${this.BaseURL}/api/Auth/GetRoles`);
-}
+  GetRoles() {
+    return this.HttpClient.get(`${this.BaseURL}/api/Auth/GetRoles`);
+  }
 
 }

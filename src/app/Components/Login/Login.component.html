@@ -22,7 +22,6 @@
                      <li>Password must have at least one non alphanumeric character, and one uppercase character('A'-'Z')</li>
                    </span>
 
-er
                    <span class=" rounded-pill text-center " style="color: red; border:2 white;list-style: none;" *ngIf="message!=''">
                     <li>{{message}}</li>
                   </span>
@@ -33,8 +32,8 @@ er
                      <div class="text-center mt-3"><a routerLink="/ForgetPassword" >Forget Password</a></div>
                   <div class="text-center mt-3"> <span>Or continue with these social profile</span> </div>
                   <div class="d-flex justify-content-center mt-4">
-                    <span class="social"><i class="fa fa-google" (click)="signInWithGoogle()"></i></span>
-                    <span class="social"><i class="fa fa-facebook" (click)="signInWithFacebook()"></i></span>
+                    <span class="social"><i class="fa fa-google" ></i></span> <!--(click)="signInWithGoogle()"-->
+                    <span class="social"><i class="fa fa-facebook" ></i></span>
                     <!-- <span class="social"><i class="fa fa-twitter"></i></span>
                     <span class="social"><i class="fa fa-linkedin"></i></span> -->
                   </div>

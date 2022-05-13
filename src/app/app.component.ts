@@ -12,7 +12,11 @@ export class AppComponent implements OnInit {
   constructor(private router:Router){}
 
   ngOnInit() {
-    this.router.events .subscribe((event) => { if (event instanceof NavigationEnd) { this.headerFooter = (event.url !== '/Login') } });
+    this.router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          this.headerFooter = (event.url !== '/Login')
+        }
+    });
   }
   title = 'BONBON';
   name:any;

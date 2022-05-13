@@ -7,39 +7,37 @@ import { UserService } from 'src/app/Services/User.service';
   templateUrl: './ResetPassword.component.html',
   styleUrls: ['./ResetPassword.component.css']
 })
-export class ResetPasswordComponent implements OnInit {
 
+export class ResetPasswordComponent implements OnInit {
   token: any;
-  constructor(private userService:UserService,private route:ActivatedRoute,private router:Router) {
-   // this.token = this.route.snapshot.params['token'];
-   this.route.queryParams.subscribe(params => {
-    this.token=params['token'];
-});
-   }
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
+    // this.token = this.route.snapshot.params['token'];
+    this.route.queryParams.subscribe(params => {
+      this.token = params['token'];
+    });
+  }
 
   ngOnInit() {
   }
-  message:any;
+  message: any;
 
-  NewPassword='';
-  ConfirmPassword='';
-  Email='';
+  NewPassword = '';
+  ConfirmPassword = '';
+  Email = '';
 
-  ResetPassword(email:any,newpassword:any,confirmpassword:any){
-    let model={token:this.token,email:email,newpassword:newpassword,confirmpassword:confirmpassword}
+  ResetPassword(email: any, newpassword: any, confirmpassword: any) {
+    let model = { token: this.token, email: email, newpassword: newpassword, confirmpassword: confirmpassword }
     this.userService.ResetPassword(model).subscribe(
-      (data:any)=>
-      {
-        if(data!=null)
-        {
+      (data: any) => {
+        if (data != null) {
           this.router.navigate(['/Login']);
         }
         else {
-          this.message="This Email is not found"
+          this.message = "This Email is not found"
         }
       }
     );
-    
+
 
   }
 

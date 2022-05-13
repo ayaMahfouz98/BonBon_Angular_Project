@@ -41,4 +41,18 @@ export class ProductsService {
   FilterProducts(CategotyId:any){
    return this.HttpClient.get(`${this.BaseURL}/FilterProducts/${CategotyId}`)
   }
+
+  SortProductsByAlpha(ascd:boolean,catId:number){
+    return this.HttpClient.get(`${this.BaseURL}/SortProductsByAlpha/${ascd}/${catId}`);
+  }
+
+  SortProductByPrice(cheap:boolean,catId:number)
+  {
+    return this.HttpClient.get(`${this.BaseURL}/SortProductsByPrice/${cheap}/${catId}`);
+  }
+
+  SortProductByBestSeller(catId:number)
+  {
+    return this.HttpClient.get(`${this.BaseURL}/SortBestSeller/${catId}`);
+  }
 }

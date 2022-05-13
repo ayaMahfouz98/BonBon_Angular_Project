@@ -10,6 +10,11 @@ body {
     height: 100vh
 }
 
+hr{
+    border:#7f4722 1px solid;
+    width: 100%;
+    margin-left: 10%;
+}
 .card {
     border: none;
     padding: 20px;
@@ -55,3 +60,40 @@ body {
     border: 5px solid rgba(255,255,255,0.5);
 }
 
+.form-input {
+    position: relative;
+    margin-bottom: 10px;
+    color: black;
+    margin-top: 10px
+}
+
+.form-input i {
+    position: absolute;
+    font-size: 18px;
+    top: 15px;
+    left: 10px
+}
+
+.form-control {
+    height: 50px;
+    background-color: #F2D7D5 ;
+    text-indent: 24px;
+    font-size: 15px
+}
+
+.form-control:focus {
+    /* background-color: #25272a; */
+    background-color:#FDEDEC ;
+    box-shadow: none;
+    color: black;
+    border-color: #7f4722
+}
+
+.form-check-label {
+    margin-top: 2px;
+    font-size: 14px
+}
+
+.modal-headers,.modal-footer{
+    background-color:#E6B0AA;
+}

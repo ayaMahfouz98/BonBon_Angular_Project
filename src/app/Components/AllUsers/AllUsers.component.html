@@ -1,0 +1,66 @@
+
+
+<h1 class="alert alert-primary rounded-pill text-center w-50 m-auto mb-3 mt-3" style="background-color: blanchedalmond;">All Users</h1>
+<!-- <a  class="btn btn-dark m-t-5 m-4" routerLink="/NewCategory/" role="button">Add New Category</a> -->
+<table class="table table-bordered table-striped text-center w-75 m-auto">
+  <thead>
+    <tr>
+      <th>Profile Image</th>
+      <th>User Name</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Role</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of AllUsers">
+      <td><img class="img-circle" style="width:100px ;" src="{{user.profileImage}}"></td>
+      <td>{{user.userName}}</td>
+      <td>{{user.email}}</td>
+      <td *ngIf="user.gender==0">Male</td>
+      <td *ngIf="user.gender==1">Female</td>
+      <td>{{user.role}}</td>
+      <td><div class="action">
+
+          <!-- <select #role [(ngModel)]="Role"  class=" w-25" [value]="user.role">
+            <option value="Customer">Customer</option>
+            <option value="Admin">Admin</option>
+          </select> -->
+
+        <a class="actions mb-2" routerLink="/EditUser/{{user.email}}"  role="button"><i class="fa fa-edit text-info"></i></a>
+        <a class="actions mb-2" routerLink="/AllUsers" (click)="Delete(user.email)" role="button"><i class="fa fa-trash" aria-hidden="true"></i>  </a>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- {
+  "profileImage": "string",
+  "gender": 1,
+  "role": "Customer",
+  "id": "e2499f36-d556-408d-bfa3-224432850568",
+  "userName": "AyaMahfouz",
+  "normalizedUserName": null,
+  "email": "engayamahfouz@gmail.com",
+  "normalizedEmail": null,
+  "emailConfirmed": false,
+  "passwordHash": null,
+  "securityStamp": "9c5ee322-cff2-46fd-9695-a8002fac1d6d",
+  "concurrencyStamp": "50ff21d3-aea2-48ff-9f41-8f6178e9c1d0",
+  "phoneNumber": null,
+  "phoneNumberConfirmed": false,
+  "twoFactorEnabled": false,
+  "lockoutEnd": null,
+  "lockoutEnabled": false,
+  "accessFailedCount": 0
+}, -->
+
+
+
+
+
+
+
+

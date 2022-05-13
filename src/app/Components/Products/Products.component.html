@@ -24,6 +24,46 @@
 <div class="container">
 <div class="row ">
   <div > -->
+
+    <br><br><br>
+    <!-- must show the category by filter -->
+  >
+
+    <hr>
+   
+      <!-- <label>SORT BY</label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select> -->
+      <div class=" row text-center">
+        <div class="col-3">
+        <label class=" m-2">FILTER BY</label>
+        
+        <select name="" id="" [(ngModel)] = "selecedCategoryid" (change)="sort()">
+          <option value="0" selected>All Products</option>
+          <option *ngFor="let item of AllCategories" [value]="item.id">{{item.name}}</option>
+        </select>
+        </div>
+
+        <div class=" col-3">
+        <label class=" m-2">SORT BY</label>
+        
+        <select name="" id="" [(ngModel)] = "selecedSort" (change)="sort()">
+          <option value="0" selected>Featured</option>
+          <option value="1">Best Selling</option>
+          <option value="2">A-Z</option>
+          <option value="3">Z-A</option>
+          <option value="4">Price Low</option>
+          <option value="5">Price High</option>
+        </select>
+        </div>
+      
+      </div>
+      <hr>
+
     <section>
       <div class=" container py-5">
           <div class="row justify-content-center ">

@@ -3,8 +3,6 @@ import {HttpClientModule} from "@angular/common/http"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrService } from 'ngx-toastr';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/Header/Header.component';
@@ -28,18 +26,25 @@ import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.co
 import { ShoppingCartitemComponent } from './Components/ShoppingCartitem/ShoppingCartitem.component';
 import { UserOrderComponent } from './Components/UserOrder/UserOrder.component';
 import { SearchByCategoryComponent } from './Components/SearchByCategory/SearchByCategory.component';
-
 import { AllCategoriesComponent } from './Components/AllCategories/AllCategories.component';
 import { EditCategoryComponent } from './Components/EditCategory/EditCategory.component';
 import { NewCategoryComponent } from './Components/NewCategory/NewCategory.component';
-
 import { HomeSliderComponent } from './Components/home-slider/home-slider.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
-
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { ForgetPasswordComponent } from './Components/ForgetPassword/ForgetPassword.component';
+import { ResetPasswordComponent } from './Components/ResetPassword/ResetPassword.component';
+import { AllUsersComponent } from './Components/AllUsers/AllUsers.component';
+import { EditUserComponent } from './Components/EditUser/EditUser.component';
+//pagination
+import {NgxPaginationModule} from 'ngx-pagination';
+import { SocialLoginModule, SocialAuthServiceConfig ,
+  GoogleLoginProvider, FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
+import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
+import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
 
 
 
@@ -71,8 +76,15 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
       HomeSliderComponent,
       LayoutComponent,
       HomeComponent,
+      UserProfileComponent,
+      EditProfileComponent,
+      ForgetPasswordComponent,
+      ResetPasswordComponent,
+      AllUsersComponent,
+      EditUserComponent,
       OrderDetailsComponent,
-      UserProfileComponent
+      AllOrdersComponent
+
 
    ],
   imports: [
@@ -85,9 +97,33 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     BrowserAnimationsModule,
     CommonModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SocialLoginModule
   ],
-  providers: [],
+
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '275763442049-pkbrngs8ckmdj4absm6sedfa321bf8p3.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('3181192858760452')
+          }
+        ],
+        onError: (err:any) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 

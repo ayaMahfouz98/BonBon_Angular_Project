@@ -1,5 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 /*Our Website Buttons*/
+button {
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: thistle;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: large;
+  -webkit-transition: all 1s ease;
+
+}
+
+button::after {
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: large;
+
+}
+
+button:hover {
+  -webkit-transform: scale(1.1, 1.1);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+
 .add-to-cart {
 
   color: white;

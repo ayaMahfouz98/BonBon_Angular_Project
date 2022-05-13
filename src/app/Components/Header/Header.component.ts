@@ -33,6 +33,8 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.isUserLogged = this.userService.isUserLogged;
     this.Email = this.userService.UserEmail;
     console.log(this.Email)
+    console.log(this.isUserLogged)
+
   }
 
 
@@ -85,6 +87,7 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     this.userService.Logout().subscribe();
     this.isUserLogged = this.userService.isUserLogged;
+    console.log(this.isUserLogged)
   }
 
 

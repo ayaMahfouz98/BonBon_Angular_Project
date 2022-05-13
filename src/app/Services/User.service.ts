@@ -72,13 +72,11 @@ get isUserLogged(): boolean
 
 get UserEmail(): any
 {
-
   return localStorage.getItem('email');
 }
 
 get UserId(): any
 {
-
   return localStorage.getItem('id');
 }
 
@@ -90,8 +88,7 @@ getloggedStatus(): Observable<boolean>
 ForgetPassword(email:any)
 {
   console.log(email);
-  return this.HttpClient.post(`${this.BaseURL}/api/Auth/ForgetPassword`,email);
-
+  return this.HttpClient.get(`${this.BaseURL}/api/Auth/ForgetPassword/${email}`);
 }
 
 ResetPassword(ResetPasswordmodel:any)
@@ -99,12 +96,13 @@ ResetPassword(ResetPasswordmodel:any)
   return this.HttpClient.post(`${this.BaseURL}/api/Auth/ResetPassword`,ResetPasswordmodel);
 }
 
-EditRole(email:any,user:any){
+EditRole(email:any,user:any)
+{
   return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditRole/${email}`,user);
 }
 
-
-GetRoles(){
+GetRoles()
+{
   return this.HttpClient.get(`${this.BaseURL}/api/Auth/GetRoles`);
 }
 

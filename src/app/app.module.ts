@@ -44,7 +44,7 @@ import { SocialLoginModule, SocialAuthServiceConfig ,
   GoogleLoginProvider, FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
 import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
-import { AllOrdersComponent } from './components/all-orders/all-orders.component';
+import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
 
 
 
@@ -83,7 +83,7 @@ import { AllOrdersComponent } from './components/all-orders/all-orders.component
       AllUsersComponent,
       EditUserComponent,
       OrderDetailsComponent,
-      AllOrdersComponent,
+      AllOrdersComponent
 
 
    ],

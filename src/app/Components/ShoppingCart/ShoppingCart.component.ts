@@ -7,7 +7,8 @@ import { OrderService } from 'src/app/Services/Order.service';
   styleUrls: ['./ShoppingCart.component.css']
 })
 export class ShoppingCartComponent implements OnInit,OnChanges {
-
+  total:number = 0;
+  shipping: number = 0;
   constructor( private orderService :OrderService ) { 
 
   }
@@ -15,7 +16,8 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
 
   ngOnInit() {
     this.orderService.GetShoppingCartItems().subscribe(
-      (data)=>{
+      (data:any)=>{
+        localStorage.setItem('cartToken', data.shoppingCartId)
         console.log(data)
         this.shoppingCartItems=data;
       }
@@ -23,5 +25,6 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
    
   }
   ngOnChanges(){
+
 }
 }

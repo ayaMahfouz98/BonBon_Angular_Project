@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
          if(data!=null)
         {
           localStorage.setItem('email', data.email)
-        
           this.userService.Login(user).subscribe(
             (data:any)=>{
               localStorage.setItem('token', data.token)

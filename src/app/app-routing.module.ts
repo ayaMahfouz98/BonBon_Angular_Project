@@ -29,7 +29,7 @@ import { AllUsersComponent } from './Components/AllUsers/AllUsers.component';
 import { EditUserComponent } from './Components/EditUser/EditUser.component';
 
 import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
-import { AllOrdersComponent } from './components/all-orders/all-orders.component';
+import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
 
 
 
@@ -60,7 +60,7 @@ const routes: Routes = [
   {path:"EditeCategory/:id",component:EditCategoryComponent},
   {path:"NewCategory",component:NewCategoryComponent},
   {path:"ForgetPassword",component:ForgetPasswordComponent},
-  {path:"ResetPassword",component:ResetPasswordComponent},
+  {path:"ResetPassword/:email",component:ResetPasswordComponent},
   {path:"AllUsers",component:AllUsersComponent},
   {path:"EditUser/:email",component:EditUserComponent},
   {path:"AllOrders",component:AllOrdersComponent},

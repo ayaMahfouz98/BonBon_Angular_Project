@@ -17,7 +17,7 @@ export class ForgetPasswordComponent implements OnInit {
   sendEmail(email:any){
     if(email!=""){
     this.userService.ForgetPassword(email).subscribe();
-    // this.router.navigate([`/ResetPassword`]);
+     this.router.navigate([`/Login`]);
 
     console.log(email);
   }

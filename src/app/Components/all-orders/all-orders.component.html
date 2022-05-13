@@ -9,7 +9,7 @@
       <th>OrderDate</th>
       <th>State</th>
       <th>UserEmail</th>
-    
+
     </tr>
   </thead>
   <tbody>
@@ -20,7 +20,7 @@
       <td *ngIf="order.state==1">Accepted</td>
       <td *ngIf="order.state==2">Rejected</td>
       <td>{{User.email}}</td>
- 
+
       <!-- <td *ngFor="let info of order.orderProducts">
         <table class="table table-striped table-bordered" style="margin-top:-2%">
             <tr>
@@ -36,7 +36,7 @@
     </table>
     </td> -->
       <td><div class="action">
-         <a class="actions mb-2" routerLink="/OrderDetails/{{order.id}}"  role="button"><i class="fa fa-edit"></i></a>
+         <a class="actions mb-2" routerLink="/OrderDetails/{{order.id}}"  role="button"><i class="fa fa-info-circle"></i></a>
        <!-- <a class="actions mb-2" routerLink="/AllOrders" (click)="Delete(user.email)" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a> -->
       </div></td>
     </tr>

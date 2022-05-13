@@ -14,27 +14,32 @@ import { OrderService } from 'src/app/Services/Order.service';
 export class ProductDetailsComponent implements OnInit {
 ProductId:any;
 Product:any;
-
+ProductFromApi:any;
+quantity:any;
   constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
    this.ProductId= ActivatedRoute.snapshot.params["id"];
   }
 
   ngOnInit() {
     this.service.GetProductById(this.ProductId).subscribe(
+      
       (data)=>{
         console.log(JSON.stringify(data));
         this.Product=data;
+        this.quantity = this.Product.quantity;
+
       },
       (err)=>{console.log(err)}
     );
   }
   
   AddToCart(){
-    this.orderService.AddToShoppingCart(this.ProductId).subscribe(
-      (data)=>{
-        console.log(data+"v");
-      },
-      (err)=>{console.log(err)}
-    );
-  }
+        this.quantity = this.Product.quantity;
+        if(this.Product.amount != this.quantity){
+          this.Product.amount++;
+          this.orderService.AddToShoppingCart(this.Product.id,localStorage.getItem('cartToken')).subscribe();
+        }
+      }
+    
+
 }

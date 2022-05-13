@@ -50,7 +50,9 @@
     padding: 3em;
     line-height: 1.5em; 
   }
-  
+  .fa-times{
+    cursor: pointer;
+  }
   @media screen and (min-width: 997px) {
     .wrapper {
       display: -webkit-box;

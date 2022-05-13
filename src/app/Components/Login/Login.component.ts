@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
                 this.isUserLogged = this.userService.isUserLogged;
                 this.router.navigate(['/Home']); //================>   TODO ----> REDIRECT TO HOME
               },
-              (err) => {
+              (err:any) => {
                 if (err.status == 400)
                 console.log('Incorrect username or password.', 'Authentication failed.')
                 else

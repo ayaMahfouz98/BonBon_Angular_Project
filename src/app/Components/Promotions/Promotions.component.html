@@ -4,7 +4,7 @@
 <owl-carousel-o [options]="customOptions" class="col-lg-2">
     <ng-container *ngFor="let prd of AllProductsWithPormotion.value; let i = index">
       <ng-template carouselSlide>
-                <div class="card-sl m-3 "> 
+                <div class="card-sl m-3 " routerLink="/Products/{{prd.id}}"> 
                         <!--
                          <div class="ribbon">
                             <div class="">
@@ -23,14 +23,13 @@
                         <span class="product-old-price"> {{prd.price | currency:'EGP'}}</span>
                 <span class="product-price"> {{prd.price-(prd.price*prd.promotionPercentage/100) | currency:'EGP'}}</span>
                 </div>
-                    <a href="#" class="card-button "> Buy now!</a>
                     </div>
                  <!--
                     <div class="card-text">
                         {{prd.price | currency:'USD'}}
                     </div> 
                -->
-                    <a href="#" class="card-button ">Buy now!</a>
+                    <a href="#" class="card-button" routerLink="/Products/{{prd.id}}">Buy now!</a>
 
             </div>
       </ng-template> 

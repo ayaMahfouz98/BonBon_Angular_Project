@@ -14,94 +14,86 @@
                             Order number:<span>{{ order.id }}</span>
                           </h5>
 
-                          <h5 class="mb-0 ms-0">
-                            Status:
-                            <span [ngSwitch]="order.state">
-                              <div class="text-warning state d-inline" *ngSwitchCase="0">
-                                Pending
-                              </div>
-                              <div class="text-success state d-inline" *ngSwitchCase="1">
-                                Accepted
-                              </div>
-                              <div class="text-danger state d-inline" *ngSwitchCase="2">
-                                Canceled
-                              </div>
-                            </span>
-                          </h5>
-                          <h5 class="mb-0 ms-0">
-                            Date:<span>{{ order.orderDate | date: "longDate" }}</span>
-                          </h5>
+                    <h5 class="mb-0 ms-0">
+                      Status:
+                      <span [ngSwitch]="order.state">
+                        <div
+                          class="text-warning state d-inline"
+                          *ngSwitchCase="0"
+                        >
+                          Pending
                         </div>
-                      </div>
-                    </div>
+                        <div
+                          class="text-success state d-inline"
+                          *ngSwitchCase="1"
+                        >
+                          Accepted
+                        </div>
+                        <div
+                          class="text-danger state d-inline"
+                          *ngSwitchCase="2"
+                        >
+                          Canceled
+                        </div>
+                      </span>
+                    </h5>
+                    <h5 class="mb-0 ms-0">
+                      Date:<span>{{ order.orderDate | date: "longDate" }}</span>
+                    </h5>
                   </div>
-                </div>
-                <div class="table-responsive">
-                  <table class="table table-responsive table-borderless">
-                    <thead>
-                      <tr class="bg-light">
-                        <th scope="col" width="30%">Name</th>
-                        <th scope="col" width="30%">Product</th>
-                        <th scope="col" width="20%">Amount</th>
-                        <th scope="col" width="20%">Price</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let p of order.orderProducts; let i = index">
-                        <td class="tt" scope="col" width="30%">{{ p.product.title }}</td>
-                        <td scope="col" width="30%">
-                          <img class="rounded" src="{{ p.product.imageUrl }}" width="100" />
-                        </td>
-                        <th class="tt" scope="col" width="20%">{{ p.amount }}</th>
-                        <th class="tt" scope="col" width="20%">
-                          {{ p.price | currency: "USD" }}
-                        </th>
-                      </tr>
-                    </tbody>
-                  </table>
                 </div>
               </div>
             </div>-->
 
 
-    <ng-template #content let-modal>
-        <div class="modal-headers">
-          <h4 class="modal-title my-4" id="modal-basic-title" style="color:#7f4722"><span class="mx-3">Edit Profile </span>  <i class="fa  fa-times text-danger float-end mx-3" aria-hidden="true" (click)="modal.dismiss('Cross click')"></i></h4>
-          <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> -->
-              <!-- <span aria-hidden="true">&times;</span>
-            </button> -->
-        </div>
-        <hr style="width:100%;margin-left: 0%;margin-top: 0%;">
+<ng-template #content let-modal>
+  <div class="modal-headers">
+    <h4 class="modal-title my-4" id="modal-basic-title" style="color: #7f4722">
+      <span class="mx-3">Edit Profile </span>
+      <i
+        class="fa fa-times text-danger float-end mx-3"
+        aria-hidden="true"
+        (click)="modal.dismiss('Cross click')"
+      ></i>
+    </h4>
+    <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> -->
+    <!-- <span aria-hidden="true">&times;</span>
+          </button> -->
+  </div>
+  <hr style="width: 100%; margin-left: 0%; margin-top: 0%" />
 
-        <div class="modal-body">
-            <form id="Registeration">
-                <div class="form-group" class="mb-2">
-                <div class="form-input"> <i class="fa fa-user"></i> <input type="text" name="Username" [value]="User.userName" #username id="user" placeholder="Username" class="form-control"> </div>
-            </div>
-            <div class="form-group mb-2">
-                <div class="form-input">
-                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input class="form-control" type="email" name="email" #email id="Email" placeholder="Email" [value]="User.email"/>
-                </div>
-            </div>
-            <div class="form-group mb-2">
-                <div class="form-input">
-                    <span class="input-group-addon"><i class="fa  fa-picture-o"></i></span>
-                    <input class="form-control" type="text" name="image" #image id="image" placeholder="Profile Image URL" [value]="User.profileImage"/>
-                </div>
-            </div>
-            <!-- <div class="form-group mb-2">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input class="form-control rounded-pill" type="text" name="password" #password id="password" placeholder="Password"/>
-                </div>
-            </div> -->
-
-        </form>
+  <div class="modal-body">
+    <form id="Registeration">
+      <div class="form-group" class="mb-2">
+        <div class="form-input">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            name="Username"
+            [value]="User.userName"
+            #username
+            id="user"
+            placeholder="Username"
+            class="form-control"
+          />
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary text-light btn-outline-dark" (click)="SaveData(username.value,email.value,image.value)">Save</button>
+      </div>
+      <div class="form-group mb-2">
+        <div class="form-input">
+          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            #email
+            id="Email"
+            placeholder="Email"
+            [value]="User.email"
+          />
         </div>
+      </div>
+    </form>
+    </div>
       </ng-template>
  
 

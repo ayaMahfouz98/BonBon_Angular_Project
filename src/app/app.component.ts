@@ -6,31 +6,30 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
+  title = 'BONBON';
+  name: any;
+  UserEmail: any;
   headerFooter: boolean | undefined;
 
-  constructor(private router:Router){}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          this.headerFooter = (event.url !== '/Login')
-        }
+      if (event instanceof NavigationEnd) {
+        this.headerFooter = (event.url !== '/Login')
+      }
     });
   }
-  title = 'BONBON';
-  name:any;
-  UserEmail:any;
 
-  GetData(data:any){
-    console.log(data)
-    this.name=data;
+  GetData(data: any) {
+    this.name = data;
+  }
 
-    }
-
-    // GetUserEmail(data:any){
-    //  this.UserEmail=data;
-    //  console.log(data)
-    // }
+  // GetUserEmail(data:any){
+  //  this.UserEmail=data;
+  //  console.log(data)
+  // }
 }
 

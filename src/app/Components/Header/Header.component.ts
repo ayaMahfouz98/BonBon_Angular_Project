@@ -26,12 +26,14 @@ export class HeaderComponent implements OnInit, OnChanges {
   Email: any;
   UserEmail: any;
   AllCategories: any;
-
+  ID:any;
   @Output() myEvent = new EventEmitter();
 
   constructor(private userService: UserService, private router: Router, private CategoryService: CategoryService, private activatedRoute: ActivatedRoute) {
     this.isUserLogged = this.userService.isUserLogged;
     this.Email = this.userService.UserEmail;
+    this.ID=this.userService.UserId;
+
   }
 
 

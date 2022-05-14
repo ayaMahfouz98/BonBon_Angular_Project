@@ -8,7 +8,9 @@
   i{
     color: rgb(226, 103, 103);
   }
-
+  .fa-shopping-cart {
+    font-size: large;
+  }
 
   .navbar-scroll .nav-link,
   .navbar-scroll .fa-bars {
@@ -29,14 +31,14 @@
     text-transform: UPPERCASE;
     color: #fff;
     font-size: small;
-    width: 40%;
+    width: 60%;
     height: 45px;
     font-weight:300px;
     padding: 5px;
     margin-right:15px ;
  }
 .inp{
-  height: 45px;
+  height: 40px;
 }
  .logo{
      width: 40px;

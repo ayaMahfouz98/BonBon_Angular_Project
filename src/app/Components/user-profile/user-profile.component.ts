@@ -93,7 +93,7 @@ export class UserProfileComponent implements OnInit {
   )
   {
     //console.log(image)
-    //console.log(this.User.profileImage)
+    console.log(this.User.profileImage)
     this.userservice.EditUserProfile(this.ID,{Id:this.ID,username:username,email:email,profileImage:image}).subscribe();
     window.location.reload();    
   }

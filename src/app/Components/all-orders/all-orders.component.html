@@ -1,7 +1,6 @@
 
 
-<h1 class="alert alert-primary rounded-pill text-center w-50 m-auto mb-3 mt-3" style="background-color: blanchedalmond;">All Orders</h1>
-<!-- <a  class="btn btn-dark m-t-5 m-4" routerLink="/NewCategory/" role="button">Add New Category</a> -->
+<h1 class="  text-center w-50 m-auto mb-3 mt-3" style="color:rgb(226, 103, 103); ">All Orders</h1>
 <table class="table table-bordered table-striped text-center w-75 m-auto">
   <thead>
     <tr>
@@ -9,6 +8,7 @@
       <th>OrderDate</th>
       <th>State</th>
       <th>UserEmail</th>
+      <th>Actions</th>
 
     </tr>
   </thead>
@@ -16,9 +16,9 @@
     <tr *ngFor="let order of orders">
       <td>{{order.id}}</td>
       <td>{{order.orderDate}}</td>
-      <td *ngIf="order.state==0">Pending</td>
-      <td *ngIf="order.state==1">Accepted</td>
-      <td *ngIf="order.state==2">Rejected</td>
+        <td *ngIf="order.state==0">Pending</td>
+        <td *ngIf="order.state==1">Accepted</td>
+        <td *ngIf="order.state==2">Rejected</td>
       <td>{{User.email}}</td>
 
       <!-- <td *ngFor="let info of order.orderProducts">

@@ -1,41 +1,8 @@
-<div class="container-fluid">
-    <div class="row flex-nowrap ">
-        <div class="col-auto col-md-6 col-xl-4 px-sm-2 px-0" style="background-color:#E6B0AA">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
-                <img alt="" src={{User.profileImage}} class="w-50 h-50 rounded-circle mt-5 m-auto">
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li style="margin-top:-40%;margin-left:40%">
-                        <h2 >{{User.userName}}</h2>
-                    </li>
-                    <hr>
-                    <li style="margin-top: 10%;" class="">
-                        <h5><i class="fa fa-envelope-o" style="margin-right: 10px;"></i>{{User.email}}</h5>
-                    </li>
-                    <li style=" margin-top: 10%;">
-                       <h5><i class="fa fa-transgender font-weight-bold" style="margin-right: 10px;"></i>{{Gender}}</h5>
-                    </li>
-                    <hr>
 
-<div style="padding-top: 100px;">
-    <div  class="container mt-5 mb-5">
-      <div class="row d-flex align-items-center justify-content-center">
-        <div class="col-md-6">
-          
-          <div class="card px-5 py-5">
-             <!-- <span class="circle"><i class="fa fa-check"></i></span> -->
-             <div class="avatar m-auto">
-                <img alt="" src={{User.profileImage}} class="w-50 h-50 rounded">
-                    <li style=" margin-top: 10%; margin-left:60%">
-                        <a class="btn btn-secondary btn-sm" (click)="open(content)">
-                            <i class="fa fa-pencil-square-o"></i> Edit Profile
-                        </a>
-                    </li>
-            </div>
-        </div>
-        <div class="col py-5 m-5">
+<!--
+    <div class="col py-5 m-5">
             <h3 style="color:rgb(226, 103, 103)" class="text-center">Your Orders</h3>
             <br>
-
             <div class="container" *ngFor="let order of Orders">
               <div class="container mt-2 px-2">
                 <div class="mb-2 d-flex justify-content-between align-items-center">
@@ -94,21 +61,8 @@
                   </table>
                 </div>
               </div>
-            </div>
-            <div class="bottom" style="margin-top: 8%; margin-left: 54%;">
-                <a class="btn btn-secondary btn-sm" href="" style="margin-right:5%">
-                    <i class="fa fa-pencil-square-o"></i> Edit Profile
-                </a>
-                
-                <a class="btn btn-danger btn-sm "
-                routerLink="myOrders"> 
-                    <i class="fa  fa-shopping-cart" ></i> Show Orders
-                </a>
-            </div>
-        </div>
+            </div>-->
 
-    </div>
-  </div>
 
     <ng-template #content let-modal>
         <div class="modal-headers">
@@ -149,3 +103,44 @@
           <button type="button" class="btn btn-secondary text-light btn-outline-dark" (click)="SaveData(username.value,email.value,image.value)">Save</button>
         </div>
       </ng-template>
+ 
+
+
+                    <div class="container mb-5">
+                      <div class="card text-center">
+
+                      <div class="wrapper row">
+                        <div class="preview col-md-4">
+              
+                          <div class="preview-pic tab-content">
+                            <div class="card-image">
+                              <img alt="" src={{User?.profileImage}} class="w-75  rounded">
+                            </div>
+                          </div>
+              
+                        </div>
+                        <div class="details col-md-6">
+                          <h3 class="price">{{User.userName}} </h3>
+                          <h6 class="product-code">User Id: {{User.id}} </h6>
+              
+                      
+                          <h4 class=""><span>{{User.email}}</span></h4>
+                          <h4 class=""><span><i class="fa fa-transgender font-weight-bold" style="margin-right: 10px;"></i>{{Gender}}</span></h4>
+              
+                   
+                          <hr>
+                  
+                             <div class="action">
+                            <button class="add-to-cart btn btn-default mb-3" type="button"  (click)="open(content)">
+                              <i class="fa fa-pencil-square-o"></i> Edit Profile
+                          </button>
+                          <button class="add-to-cart btn btn-default" type="button" routerLink="../myOrders">
+                            <i class="fa fa-pencil-square-o"></i> Show Orders
+                        </button>
+                         
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              

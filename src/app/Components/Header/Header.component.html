@@ -63,7 +63,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Filter By Category
+          Category
           </a>
           <!-- (change)="GetProductByCategory()" -->
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -78,14 +78,14 @@
         </li>
         <form class="d-flex">
           <a class="nav-link" routerLink="/Cart" routerLinkActive="active"
-            ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+            ><i class="fa fa-shopping-cart " aria-hidden="true"></i
           ></a>
 
           <!-- [(ngModel)]="Pname" -->
           <!-- [value]="Pname" -->
           <input
             #Pname
-            class="form-control me-2"
+            class="form-control me-2 inp"
             type="search"
             placeholder="Search"
             aria-label="Search"
@@ -117,14 +117,26 @@
               >Register</a
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
             <a
-              class="nav-link"
-              [hidden]="!isUserLogged"
-              routerLink="/GetUser/{{ UserEmail }}"
-              routerLinkActive="active"
-              >{{ UserEmail }}</a
-            >
+            class="nav-link dropdown-toggle"
+            [hidden]="!isUserLogged"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >{{ UserEmail }}</a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" routerLink="/myOrders/" href="#">Your Orders</a>
+              </li>
+              <li><a class="dropdown-item" routerLink="/yourProfile">Your Profile</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item">
+         
           </li>
           <li class="nav-item">
             <a

@@ -64,6 +64,7 @@ const routes: Routes = [
   {path:"AllUsers",component:AllUsersComponent},
   {path:"EditUser/:email",component:EditUserComponent},
   {path:"AllOrders",component:AllOrdersComponent},
+  {path:"yourProfile",component:UserProfileComponent},
   {path:"**",component:ErrorComponent}
 ];
 

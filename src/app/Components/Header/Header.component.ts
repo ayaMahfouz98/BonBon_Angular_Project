@@ -74,6 +74,8 @@ export class HeaderComponent implements OnInit, OnChanges {
       this.isUserLogged = status;
       console.log(this.isUserLogged);
     });
+
+    
   }
 
   Logout() {

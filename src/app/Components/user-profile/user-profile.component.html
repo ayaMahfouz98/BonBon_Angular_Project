@@ -74,8 +74,7 @@
             #username
             id="user"
             placeholder="Username"
-            class="form-control"
-          />
+            class="form-control"/>
         </div>
       </div>
       <div class="form-group mb-2">
@@ -88,18 +87,34 @@
             #email
             id="Email"
             placeholder="Email"
-            [value]="User.email"
-          />
+            [value]="User.email"/>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <div class="form-input">
+          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+          <input
+            class="form-control"
+            type="text"
+            name="profileImage"
+            #profileImage
+            id="profileImage"
+            placeholder="profile Image"
+            [value]="User.profileImage"/>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <div class="form-input">
+         <button class="btn add-to-cart" style="width: 150px;" (click)=" SaveData(username,email,profileImage)">Submit</button>
         </div>
       </div>
     </form>
     </div>
-      </ng-template>
- 
+    </ng-template>
 
 
                     <div class="container mb-5">
-                      <div class="card text-center">
+                      <div class="card ">
 
                       <div class="wrapper row">
                         <div class="preview col-md-4">
@@ -113,13 +128,11 @@
                         </div>
                         <div class="details col-md-6">
                           <h3 class="price">{{User.userName}} </h3>
-                          <h6 class="product-code">User Id: {{User.id}} </h6>
               
                       
                           <h4 class=""><span>{{User.email}}</span></h4>
                           <h4 class=""><span><i class="fa fa-transgender font-weight-bold" style="margin-right: 10px;"></i>{{Gender}}</span></h4>
               
-                   
                           <hr>
                   
                              <div class="action">

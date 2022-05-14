@@ -31,10 +31,13 @@ export class UserProfileComponent implements OnInit {
       {
         this.User=data;
         if(this.User.gender==0)
-        { this.Gender='Male';  }
+        {
+          this.Gender='Male';
+        }
         else 
         {
           this.Gender='Female';
+
         }
       },
       (err)=>
@@ -42,7 +45,7 @@ export class UserProfileComponent implements OnInit {
         console.log(err)
       }
     )
-/*
+
     this.orderservice.GetOrdersByUserId(this.ID).subscribe(
       (data:any)=>
       {
@@ -62,8 +65,7 @@ export class UserProfileComponent implements OnInit {
         console.log(err)
       }
     )
-*/
-}
+  }
 
   open(content:any) {
     console.log(content)
@@ -90,8 +92,9 @@ export class UserProfileComponent implements OnInit {
     image:any,
   )
   {
-    console.log(username+image)
-    this.userservice.EditUserProfile(this.ID,{Id:this.ID,userName:username,email:email,profileImage:image}).subscribe();
+    //console.log(image)
+    //console.log(this.User.profileImage)
+    this.userservice.EditUserProfile(this.ID,{Id:this.ID,username:username,email:email,profileImage:image}).subscribe();
     window.location.reload();    
   }
 

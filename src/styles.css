@@ -1,10 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /*Our Website Buttons*/
-button {
-  width: 150px;
+.btn {
   height: 40px;
   color: white;
-  background-color: thistle;
+  background-color: rgb(226, 103, 103);
   border: none;
   border-radius: 10px;
   outline: none;
@@ -13,7 +12,7 @@ button {
 
 }
 
-button::after {
+.btn::after {
   border: none;
   border-radius: 10px;
   outline: none;
@@ -21,7 +20,7 @@ button::after {
 
 }
 
-button:hover {
+.btn:hover {
   -webkit-transform: scale(1.1, 1.1);
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
   opacity: 1;

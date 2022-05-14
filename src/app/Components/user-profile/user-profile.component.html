@@ -59,7 +59,7 @@
               <div class="modal-body">
                   <form id="Registeration">
                       <div class="form-group" class="mb-2">
-                      <div class="form-input"> <i class="fa fa-user"></i> <input type="text" name="Username" [value]="User?.userName" #username id="user" placeholder="Username" class="form-control"> </div>
+                      <div class="form-input"> <i class="fa fa-user"></i> <input type="text" name="Username" [value]="User.userName" #username id="user" placeholder="Username" class="form-control"> </div>
                   </div>
                   <div class="form-group mb-2">
                       <div class="form-input">
@@ -86,7 +86,7 @@
                 <button type="button" class="btn btn-secondary text-light btn-outline-dark" (click)="SaveData(username.value,email.value,image.value)">Save</button>
               </div>
             </ng-template>
-
+      
                     <div class="container mb-5">
                       <div class="card ">
 

@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   UserEmail: any;
   AllCategories: any;
   ID:any;
+  user:any;
   @Output() myEvent = new EventEmitter();
 
   constructor(private userService: UserService, private router: Router, private CategoryService: CategoryService, private activatedRoute: ActivatedRoute) {
@@ -77,7 +78,12 @@ export class HeaderComponent implements OnInit, OnChanges {
       console.log(this.isUserLogged);
     });
 
-    
+    this.userService.GetUserById(this.ID).subscribe(
+      (data)=>{
+        this.user = data;
+        console.log(data)
+      }
+    );
   }
 
   Logout() {

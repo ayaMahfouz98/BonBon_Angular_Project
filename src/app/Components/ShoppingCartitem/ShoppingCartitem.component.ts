@@ -38,8 +38,8 @@ export class ShoppingCartitemComponent implements OnInit {
     this.orderService.RemoveItemFromShoppingCart(this.pd.product.id,localStorage.getItem('cartToken')).subscribe();
   }
   removeItemTotalAmount(){
-    this.pd.amount = 0;
     this.orderService.RemoveItemTotalAmountShoppingCart(this.pd.product.id,localStorage.getItem('cartToken')).subscribe();
+    window.location.reload();    
 
   }
 }

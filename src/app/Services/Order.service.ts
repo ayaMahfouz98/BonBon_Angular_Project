@@ -29,7 +29,7 @@ export class OrderService {
   }
 
   GetShoppingCart(){
-    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCart/`);
+    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCart`,{responseType: 'text'});
   }
 
 get shoppingCartExists(): boolean

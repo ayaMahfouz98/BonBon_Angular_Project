@@ -46,72 +46,46 @@
             </div>-->
 
 
-<ng-template #content let-modal>
-  <div class="modal-headers">
-    <h4 class="modal-title my-4" id="modal-basic-title" style="color: #7f4722">
-      <span class="mx-3">Edit Profile </span>
-      <i
-        class="fa fa-times text-danger float-end mx-3"
-        aria-hidden="true"
-        (click)="modal.dismiss('Cross click')"
-      ></i>
-    </h4>
-    <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> -->
-    <!-- <span aria-hidden="true">&times;</span>
-          </button> -->
-  </div>
-  <hr style="width: 100%; margin-left: 0%; margin-top: 0%" />
 
-  <div class="modal-body">
-    <form id="Registeration">
-      <div class="form-group" class="mb-2">
-        <div class="form-input">
-          <i class="fa fa-user"></i>
-          <input
-            type="text"
-            name="Username"
-            [value]="User.userName"
-            #username
-            id="user"
-            placeholder="Username"
-            class="form-control"/>
-        </div>
-      </div>
-      <div class="form-group mb-2">
-        <div class="form-input">
-          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-          <input
-            class="form-control"
-            type="email"
-            name="email"
-            #email
-            id="Email"
-            placeholder="Email"
-            [value]="User.email"/>
-        </div>
-      </div>
-      <div class="form-group mb-2">
-        <div class="form-input">
-          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-          <input
-            class="form-control"
-            type="text"
-            name="profileImage"
-            #profileImage
-            id="profileImage"
-            placeholder="profile Image"
-            [value]="User.profileImage"/>
-        </div>
-      </div>
-      <div class="form-group mb-2">
-        <div class="form-input">
-         <button class="btn add-to-cart" style="width: 150px;" (click)=" SaveData(username,email,profileImage)">Submit</button>
-        </div>
-      </div>
-    </form>
-    </div>
-    </ng-template>
-
+            <ng-template #content let-modal>
+              <div class="modal-headers">
+                <h4 class="modal-title my-4" id="modal-basic-title" style="color:#7f4722"><span class="mx-3">Edit Profile </span>  <i class="fa  fa-times text-danger float-end mx-3" aria-hidden="true" (click)="modal.dismiss('Cross click')"></i></h4>
+                <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> -->
+                    <!-- <span aria-hidden="true">&times;</span>
+                  </button> -->
+              </div>
+              <hr style="width:100%;margin-left: 0%;margin-top: 0%;">
+      
+              <div class="modal-body">
+                  <form id="Registeration">
+                      <div class="form-group" class="mb-2">
+                      <div class="form-input"> <i class="fa fa-user"></i> <input type="text" name="Username" [value]="User?.userName" #username id="user" placeholder="Username" class="form-control"> </div>
+                  </div>
+                  <div class="form-group mb-2">
+                      <div class="form-input">
+                          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                          <input class="form-control" type="email" name="email" #email id="Email" placeholder="Email" [value]="User.email"/>
+                      </div>
+                  </div>
+                  <div class="form-group mb-2">
+                      <div class="form-input">
+                          <span class="input-group-addon"><i class="fa  fa-picture-o"></i></span>
+                          <input class="form-control" type="text" name="image" #image id="image" placeholder="Profile Image URL" [value]="User.profileImage"/>
+                      </div>
+                  </div>
+                  <!-- <div class="form-group mb-2">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                          <input class="form-control rounded-pill" type="text" name="password" #password id="password" placeholder="Password"/>
+                      </div>
+                  </div> -->
+      
+              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-light btn-outline-dark" (click)="SaveData(username.value,email.value,image.value)">Save</button>
+              </div>
+            </ng-template>
 
                     <div class="container mb-5">
                       <div class="card ">
@@ -121,13 +95,13 @@
               
                           <div class="preview-pic tab-content">
                             <div class="card-image">
-                              <img alt="" src={{User?.profileImage}} class="w-75  rounded">
+                              <img alt="" src={{User?.profileImage}} class="w-75  rounded">                
+                              <h3 class="price">{{User.userName}} </h3>
                             </div>
                           </div>
               
                         </div>
                         <div class="details col-md-6">
-                          <h3 class="price">{{User.userName}} </h3>
                           <h6 class="product-code">User Id: {{ID}} </h6>
               
                       

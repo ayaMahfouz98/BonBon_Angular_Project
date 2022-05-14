@@ -13,19 +13,20 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
   cartNotEmpty:any;
   constructor( private orderService :OrderService ) { 
 
-    
     if(this.orderService.shoppingCartExists == false){
       this.orderService.GetShoppingCart().subscribe(
         (data:any)=>{
-          this.currentshoppingCart = data.shoppingCart.shoppingCartId;
-          localStorage.setItem('cartToken', data.shoppingCart.shoppingCartId)
+          this.currentshoppingCart = data;
+          console.log(data);
+
+          localStorage.setItem('cartToken', data)
         });
     }
   }
 
 
   ngOnInit() {
-      
+
     this.orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe(
       (data:any)=>{
         this.shoppingCartItems=data;

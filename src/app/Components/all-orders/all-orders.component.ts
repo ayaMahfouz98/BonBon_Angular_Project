@@ -10,38 +10,34 @@ import { UserService } from 'src/app/Services/User.service';
 })
 export class AllOrdersComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, private ordeService:OrderService,private userService:UserService) { }
+  constructor(private modalService: NgbModal, private ordeService: OrderService, private userService: UserService) { }
 
-orders:any;
-Status:any;
-ID:any;
-User:any;
-closeResult = '';
-Order:any;
+  orders: any;
+  Status: any;
+  ID: any;
+  User: any;
+  closeResult = '';
+  Order: any;
 
 
   ngOnInit(): void {
     this.ordeService.GetAllOrders().subscribe(
-      (data)=>
-      {
-        this.orders=data;
+      (data) => {
+        this.orders = data;
         console.log(this.orders)
-        for(let order of this.orders)
-        {
+        for (let order of this.orders) {
           this.userService.GetUserById(order.userId).subscribe(
-            (data)=>{
-                this.User = data;
-                //console.log(this.User)
+            (data) => {
+              this.User = data;
+              //console.log(this.User)
             },
-            (err)=>
-            {
+            (err) => {
               console.log(err);
             }
           )
         }
       },
-      (err)=>
-      {
+      (err) => {
         console.log(err)
       }
     )
@@ -65,28 +61,29 @@ Order:any;
     }
   }
   SaveData(
-    id:any,
-    status:any
+    id: any
   ) {
-  
-    var statu:any;
-    if(this.Status=='Pending'){
-      statu=0;
+
+    var status: any;
+    if (this.Status == 'Pending') {
+      status = 0;
     }
-    
-    else if(this.Status=='Accepted'){
-      statu=1;
+
+    else if (this.Status == 'Accepted') {
+      status = 1;
     }
-    else if(this.Status=='Cancelled'){
-      statu=2;
+    else if (this.Status == 'Cancelled') {
+      status = 2;
     }
-    console.log(statu)
-    this.ordeService.ChangeOrderState(id,this.Status).subscribe();
+    console.log(status);
+
+    this.ordeService.ChangeOrderState(id, status).subscribe();
+
     window.location.reload();
   }
-  selectChange(){
-    console.log(this.Status)
 
+  selectChange() {
+    console.log(this.Status)
   }
 
 }

@@ -17,8 +17,7 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
       this.orderService.GetShoppingCart().subscribe(
         (data:any)=>{
           this.currentshoppingCart = data;
-          console.log(data);
-
+          //console.log(data);
           localStorage.setItem('cartToken', data)
         });
     }
@@ -39,8 +38,11 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
   
 CompleteOrder(){
   this.orderService.CompleteOrder(localStorage.getItem('email'),localStorage.getItem('cartToken')).subscribe();
-  this.total =this.orderService. GetOrderTotal(localStorage.getItem('cartToken')).subscribe();
-  console.log("ff"+this.total);
+   //this pat nd to b fixd
+  // this.total =this.orderService.GetOrderTotal(localStorage.getItem('cartToken')).subscribe();
+  //console.log("ff"+this.total);
+      window.location.reload();    
+
 }
 
 }

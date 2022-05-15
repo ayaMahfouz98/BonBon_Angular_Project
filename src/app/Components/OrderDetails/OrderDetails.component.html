@@ -26,6 +26,10 @@
               <h5 class="mb-0 ms-0">
                 Date:<span>{{ orderObj[0].orderDate | date: "longDate" }}</span>
               </h5>
+              <h5 class="mb-0 ms-0">
+                Total:<span>{{Total | currency: "USD" }}</span>
+              </h5>
+           
             </div>
           </div>
         </div>
@@ -36,20 +40,24 @@
         <thead>
           <tr class="bg-light">
             <th scope="col" width="30%">Name</th>
-            <th scope="col" width="30%">Product</th>
-            <th scope="col" width="20%">Amount</th>
-            <th scope="col" width="20%">Price</th>
+            <th scope="col" width="25%">Product</th>
+            <th scope="col" width="15%">Amount</th>
+            <th scope="col" width="15%">Price</th>
+            <th scope="col" width="20%">Total Price</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let p of orderObj[0].orderProducts; let i = index">
             <td class="tt" scope="col" width="30%">{{ p.product.title }}</td>
-            <td scope="col" width="30%">
+            <td scope="col" width="25%">
               <img class="rounded" src="{{ p.product.imageUrl }}" width="100" />
             </td>
-            <th class="tt" scope="col" width="20%">{{ p.amount }}</th>
-            <th class="tt" scope="col" width="20%">
+            <th class="tt" scope="col" width="15%">{{ p.amount }}</th>
+            <th class="tt" scope="col" width="15%">
               {{ p.price | currency: "USD" }}
+            </th>
+            <th class="tt" scope="col" width="20%">
+              {{ p.price * p.amount | currency: "USD" }}
             </th>
           </tr>
         </tbody>

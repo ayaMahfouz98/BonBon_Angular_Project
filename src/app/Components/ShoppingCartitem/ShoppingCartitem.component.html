@@ -11,7 +11,7 @@
             class="img-fluid rounded-3" alt="Shopping item" style="width: 70px;">
         </div>
         <div class="ms-4">
-          <h5>{{pd.product.title}}</h5>
+          <h5>{{ (pd.product.title.length > 18)? (pd.product.title | slice:0:18)+'..' : (pd.product.title) }}</h5>
         </div>
       </div>
       

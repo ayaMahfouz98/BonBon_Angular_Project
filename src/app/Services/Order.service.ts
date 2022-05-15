@@ -14,8 +14,8 @@ export class OrderService {
   GetAllOrders(){
     return this.HttpClient.get(this.BaseURL);
   }
-  ChangeOrderState (id:any){
-    return this.HttpClient.post(`${this.BaseURL}/changeOrderStateById/`,id);
+  ChangeOrderState (id:any,orderState:any){
+    return this.HttpClient.put(`${this.BaseURL}/changeOrderStateById/${id}`,orderState);
     }
    
 

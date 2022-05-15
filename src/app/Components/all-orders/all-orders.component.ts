@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OrderService } from 'src/app/Services/Order.service';
 import { UserService } from 'src/app/Services/User.service';
 
@@ -9,12 +10,15 @@ import { UserService } from 'src/app/Services/User.service';
 })
 export class AllOrdersComponent implements OnInit {
 
-  constructor(private ordeService:OrderService,private userService:UserService) { }
+  constructor(private modalService: NgbModal, private ordeService:OrderService,private userService:UserService) { }
 
 orders:any;
-State:any;
+Status:any;
 ID:any;
 User:any;
+closeResult = '';
+Order:any;
+
 
   ngOnInit(): void {
     this.ordeService.GetAllOrders().subscribe(
@@ -41,6 +45,48 @@ User:any;
         console.log(err)
       }
     )
+  }
+  open(content: any) {
+    //console.log(content)
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+  SaveData(
+    id:any,
+    status:any
+  ) {
+  
+    var statu:any;
+    if(this.Status=='Pending'){
+      statu=0;
+    }
+    
+    else if(this.Status=='Accepted'){
+      statu=1;
+    }
+    else if(this.Status=='Cancelled'){
+      statu=2;
+    }
+    console.log(statu)
+    this.ordeService.ChangeOrderState(id,statu).subscribe();
+    window.location.reload();
+  }
+  selectChange(){
+    console.log(this.Status)
+
   }
 
 }

@@ -43,7 +43,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { SocialLoginModule, SocialAuthServiceConfig ,
   GoogleLoginProvider, FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
-import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
 import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
 
 
@@ -77,7 +76,6 @@ import { AllOrdersComponent } from './Components/all-orders/all-orders.component
       LayoutComponent,
       HomeComponent,
       UserProfileComponent,
-      EditProfileComponent,
       ForgetPasswordComponent,
       ResetPasswordComponent,
       AllUsersComponent,

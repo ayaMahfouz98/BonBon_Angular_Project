@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
     if ((this.Email != '') && (this.Password != '')) {
       this.userService.GetUserByEmailforLogin(user).subscribe(
         (data: any) => {
-          console.log(data)
           if (data == null) {
             this.message = "This User is not found";
           }

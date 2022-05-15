@@ -46,12 +46,11 @@ export class RegisterComponent implements OnInit {
           (data: any) => {
             if (data == null) {
               this.userService.Register(user).subscribe();
-              this.router.navigate(['/Login']);// ================>   TODO ----> REDIRECT TO HOME
+              this.router.navigate(['/Login']); // ================>   TODO ----> REDIRECT TO HOME
             }
             else {
               this.message = "This email is taken, Please enter another one"
             }
-
           },
 
           (err:any) => {
@@ -70,8 +69,9 @@ export class RegisterComponent implements OnInit {
 
   signInWithGoogle(){
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then( (data:any) => {
-      console.log(data);
+      console.log(JSON.stringify(data));
       localStorage.setItem('google_auth', JSON.stringify(data));
+      // this.isUserLogged = this.userService.isUserLogged;
       this.router.navigate(['/Home']);
     });
   }
@@ -79,6 +79,7 @@ export class RegisterComponent implements OnInit {
   signInWithFacebook(){
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then( (data:any) => {
       localStorage.setItem('facebook_auth', JSON.stringify(data));
+      // this.isUserLogged = this.userService.isUserLogged;
       this.router.navigate(['/Home']);
     });
   }

@@ -72,7 +72,7 @@ export class AllOrdersComponent implements OnInit {
     else if (this.Status == 'Accepted') {
       status = 1;
     }
-    else if (this.Status == 'Cancelled') {
+    else if (this.Status == 'Canceled') {
       status = 2;
     }
     console.log(status);

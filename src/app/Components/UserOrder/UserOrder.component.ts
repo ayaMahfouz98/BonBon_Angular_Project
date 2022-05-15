@@ -32,4 +32,10 @@ export class UserOrderComponent implements OnInit {
   openOrderDetails(prdId:number){
     this.router.navigate(['/OrderDetails/',prdId])
   }
+
+CancelOrder(id:any)
+{
+  //////////to be continued
+  //this.orderService.
+}
 }

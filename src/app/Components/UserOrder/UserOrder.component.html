@@ -31,9 +31,14 @@
                     <div class="text-warning state " *ngSwitchCase="0">Pending</div>
                     <div class="text-success state" *ngSwitchCase="1">Accepted</div>
                     <div class="text-danger state" *ngSwitchCase="2">Canceled</div>
+                    <span *ngIf="p.state=='0'">
+                      <a routerLink="/yourProfile" class="btn btn-secondary btn-outline-secodary mx-5 my-2 mt-2 px-5" (click)="CancelOrder(p.id)" >Cancel Order<i class="fa  fa-ban text-danger"
+                        aria-hidden="true"></i></a>
+                        </span>
                   </div>
                   <h5 class="mb-0  dt">{{p.orderDate | date:'longDate'}}</h5>
                 </div>
+
               </div>
             </div>
           </div>

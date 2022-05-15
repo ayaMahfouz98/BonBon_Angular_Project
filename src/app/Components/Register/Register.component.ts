@@ -18,8 +18,11 @@ export class RegisterComponent implements OnInit {
   Email = '';
   User = '';
   message: any;
+  isUserLogged: boolean = false;
 
-  constructor(private userService: UserService, private router: Router, private socialAuthService: SocialAuthService) { }
+  constructor(private userService: UserService, private router: Router, private socialAuthService: SocialAuthService) {
+    this.isUserLogged = this.userService.isUserLogged;
+  }
 
   ngOnInit() { }
 
@@ -53,7 +56,7 @@ export class RegisterComponent implements OnInit {
             }
           },
 
-          (err:any) => {
+          (err: any) => {
             if (err.status == 400)
               console.log('Incorrect username or password.', 'Authentication failed.')
             else
@@ -67,20 +70,44 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  signInWithGoogle(){
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then( (data:any) => {
-      console.log(JSON.stringify(data));
-      localStorage.setItem('google_auth', JSON.stringify(data));
-      // this.isUserLogged = this.userService.isUserLogged;
-      this.router.navigate(['/Home']);
+  signInWithGoogle() {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data: any) => {
+      let user = {
+        email: data.email,
+        username: data.name,
+        profileImage: data.photoUrl || null,
+        gender: 1
+      };
+      // this.userService.GetUserByEmailforRegister(user).subscribe(
+      //   (data: any) => {
+      //     if (data == null) {
+      //       this.userService.Register(user).subscribe();
+
+            localStorage.setItem('google_auth', JSON.stringify(data));
+            this.router.navigate(['/Home']);
+            window.location.reload();
+
+      //       this.router.navigate(['/Login']); // ================>   TODO ----> REDIRECT TO HOME
+      //     }
+      //     else {
+      //       this.message = "This email is taken, Please enter another one"
+      //     }
+      //   },
+      //   (err: any) => {
+      //     if (err.status == 400)
+      //       console.log('Incorrect username or password.', 'Authentication failed.')
+      //     else
+      //       console.log(err);
+      //   }
+      // )
     });
   }
 
-  signInWithFacebook(){
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then( (data:any) => {
+  signInWithFacebook() {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data: any) => {
       localStorage.setItem('facebook_auth', JSON.stringify(data));
-      // this.isUserLogged = this.userService.isUserLogged;
       this.router.navigate(['/Home']);
+      window.location.reload();
     });
   }
 

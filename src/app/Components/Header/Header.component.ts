@@ -20,6 +20,8 @@ import { UserService } from 'src/app/Services/User.service';
 
 export class HeaderComponent implements OnInit, OnChanges {
   // userDetails: any;
+  storage_google: any;
+  storage_facebook: any;
   isUserLogged: boolean;
   Pname: string = 'Search';
   CategoryId: any;
@@ -44,24 +46,11 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // const storage_google = localStorage.getItem('google_auth');
-    // const storage_facebook = localStorage.getItem('facebook_auth');
-
-    // if(storage_google){
-    //   // this.userDetails = JSON.parse(storage_google);
-    //   this.Email = JSON.parse(storage_google).email;
-    // } else{
-    //   this.Logout();
-    // }
-
-    // if(storage_facebook){
-    //   // this.userDetails = JSON.parse(storage_facebook);
-    //   this.Email = JSON.parse(storage_facebook).email;
-    // } else{
-    //   this.Logout();
-    // }
 
     this.UserEmail = this.Email;
+
+    this.storage_google = localStorage.getItem('google_auth');
+    this.storage_facebook = localStorage.getItem('facebook_auth');
 
     this.CategoryService.GetAllCategories().subscribe(
       (data:any) => {
@@ -74,30 +63,49 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     this.userService.getloggedStatus().subscribe((status:any) => {
       this.isUserLogged = status;
-      console.log(this.isUserLogged);
+
+      if(this.storage_google)
+        this.isUserLogged = true;
+
+      if(this.storage_facebook)
+        this.isUserLogged = true;
+
     });
 
     this.userService.GetUserById(this.ID).subscribe(
       (data:any)=>{
-        this.user = data.userName;
+        if(data != null)
+          this.user = data.userName;
       },
       (err)=>{
         this.user = "";
       }
     );
+
+    if(this.storage_google){
+      // this.userDetails = JSON.parse(storage_google);
+      this.user = JSON.parse(this.storage_google).name;
+    }
+
+    if(this.storage_facebook){
+      // this.userDetails = JSON.parse(storage_facebook);
+      this.user = JSON.parse(this.storage_facebook).name;
+    }
+
   }
+
 
   Logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('id');
-    // localStorage.removeItem('google_auth');
-    // localStorage.removeItem('facebook_auth');
+    localStorage.removeItem('google_auth');
+    localStorage.removeItem('facebook_auth');
     localStorage.clear();
 
     this.userService.Logout().subscribe();
     this.isUserLogged = this.userService.isUserLogged;
-    console.log(this.isUserLogged)
+    // console.log(this.isUserLogged)
   }
 
 

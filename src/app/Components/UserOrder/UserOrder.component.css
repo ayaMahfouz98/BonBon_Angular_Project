@@ -6,3 +6,9 @@
     font-weight:500;
     font-size: medium;
 }
+
+i{
+  margin: 5px;
+  color: rgb(226, 103, 103);
+  /* font-weight: lighter; */
+}

@@ -24,26 +24,21 @@
       </div> -->
 
       <div class="mt-2 row">
-        <label >Role</label>
+        <label>Role</label>
         <input #role class="form-control w-25" placeholder="Please Select the role " type="text" value="{{Role}}">
-        <select [(ngModel)]="Role" name="Role" class=" w-25"   >
+        <select [(ngModel)]="Role" name="Role" class=" w-25">
           <!-- <option value="Customer">Customer</option>
           <option value="Admin">Admin</option> -->
           <option *ngFor="let role of AllRoles.roles;" value="{{role}}">{{role}}</option>
         </select>
       </div>
 
-
-
       <div class="mt-2 row align-items-center">
         <button class="btn btn-success m-3 row w-25" (click)="EditRole(role.value)">Save Changes</button>
-          <br>
-        <button class="btn btn-success m-3 row" style="width: 200px;" routerLink="/AllUsers"  >Back To All Users</button>
+        <br>
+        <button class="btn btn-success m-3 row" style="width: 200px;" routerLink="/AllUsers">Back To All Users</button>
       </div>
     </div>
 
-
   </div>
 </div>
-
-

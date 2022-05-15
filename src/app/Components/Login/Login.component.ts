@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.userService.GetUserByEmailforLogin(user).subscribe(
         (data: any) => {
           console.log(data)
-          if (data == null){
+          if (data == null) {
             this.message = "This User is not found";
           }
           else {
@@ -50,16 +50,16 @@ export class LoginComponent implements OnInit {
                 this.isUserLogged = this.userService.isUserLogged;
                 this.router.navigate(['/Home']); //================>   TODO ----> REDIRECT TO HOME
               },
-              (err:any) => {
+              (err: any) => {
                 if (err.status == 400)
-                console.log('Incorrect username or password.', 'Authentication failed.')
+                  console.log('Incorrect username or password.', 'Authentication failed.')
                 else
-                console.log(err);
+                  console.log(err);
               }
-              );
-            }
-          },
-        (err:any) => { this.PasswordMSG = err.error.text; }
+            );
+          }
+        },
+        (err: any) => { this.PasswordMSG = err.error.text; }
       )
     }
     else {

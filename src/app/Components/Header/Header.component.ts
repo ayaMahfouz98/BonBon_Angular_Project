@@ -62,7 +62,6 @@ export class HeaderComponent implements OnInit, OnChanges {
     // }
 
     this.UserEmail = this.Email;
-    // console.log(this.UserEmail);
 
     this.CategoryService.GetAllCategories().subscribe(
       (data:any) => {
@@ -79,9 +78,11 @@ export class HeaderComponent implements OnInit, OnChanges {
     });
 
     this.userService.GetUserById(this.ID).subscribe(
-      (data)=>{
-        this.user = data;
-        console.log(data)
+      (data:any)=>{
+        this.user = data.userName;
+      },
+      (err)=>{
+        this.user = "";
       }
     );
   }

@@ -81,7 +81,7 @@ Order:any;
       statu=2;
     }
     console.log(statu)
-    this.ordeService.ChangeOrderState(id,statu).subscribe();
+    this.ordeService.ChangeOrderState(id,this.Status).subscribe();
     window.location.reload();
   }
   selectChange(){

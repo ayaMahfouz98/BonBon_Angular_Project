@@ -11,30 +11,31 @@
   <body>
   
   
-      <div class="container mt-5">
+      <div class="container mt-2">
+        <h3 class="text-center">Edit Product</h3>
           <form>
         <div class="row jumbotron">
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="name-f">Title</label>
                   <input type="text" #Title class="form-control"  value="{{Product.title}}"  required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="name-l">Description</label>
                   <input #Description type="text" class="form-control"  value="{{Product.description}}"  required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="email">Price</label>
                   <input #price type="email" class="form-control"  value="{{Product.price}}" required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="address-1">Quantity</label>
                   <input #quantity type="number" class="form-control" value="{{Product.quantity}}"  required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="Rating">Rating</label>
                   <input #overAllRating type="address" class="form-control" value="{{Product.overAllRating}}"   required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                 <label for="Rating">Image</label>
                 <input #imageUrl type="text" class="form-control" value="{{Product.imageUrl}}"   required>
             </div>

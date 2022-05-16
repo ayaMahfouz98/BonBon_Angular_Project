@@ -24,7 +24,7 @@ quantity:any;
     this.service.GetProductById(this.ProductId).subscribe(
       
       (data)=>{
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         this.Product=data;
         this.quantity = this.Product.quantity;
 

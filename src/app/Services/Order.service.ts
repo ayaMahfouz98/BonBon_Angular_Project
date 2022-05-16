@@ -59,6 +59,11 @@ get shoppingCartExists(): boolean
   CompleteOrder(email:any,shoppingCartId:any){
     return this.HttpClient.post(`${this.BaseURL}/completerOrder/${email}/${shoppingCartId}`,email);
   }
+
+  DeleteOrder(id:any){
+    return this.HttpClient.delete(`${this.BaseURL}/DeleteOrder/${id}`,id);
+  }
+
   GetOrderDetails(id:any){
     return this.HttpClient.get(`${this.BaseURL}/GetOrderDetails/${id}`);
   }

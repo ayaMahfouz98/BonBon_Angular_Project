@@ -2,7 +2,7 @@
 <h4 class="text-center m-3">ON SALE</h4>
 <hr>
 <owl-carousel-o [options]="customOptions" class="col-lg-2">
-    <ng-container *ngFor="let prd of AllProductsWithPormotion.value; let i = index">
+    <ng-container *ngFor="let prd of AllProductsWithPormotion?.value; let i = index">
       <ng-template carouselSlide>
                 <div class="card-sl m-3 " routerLink="/Products/{{prd.id}}"> 
                         <!--
@@ -18,10 +18,10 @@
                     </div>
                     <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
                     <div class="card-heading">
-                        {{prd.title}}
+                        {{prd?.title}}
                         <div>
-                        <span class="product-old-price"> {{prd.price | currency:'EGP'}}</span>
-                <span class="product-price"> {{prd.price-(prd.price*prd.promotionPercentage/100) | currency:'EGP'}}</span>
+                        <span class="product-old-price"> {{prd?.price | currency:'EGP'}}</span>
+                <span class="product-price"> {{prd?.price-(prd?.price*prd?.promotionPercentage/100) | currency:'EGP'}}</span>
                 </div>
                     </div>
                  <!--

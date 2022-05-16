@@ -27,4 +27,8 @@
       .amt{
           margin-right: 10px;
       }
- 
+      .fa-times{
+          position: absolute;
+          top: 7px;
+          right: 15px;
+      }

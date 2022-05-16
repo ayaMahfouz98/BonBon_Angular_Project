@@ -1,14 +1,27 @@
 .state{
-    font-weight: bold;
     margin-left: 130px;
 }
-.dt{
-    font-weight:500;
-    font-size: medium;
-}
+
 
 i{
   margin: 5px;
   color: rgb(226, 103, 103);
   /* font-weight: lighter; */
+}
+a{
+  text-decoration: none;
+  color: rgb(226, 103, 103);
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+span{
+  font-weight: 600;
+
+}
+.num{
+  text-decoration: underline;
+  font-weight:500;
+  font-size: medium;
 }

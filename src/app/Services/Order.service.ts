@@ -59,6 +59,11 @@ get shoppingCartExists(): boolean
   CompleteOrder(email:any,shoppingCartId:any){
     return this.HttpClient.post(`${this.BaseURL}/completerOrder/${email}/${shoppingCartId}`,email);
   }
+
+  DeleteOrder(id:any){
+    return this.HttpClient.delete(`${this.BaseURL}/DeleteOrder/${id}`,id);
+  }
+
   GetOrderDetails(id:any){
     return this.HttpClient.get(`${this.BaseURL}/GetOrderDetails/${id}`);
   }
@@ -68,9 +73,20 @@ get shoppingCartExists(): boolean
 
 
   /*************************Component Services*******************************/
-  decreaseAmount(pd:any){
-    if(pd.amount != 1)
-         pd.amount--;
+  removeItemTotalAmount(productId:any,cartToken:any){
+    this.RemoveItemTotalAmountShoppingCart(productId,cartToken).subscribe();  
+    window.location.reload();    
   }
+
+
+  PrdListTotalCost(orderProducts:any[] ){
+    let total = 0;
+    orderProducts?.forEach(element => {
+      console.log(element);
+        total = total + (Number(element.amount) * Number(element.product.price));
+   })
+    return total;
+  }
+  
 
 }

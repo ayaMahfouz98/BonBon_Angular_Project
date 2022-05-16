@@ -1,5 +1,3 @@
-
-
 <h1 class="  text-center w-50 m-auto mb-3 mt-3" style="color:rgb(226, 103, 103); ">All Orders</h1>
 <table class="table table-bordered table-striped text-center w-75 m-auto">
   <thead>
@@ -56,7 +54,7 @@
           <select [(ngModel)]="Status" name="status" class=" w-25" (change)="selectChange()">
             <option  #status value="Pending">Pending</option>
             <option #status value="Accepted">Accepted</option>
-            <option #status value="cancelled">Cancelled</option>
+            <option #status value="cancelled">Canceled</option>
           </select>
         </div>
       </div>
@@ -64,7 +62,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary text-light btn-outline-dark"
-      (click)="SaveData(order.id,status.value)">Save</button>
+      (click)="SaveData(order.id)">Save</button>
   </div>
 </ng-template>
     </tr>

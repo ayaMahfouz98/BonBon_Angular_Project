@@ -11,36 +11,37 @@
   <body>
   
   
-      <div class="container mt-5">
+      <div class="container mt-2">
+        <h3 class="text-center">Edit Product</h3>
           <form>
         <div class="row jumbotron">
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="name-f">Title</label>
-                  <input type="text" #Title class="form-control"  value="{{Product.title}}"  required>
+                  <input type="text" #Title class="form-control"  value="{{Product?.title}}"  required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="name-l">Description</label>
-                  <input #Description type="text" class="form-control"  value="{{Product.description}}"  required>
+                  <input #Description type="text" class="form-control"  value="{{Product?.description}}"  required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="email">Price</label>
-                  <input #price type="email" class="form-control"  value="{{Product.price}}" required>
+                  <input #price type="email" class="form-control"  value="{{Product?.price}}" required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="address-1">Quantity</label>
-                  <input #quantity type="number" class="form-control" value="{{Product.quantity}}"  required>
+                  <input #quantity type="number" class="form-control" value="{{Product?.quantity}}"  required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                   <label for="Rating">Rating</label>
-                  <input #overAllRating type="address" class="form-control" value="{{Product.overAllRating}}"   required>
+                  <input #overAllRating type="address" class="form-control" value="{{Product?.overAllRating}}"   required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-md-6 form-group">
                 <label for="Rating">Image</label>
-                <input #imageUrl type="text" class="form-control" value="{{Product.imageUrl}}"   required>
+                <input #imageUrl type="text" class="form-control" value="{{Product?.imageUrl}}"   required>
             </div>
               <div class="col-6 form-group">
                   <label for="Sale">Sale</label>
-                  <input #promotionPercentage type="address" class="form-control d-inline" name="Sale" id="Sale" value="{{Product.promotionPercentage}}" required>
+                  <input #promotionPercentage type="address" class="form-control d-inline" name="Sale" id="Sale" value="{{Product?.promotionPercentage}}" required>
                 </div>
                 <div class="col-6 form-group">
   
@@ -51,13 +52,12 @@
                 </div>
   
                   <div class="col-6 form-group">
-                  <input [(ngModel)]="isPromoted" checked type="checkbox" class="form-check d-inline"  id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
+                  <input [(ngModel)]="isPromoted"  type="checkbox" class="form-check d-inline"  id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
                   </div>
   
-           
               <div class="mt-2 row align-items-center">
                 <button class="btn1 btn m-3 w-25"
-                  (click)="Edit(Title.value,Description.value,+price.value,+quantity.value,+selectedCatID.value,imageUrl.value,+isPromoted.value,+promotionPercentage.value,+overAllRating.value )">Save
+                  (click)="Edit(Title.value,Description.value,+price.value,+quantity.value,+selectedCatID.value,imageUrl.value,isPromoted.value,+promotionPercentage.value,+overAllRating.value )">Save
                   Changes</button>
               </div>
           </div>

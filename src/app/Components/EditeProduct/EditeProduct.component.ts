@@ -15,7 +15,7 @@ ProductId:any = 3;
 Product:any;
 AllCategories:any;
 selectedCatID:any;
-isPromoted:any = 1;
+IsPromoted:any ;
 //add categories list is it could be better
   constructor(private ActivatedRoute:ActivatedRoute,private servicePrd:ProductsService,private router: Router,private serviceCat:CategoryService) {
     this.ProductId= ActivatedRoute.snapshot.params["id"];
@@ -39,6 +39,12 @@ this.servicePrd.GetProductById(this.ProductId).subscribe(
       (data)=>{
         this.Product=data;
         this.selectedCatID=this.Product.categoryId;
+
+        if(this.Product.isPromoted==0){
+          this.IsPromoted=0;
+        }else{
+          this.IsPromoted=1;
+        }
       },
       (err)=>{console.log(err)}
     );

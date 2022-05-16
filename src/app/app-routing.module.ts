@@ -38,8 +38,8 @@ import { AllOrdersComponent } from './Components/all-orders/all-orders.component
 const routes: Routes = [
   {path:"",component:LayoutComponent,children:[
     {path: '',redirectTo:'/Home',pathMatch:'full'},
-    {path:'Home',component:HomeComponent}
-
+    {path:'Home',component:HomeComponent},
+    {path:'Promoted',component:PromotionsComponent}
   ]},
   {path:"Cart",component:ShoppingCartComponent},
   {path:"AboutUs",component:AboutUsDataComponent},

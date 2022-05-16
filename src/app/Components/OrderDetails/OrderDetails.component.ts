@@ -26,11 +26,8 @@ export class OrderDetailsComponent implements OnInit {
         this.orderObj = data;
         console.log(this.orderObj)
         //console.log(this.orderObj[orderProducts])
-        for(var i=0;i<this.orderObj[0].orderProducts.length;i++ ){
-
-          this.Total = this.Total + (Number(this.orderObj[0].orderProducts[i].amount) * Number(this.orderObj[0].orderProducts[i].price));
-
-        }
+    
+        this.Total = this.orderService.PrdListTotalCost(this.orderObj[0].orderProducts)
       },
       (err)=>{console.log(err)}
     )

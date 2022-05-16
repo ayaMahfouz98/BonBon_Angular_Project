@@ -68,9 +68,20 @@ get shoppingCartExists(): boolean
 
 
   /*************************Component Services*******************************/
-  decreaseAmount(pd:any){
-    if(pd.amount != 1)
-         pd.amount--;
+  removeItemTotalAmount(productId:any,cartToken:any){
+    this.RemoveItemTotalAmountShoppingCart(productId,cartToken).subscribe();  
+    window.location.reload();    
   }
+
+
+  PrdListTotalCost(orderProducts:any[] ){
+    let total = 0;
+    orderProducts?.forEach(element => {
+      console.log(element);
+        total = total + (Number(element.amount) * Number(element.product.price));
+   })
+    return total;
+  }
+  
 
 }

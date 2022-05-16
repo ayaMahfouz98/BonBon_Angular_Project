@@ -29,19 +29,14 @@ export class ProductsComponent implements OnInit{
               */
              let count=0;
              for(let item of this.AllProducts)
-             count++;
-
+              count++;
               this.totalLength = count;
-              }
-   );
+              } );
 
    this.categoryService.GetAllCategories().subscribe(
     (data)=>{
               this.AllCategories=data;
-
-             }
-  );
-
+            });
   }
 
   sort(): void {

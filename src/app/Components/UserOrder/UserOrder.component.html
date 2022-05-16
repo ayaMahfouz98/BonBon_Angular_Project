@@ -2,9 +2,8 @@
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col">
       <div>
-        <h4 class="text-center" style="color: rgb(226, 103, 103);">
-          Orders</h4>
-        <hr>
+        <h3 class="text-center" style="color: rgb(226, 103, 103);">
+          Your Orders</h3>
       </div>
       <div class="card-body p-4">
         <div class="row">
@@ -13,8 +12,8 @@
               <div class="card-body">
                 <div class="d-flex justify-content-between hds">
                   <h5 class="mb-0 ">Order number</h5>
-                  <h5 class="mb-0  ms-0">Status</h5>
-                  <h5 class="mb-0 ms-0">Date</h5>
+                  <h5 class="mb-0 col-3">Status</h5>
+                  <h5 class="mb-0 ms-0 col-1">Date</h5>
                 </div>
               </div>
             </div>
@@ -25,15 +24,14 @@
                 <div class="d-flex justify-content-between">
                   <a routerLink="/OrderDetails" (click)="openOrderDetails(p.id)" [(ngModel)]="selectedOrderID"
                     ngDefaultControl>
-                    <h5 class="mb-0  dt ">{{p.id}}</h5>
+                    <h5 class="mb-0  num">{{p.id}}</h5>
                   </a>
                   <div [ngSwitch]=" p.state">
-                    <div class="text-warning state " *ngSwitchCase="0">Pending</div>
-                    <div class="text-success state" *ngSwitchCase="1">Accepted</div>
-                    <div class="text-danger state" *ngSwitchCase="2">Canceled</div>
+                    <span class="text-warning state " *ngSwitchCase="0">Pending</span>
+                    <span class="text-success state" *ngSwitchCase="1">Accepted</span>
+                    <span class="text-danger state" *ngSwitchCase="2">Canceled</span>
                     <span *ngIf="p.state=='0'">
-                      <a routerLink="/yourProfile" class="btn btn-secondary btn-outline-secodary mx-5 my-2 mt-2 px-5" (click)="CancelOrder(p.id)" >Cancel Order<i class="fa  fa-ban text-danger"
-                        aria-hidden="true"></i></a>
+                      <span class="me-2 ms-2">|</span><a routerLink="/yourProfile" class="my-2 mt-2" (click)="CancelOrder(p.id)" ><i class=" fa  fa-ban text-danger" aria-hidden="true"></i> Cancel</a>
                         </span>
                   </div>
                   <h5 class="mb-0  dt">{{p.orderDate | date:'longDate'}}</h5>

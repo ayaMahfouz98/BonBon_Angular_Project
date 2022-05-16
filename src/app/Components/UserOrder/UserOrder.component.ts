@@ -25,7 +25,8 @@ export class UserOrderComponent implements OnInit {
     //add autho
    this.orderService.GetOrdersByUserId(this.ID).subscribe(
      (data)=>{console.log(data)
-               this.userOrders=data ;},
+               this.userOrders=data ;
+             },
      (err)=>{console.log(err)}
    );
   }
@@ -34,8 +35,8 @@ export class UserOrderComponent implements OnInit {
   }
 
 CancelOrder(id:any)
-{
-  //////////to be continued
-  //this.orderService.
+  {
+  this.orderService.DeleteOrder(id).subscribe();
+  window.location.reload();    
 }
 }

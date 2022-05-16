@@ -31,7 +31,7 @@
                     <span class="text-success state" *ngSwitchCase="1">Accepted</span>
                     <span class="text-danger state" *ngSwitchCase="2">Canceled</span>
                     <span *ngIf="p.state=='0'">
-                      <span class="me-2 ms-2">|</span><a routerLink="/yourProfile" class="my-2 mt-2" (click)="CancelOrder(p.id)" ><i class=" fa  fa-ban text-danger" aria-hidden="true"></i> Cancel</a>
+                      <span class="me-2 ms-2">|</span><a  class="my-2 mt-2" (click)="CancelOrder(p.id)" ><i class=" fa  fa-ban text-danger" aria-hidden="true"></i> Cancel</a>
                         </span>
                   </div>
                   <h5 class="mb-0  dt">{{p.orderDate | date:'longDate'}}</h5>
@@ -49,3 +49,28 @@
     </div>
   </div>
 </div>
+
+<!--
+                  <h5 class="mb-0  dt">{{p.orderDate | date:'longDate'}}</h5>
+
+                  <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure you want to cancel this Order?</p>
+                        </div>
+
+                        <div class="modal-footer">
+                          <button type="button" (click)="CancelOrder(p.id)" class="btn btn-primary">Cancel</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Discard</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              -->

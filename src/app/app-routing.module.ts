@@ -30,6 +30,8 @@ import { EditUserComponent } from './Components/EditUser/EditUser.component';
 
 import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
 import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
+import { CompleteOrderComponent } from './Components/CompleteOrder/CompleteOrder.component';
+import { OrderPlacedComponent } from './Components/OrderPlaced/OrderPlaced.component';
 
 
 
@@ -41,7 +43,10 @@ const routes: Routes = [
     {path:'Home',component:HomeComponent},
     {path:'Promoted',component:PromotionsComponent}
   ]},
+
   {path:"Cart",component:ShoppingCartComponent},
+  {path:"OrderPlaced",component:OrderPlacedComponent},
+  {path:"CompleteOrder",component:CompleteOrderComponent},
   {path:"AboutUs",component:AboutUsDataComponent},
   {path:"Products",component:ProductsComponent},
   {path:"myOrders/:id",component:UserOrderComponent},

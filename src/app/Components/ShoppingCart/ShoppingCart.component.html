@@ -43,11 +43,12 @@
                           <div class="d-flex justify-content-between">
                             <p class="mb-2">Shipping:</p>{{recievedOrderPrice*.1}}
                           </div>
-                          <button type="button" (click)="CompleteOrder()" class="add-to-cart col-12 ps-4 pe-4 mt-3">
+                          <a  href="/CompleteOrder" ><button type="button"class="add-to-cart col-12 ps-4 pe-4 mt-3">
                             <div class="d-flex ">
-                              <span class="text-center">Checkout</span>
+                              <span class="text-center">Complete Order</span>
                             </div>
                           </button>
+                        </a>
                         </div>
                       </div>
                     </div>
@@ -56,14 +57,41 @@
                 </div>
               </div>
             </div>
-
+<!--
+            <ng-template #content let-modal>
+              <div class="modal-headers">
+                <h4 class="modal-title my-4" id="modal-basic-title" ><span class="mx-3">Cancel Order Confirmation</span> <i
+                    class="fa  fa-times text-danger float-end mx-3" aria-hidden="true" (click)="modal.dismiss('Cross click')"></i>
+                </h4>
+                 </div>
+              <hr style="width:100%;margin-left: 0%;margin-top: 0%;">
+              <div class="modal-body">
+                <form>
+                  <div class="form-group mb-2 text-center ">
+                    <div class="form-input">
+                      <span class="input-group-addon"><i class="fa  fa-info-circle text-primary"></i></span>
+                      <label style="font-weight:bolder;">Confirm order?</label>
+                    </div>
+                  </div>
+                  <div class="form-group mb-2">
+                    <div class="form-input text-center">
+                      <a class="btn btn-success bg-success col-2 m-2 text-light offset-2" >Pay</a>
+                      <a class="btn btn-danger bg-danger col-2 m-2 text-light" >No</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </ng-template>
+-->
             <ng-template #elseBlock>
               <div class=" m-auto ">
                 <div class=" mb-4 text-center">
                   <img src="https://i.pinimg.com/564x/93/2a/ae/932aae0f4f18dd00f38cdda6f702f620.jpg"
                     class="ml-2 col-lg-8 w-25">
                   <h4 class="mb-3">Your cart is empty!</h4>
-                  <h5><a href="/Products" class="text-body"><button class="add-to-cart col-3">Continue shopping</button></a>
+                  <h5><a href="/Products" class="text-body" ><button   class="add-to-cart col-3" >Continue shopping</button></a>
                   </h5>
                 </div>
               </div>

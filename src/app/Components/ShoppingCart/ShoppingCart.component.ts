@@ -1,5 +1,6 @@
 import { Component, OnInit,OnChanges } from '@angular/core';
 import { OrderService } from 'src/app/Services/Order.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ShoppingCart',
@@ -12,7 +13,7 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
   cartNotEmpty:any;
   recievedOrderPrice:any  = 0;
 
-  constructor( private orderService :OrderService ) { 
+  constructor( private orderService :OrderService,private modalService:NgbModal ) { 
     if(this.orderService.shoppingCartExists == false){
       this.orderService.GetShoppingCart().subscribe(
         (data:any)=>{
@@ -34,13 +35,17 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
         }
       }
       )}
+      
   ngOnChanges(){}
 
-CompleteOrder(){
-  this.orderService.CompleteOrder(localStorage.getItem('email'),localStorage.getItem('cartToken')).subscribe();
-      window.location.reload();    
-}
 
+open(content: any) {
+  this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    //this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {
+    //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+}
 onAmountChange(totalPriceOnChange:number){
   this.recievedOrderPrice += totalPriceOnChange;
 }

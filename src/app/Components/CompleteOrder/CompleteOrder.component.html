@@ -1,0 +1,48 @@
+<div style="padding-top: 50px;">
+  <div class="container">
+    <div class=" d-flex align-items-center ">
+      <div class="col-md-5">
+       <div class="jumbotron ">
+        <form class=" m-3" >
+        <div id="map"></div>
+        <h4>Cash on delivery</h4>
+        <div class=" form-group m-3">
+            <label for="name-l">Street</label> 
+            <br>
+            <input #Street type="text" class="st col-md-10 me-3 " required><i class="fa fa-map-marker " aria-hidden="true"></i>
+        </div>
+        <div class=" form-group m-3">
+            <label for="address-1">City</label>
+            <input #City type="text" class="form-control col-sm-9"   required>
+        </div>
+        <div class="form-group m-3">
+            <label for="email">Governoment</label>
+            <input #Governoment type="text" class="form-control col-9"   required>
+        </div>
+        <span class="text-secondary ms-3">5% is added when complete with cash on delivery.</span>
+        <div >
+          <a><button (click)="CompleteOrder()" type="button"class="add-to-cart ps-4 pe-4 m-3">
+          <div class="d-flex ">
+            <span class="text-center">Complete Order</span>
+          </div>
+         </button>
+         </a>
+        </div>
+      </form>
+
+       </div>
+  
+
+      </div>
+      <span class="blspan m-5 d-md-block d-none">OR</span>
+      <div id="paypal" class=" col-2 ms-5"></div>
+
+      </div>
+      
+  
+      
+      </div>
+
+
+
+}

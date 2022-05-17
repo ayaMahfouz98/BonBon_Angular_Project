@@ -16,6 +16,7 @@ ProductId:any;
 Product:any;
 ProductFromApi:any;
 quantity:any;
+rating:any;
   constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
    this.ProductId= ActivatedRoute.snapshot.params["id"];
   }
@@ -27,6 +28,7 @@ quantity:any;
         //console.log(JSON.stringify(data));
         this.Product=data;
         this.quantity = this.Product.quantity;
+        this.rating= this.Product.overAllRating;
 
       },
       (err)=>{console.log(err)}

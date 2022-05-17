@@ -1,0 +1,38 @@
+label {
+    font-weight: 600;
+
+}
+input ,select{
+    border:1px solid rgb(226, 103, 103);
+
+}
+h3{
+    color: rgb(226, 103, 103);
+}
+.btn1 {
+    background-color:rgb(226, 103, 103);
+    border: none;
+    text-transform: UPPERCASE;
+    color: #fff;
+    font-weight:300px;
+    width: 62%;      
+    margin-right:15px ; 
+ }
+
+.blspan{
+    font-weight: bold;
+    font-size: larger;
+    color: rgb(226, 103, 103);
+
+}
+i{
+    cursor: pointer;
+    font-size: x-large;
+    font-weight: 600;
+    color: rgb(226, 103, 103);
+}
+
+.st{
+    height: 42px;
+    border-radius: 4px;
+}

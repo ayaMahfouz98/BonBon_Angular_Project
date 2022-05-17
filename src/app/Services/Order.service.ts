@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject } from 'rxjs/internal/Subject';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-
+  static cartTotal: number = 0;
 
   constructor(private HttpClient :HttpClient) { }
 
@@ -67,15 +69,27 @@ get shoppingCartExists(): boolean
   GetOrderDetails(id:any){
     return this.HttpClient.get(`${this.BaseURL}/GetOrderDetails/${id}`);
   }
-  GetOrderTotal(shoppingCartId:any){
-    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartTotal/${shoppingCartId}`);
-  }
-
-
+ 
   /*************************Component Services*******************************/
   removeItemTotalAmount(productId:any,cartToken:any){
     this.RemoveItemTotalAmountShoppingCart(productId,cartToken).subscribe();  
     window.location.reload();    
+  }
+
+   GetOrderTotal(id:any):  Observable<string>{
+    let shoppingCartItems:any[];
+    var subject = new Subject<string>();
+    let cartTotal = 0;
+    this.GetShoppingCartItems(id).subscribe(
+      (data:any)=>{
+         shoppingCartItems=data;
+         shoppingCartItems.forEach(element => {
+         cartTotal+= element.amount * element.product.price
+         }
+         );
+         subject.next(cartTotal.toString());
+      })
+      return subject.asObservable();
   }
 
 

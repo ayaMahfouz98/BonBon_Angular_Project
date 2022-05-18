@@ -48,10 +48,11 @@ export class EditUserComponent implements OnInit {
 
   AddRole(event:any) {
     const role = event.target.value;
+    console.log(role);
     this.UserService.AddRole(role).subscribe();
     this.Role = role;
     this.isNewRoleClicked = !this.isNewRoleClicked;
-    // console.log("New role entered: ", event.target.value);
+    console.log("New role entered: ", event.target.value);
   }
 
 

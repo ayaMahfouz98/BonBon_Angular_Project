@@ -33,7 +33,7 @@
         <button ngbDropdownItem *ngFor="let role of AllRoles.roles;" value="{{role}}"
           (click)="Role=role">{{role}}</button>
         <button class="border-0 bg-light" (click)="isNewRoleClicked=!isNewRoleClicked"><i class="fa fa-plus" aria-hidden="true"></i> New Role</button>
-        <input type="text" [hidden]="isNewRoleClicked" (keydown.enter)="AddRole($event)">
+        <input type="text" [hidden]="isNewRoleClicked" name="role" (keydown.enter)="AddRole($event)">
       </div>
     </div>
   </div>

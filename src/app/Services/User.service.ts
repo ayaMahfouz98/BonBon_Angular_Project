@@ -93,15 +93,11 @@ export class UserService {
     return this.HttpClient.get(`${this.BaseURL}/api/Auth/GetRoles`);
   }
 
-  // AddRole(role: any) {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({'Content-Type': 'application/json'})
-  //   }
-  //   return this.HttpClient.post(`${this.BaseURL}/api/Auth/AddRole`, role, httpOptions);
-  // }
-
   AddRole(role: any) {
-    return this.HttpClient.get(`${this.BaseURL}/api/Auth/AddRole/${role}`);
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+    return this.HttpClient.post(`${this.BaseURL}/api/Auth/AddRole`, JSON.stringify(role), httpOptions);
   }
 
 }

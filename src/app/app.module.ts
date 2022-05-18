@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http"
+import {HttpClient, HttpClientModule} from "@angular/common/http"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -38,13 +38,15 @@ import { ForgetPasswordComponent } from './Components/ForgetPassword/ForgetPassw
 import { ResetPasswordComponent } from './Components/ResetPassword/ResetPassword.component';
 import { AllUsersComponent } from './Components/AllUsers/AllUsers.component';
 import { EditUserComponent } from './Components/EditUser/EditUser.component';
+import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SocialLoginModule, SocialAuthServiceConfig ,
   GoogleLoginProvider, FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
-import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 @NgModule({
@@ -96,7 +98,15 @@ import { AllOrdersComponent } from './Components/all-orders/all-orders.component
     CommonModule,
     NgbModule,
     NgxPaginationModule,
-    SocialLoginModule
+    SocialLoginModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
 
   providers: [
@@ -126,3 +136,7 @@ import { AllOrdersComponent } from './Components/all-orders/all-orders.component
 })
 
 export class AppModule { }
+
+export function createTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json')
+}

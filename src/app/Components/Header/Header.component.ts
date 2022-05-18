@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { isEmpty } from 'rxjs';
 import { CategoryService } from 'src/app/Services/Category.service';
 import { UserService } from 'src/app/Services/User.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-Header',
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   user:any;
   @Output() myEvent = new EventEmitter();
 
-  constructor(private userService: UserService, private router: Router, private CategoryService: CategoryService, private activatedRoute: ActivatedRoute) {
+  constructor(private userService: UserService, private router: Router, private CategoryService: CategoryService, private activatedRoute: ActivatedRoute, public translate: TranslateService) {
     this.isUserLogged = this.userService.isUserLogged;
     this.Email = this.userService.UserEmail;
     this.ID=this.userService.UserId;

@@ -39,6 +39,8 @@ import { ResetPasswordComponent } from './Components/ResetPassword/ResetPassword
 import { AllUsersComponent } from './Components/AllUsers/AllUsers.component';
 import { EditUserComponent } from './Components/EditUser/EditUser.component';
 import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
+import { CompleteOrderComponent } from './Components/CompleteOrder/CompleteOrder.component';
+
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SocialLoginModule, SocialAuthServiceConfig ,
@@ -83,10 +85,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       AllUsersComponent,
       EditUserComponent,
       OrderDetailsComponent,
-      AllOrdersComponent
-
-
-   ],
+      AllOrdersComponent,
+     CompleteOrderComponent   ],
+   exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

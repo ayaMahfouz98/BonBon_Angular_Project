@@ -3,6 +3,7 @@ import {render} from 'creditcardpayments/creditCardPayments'
 import { styles } from '../../../mapstyles';
 import { Router } from "@angular/router";
 import { OrderService } from 'src/app/Services/Order.service';
+import {FormControl,FormGroup,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-CompleteOrder',
@@ -12,6 +13,16 @@ import { OrderService } from 'src/app/Services/Order.service';
 export class CompleteOrderComponent implements OnInit {
   totalPlusShipping:any;
   total:any;
+
+  addAddress = new FormGroup({
+    street: new FormControl('',Validators.required),
+    city: new FormControl('',Validators.required),
+    govern: new FormControl('',Validators.required)
+  })
+
+  get street(){return this.addAddress.get('street')}
+  get city(){return this.addAddress.get('city')}
+  get govern(){return this.addAddress.get('govern')}
   constructor(private orderService :OrderService,private router: Router/* private map: google.maps.Map*/) { 
      this.orderService.GetOrderTotal(localStorage.getItem('cartToken')).subscribe(
        (r)=>{

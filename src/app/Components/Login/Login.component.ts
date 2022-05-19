@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
               (data: any) => {
                 localStorage.setItem('token', data.token);
                 this.isUserLogged = this.userService.isUserLogged;
-                this.router.navigate(['/Home']); //================>   TODO ----> REDIRECT TO HOME
+                this.router.navigate(['../Home']) //================>   TODO ----> REDIRECT TO HOME
               },
               (err: any) => {
                 if (err.status == 400)

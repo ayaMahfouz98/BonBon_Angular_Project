@@ -12,6 +12,10 @@ footer{
     width: 102.8%;
 
 } */
+a{
+  text-decoration: none;
+}
+
 
 #footer {
   /* background: #404040; */

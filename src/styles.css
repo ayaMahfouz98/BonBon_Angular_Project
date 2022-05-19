@@ -37,7 +37,9 @@
   font-size: medium;
   padding: 10px;
 }
-
+hr{
+  background-color: rgb(226, 103, 103);
+}
 .add-to-cart::after {
   border: none;
   border-radius: 8px;
@@ -55,3 +57,4 @@
 h2,h3,h4{
   color:rgb(226, 103, 103);
 }
+

@@ -32,6 +32,7 @@ import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.co
 import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
 import { CompleteOrderComponent } from './Components/CompleteOrder/CompleteOrder.component';
 import { OrderPlacedComponent } from './Components/OrderPlaced/OrderPlaced.component';
+import { AuthGuard } from './shared/auth.guard';
 
 
 
@@ -41,26 +42,26 @@ const routes: Routes = [
   {path:"",component:LayoutComponent,children:[
     {path: '',redirectTo:'/Home',pathMatch:'full'},
     {path:'Home',component:HomeComponent},
-    {path:'Promoted',component:PromotionsComponent}
+    {path:'Promoted',component:PromotionsComponent},
   ]},
 
+  {path:"Login",component:LoginComponent},
+  {path:"Register",component:RegisterComponent},
   {path:"Cart",component:ShoppingCartComponent},
   {path:"OrderPlaced",component:OrderPlacedComponent},
   {path:"CompleteOrder",component:CompleteOrderComponent},
   {path:"AboutUs",component:AboutUsDataComponent},
-  {path:"Products",component:ProductsComponent},
+  {path:"Products",component:ProductsComponent,canActivate:[AuthGuard]},
   {path:"myOrders/:id",component:UserOrderComponent},
   {path:"OrderDetails/:id",component:OrderDetailsComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
   {path:"EditeProduct/:id",component:EditeProductComponent},
   {path:"searchProduct/:name",component:SearchProductComponent},
   {path:"searchProduct",component:ProductsComponent},
-  {path:"Login",component:LoginComponent},
-  {path:"Register",component:RegisterComponent},
   {path:"NewProduct",component:NewProductComponent},
   {path:"DeleteProduct",component:ProductsComponent},
-  {path:"SearchByCategory/:id",component:SearchByCategoryComponent},
   {path:"GetUser/:email",component:UserProfileComponent},
+  {path:"SearchByCategory/:id",component:SearchByCategoryComponent,canActivate:[AuthGuard]},
   {path:"AllCategories",component:AllCategoriesComponent},
   {path:"EditeCategory/:id",component:EditCategoryComponent},
   {path:"NewCategory",component:NewCategoryComponent},
@@ -71,7 +72,9 @@ const routes: Routes = [
   {path:"AllOrders",component:AllOrdersComponent},
   {path:"yourProfile",component:UserProfileComponent},
   {path:"**",component:ErrorComponent}
-];
+
+]
+;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

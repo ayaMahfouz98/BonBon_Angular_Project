@@ -1,6 +1,6 @@
 console.log("cccc");
 function bootstapAlert(){
- $.notify("Added to cat!");
+ $.notify("Added to cart!");
 }
 
 /***********Paypal********* */

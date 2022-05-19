@@ -20,6 +20,7 @@ span{
       .card-image img {
           max-width: 100%;
           border-radius: 8px 8px 0px 0;
+         /* max-height: 250px;*/
       }
 
       .card-action  {
@@ -100,7 +101,6 @@ span{
     .add-to-cart:hover, .like:hover {
       background-color:#AD8;
       color: #fff;
-      -webkit-animation: pulse 1.5s infinite;
 
     }
 

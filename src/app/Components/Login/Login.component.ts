@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   @Output() myEvent = new EventEmitter();
 
   message: any;
-  PasswordMSG: any;
+  WrongPasswordMSG: any;
   isUserLogged: boolean = false;
 
   Password = '';
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
             );
           }
         },
-        (err: any) => { this.PasswordMSG = err.error.text; }
+        (err: any) => { this.WrongPasswordMSG = err.error.text; }
       )
     }
     else {

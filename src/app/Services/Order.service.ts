@@ -76,6 +76,8 @@ get shoppingCartExists(): boolean
     window.location.reload();    
   }
 
+
+
    GetOrderTotal(id:any):  Observable<string>{
     let shoppingCartItems:any[];
     var subject = new Subject<string>();
@@ -93,7 +95,7 @@ get shoppingCartExists(): boolean
   }
 
 
-  PrdListTotalCost(orderProducts:any[] ){
+PrdListTotalCost(orderProducts:any[] ){
     let total = 0;
     orderProducts?.forEach(element => {
       console.log(element);
@@ -102,5 +104,22 @@ get shoppingCartExists(): boolean
     return total;
   }
   
-
+              /***********To prevent inserting more than the quantity************/
+  /* productAmountInShoppingCart(id:any) : Observable<string>{
+    let shoppingCartItems:any[];
+    var subject = new Subject<string>();
+    let productAmount = 0;
+    this.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe(
+      (data:any)=>{
+         shoppingCartItems=data;
+         shoppingCartItems.forEach(element => {
+           if(element.id == id){
+            productAmount = element.amount
+            console.log("cccddd"+element.amount)
+           }
+         });
+         subject.next(productAmount.toString());
+      })
+      return subject.asObservable();
+   }*/
 }

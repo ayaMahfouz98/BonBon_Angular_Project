@@ -1,6 +1,10 @@
 console.log("cccc");
 function bootstapAlert(){
- $.notify("Added to cart!");
+   // if(add== true)
+      $.notify("Added to cart!");
+  //  else
+   //   $.notify("Out of Stock!");
+
 }
 
 /***********Paypal********* */

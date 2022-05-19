@@ -49,6 +49,7 @@ import { SocialLoginModule, SocialAuthServiceConfig ,
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BestSellerComponent } from './Components/best-seller/best-seller.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       EditUserComponent,
       OrderDetailsComponent,
       AllOrdersComponent,
-     CompleteOrderComponent   ],
+     CompleteOrderComponent,
+    BestSellerComponent ],
    exports: [
     CommonModule,
     FormsModule,

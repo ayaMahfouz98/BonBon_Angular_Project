@@ -1,0 +1,74 @@
+
+  <!-- <a class="btn btn-dark m-2" routerLink="/NewProducts/" role="button">Add New Product</a>
+
+  <div *ngFor="let pro of AllProducts" class="height d-flex justify-content-center align-items-center">
+    <div class="card p-5">
+        <div class="justify-content-between  align-items-center ">
+            <div class="mt-2">
+                <h4 class="text-uppercase">{{pro.title}}</h4>
+            </div>
+            <div class="image"> <img src={{pro.imageUrl}} width="200"> </div>
+        </div>
+
+        <p>{{pro.description}}</p>
+        <h2>EGP {{pro.price}}</h2>
+
+        <input  type="button" class="btn btn-success m-2" value="Add to cart">
+        <a class="btn btn-dark m-2" routerLink="/Products/{{pro.id}}" role="button">Details</a>
+        <a class="btn btn-dark m-2" routerLink="/Products/{{pro.id}}" role="button">Update Product</a>
+        <a class="btn btn-dark m-2" routerLink="/Products/{{pro.id}}" role="button">Delete Product</a>
+      </div>
+</div> -->
+
+<!-- <a  class="btn btn-dark m-t-5" routerLink="/NewProduct/" role="button">Add New Product</a>
+<div class="container">
+<div class="row ">
+  <div > -->
+
+    <br>
+    <!-- must show the category by filter -->
+
+
+    <hr>
+   
+      <div class=" row text-center">
+        <div class="col-4 offset-2">
+        <label class=" m-2">FILTER BY</label>
+        
+        <select class="custom-select col-6" name="" id="" [(ngModel)] = "selecedCategoryid" (change)="sort()">
+          <option value="0" selected>All Products</option>
+          <option *ngFor="let item of AllCategories" [value]="item.id">{{item.name}}</option>
+        </select>
+        </div>
+
+        <div class=" col-4">
+        <label class=" m-2">SORT BY</label>
+        
+        <select class="custom-select col-6" name="" id="" [(ngModel)] = "selecedSort" (change)="sort()">
+          <option value="0" selected>Featured</option>
+          <option value="1">Best Selling</option>
+          <option value="2">A-Z</option>
+          <option value="3">Z-A</option>
+          <option value="4">Price Low</option>
+          <option value="5">Price High</option>
+        </select>
+        </div>
+      
+      </div>
+      <hr>
+
+    <section>
+      <div class=" container py-5">
+          <div class="row justify-content-center ">
+
+            <div class="col-md-8 col-lg-6 col-xl-4 mt-1 mb-2 p-3" *ngFor=" let pro of AllProducts;let i = index"> 
+
+              <app-ProductItem [Product]="pro" ></app-ProductItem>
+            </div>
+            
+              <pagination-controls class=" text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
+
+          </div>
+       </div>
+
+</section>

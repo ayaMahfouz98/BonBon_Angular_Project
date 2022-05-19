@@ -1,174 +1,184 @@
- span{
-  font-family: 'Oleo Script', cursive;
+ span {
+   font-family: 'Oleo Script', cursive;
  }
- 
-
-    a {
-        text-decoration: none;
-    }
-
-    /* Card Styles */
-
-    .card-sl {
-        border-radius: 8px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        min-height: 300px;
-        cursor: pointer;
-    }
-
-    .card-image img {
-        max-height: 100%;
-        max-width: 100%;
-        border-radius: 8px 8px 0px 0;
-    }
-
-    .card-action {
-        position: relative;
-        float: right;
-        margin-top: -25px;
-        margin-right: 20px;
-        z-index: 2;
-        color: rgb(226, 103, 103);
-        background: #fff;
-        border-radius: 100%;
-        padding: 15px;
-        font-size: 15px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
-    }
-
-    .card-action:hover {
-        color: #fff;
-        background: #E26D5C;
-        -webkit-animation: pulse 1.5s infinite;
-    }
-
-    .card-heading {
-        font-size: 18px;
-        font-weight: bold;
-        background: #fff;
-        padding: 10px 15px;
-    }
-
-    .card-text {
-        padding: 10px 15px;
-        background: #fff;
-        font-size: 14px;
-        color: #636262;
-    }
-
-    .card-button {
-        display: flex;
-        justify-content: center;
-        padding: 10px 0;
-        width: 100%;
-        color: white;
-        background-color:rgb(243, 111, 111);
-        border-radius: 0 0 8px 8px;
-    }
-
-    .card-button:hover {
-        text-decoration: none;
-        color: white;
-        background-color:rgb(226, 103, 103);
-        color: #fff;
 
 
-    }
-    .product-old-price {
-      position: relative;
-      padding: 0 7px;
-      margin-right: 2px;
-      opacity: 0.6;
-  }
-    .product-old-price::after {
-      position: absolute;
-      content: "";
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #444444;
-      transform: translateY(-50%);
-  }
-    @-webkit-keyframes pulse {
-        0% {
-            -moz-transform: scale(0.9);
-            -ms-transform: scale(0.9);
-            -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-        }
+ a {
+   text-decoration: none;
+ }
 
-        70% {
-            -moz-transform: scale(1);
-            -ms-transform: scale(1);
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
-        }
+ /* Card Styles */
 
-        100% {
-            -moz-transform: scale(0.9);
-            -ms-transform: scale(0.9);
-            -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-            box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
-        }
-    }
-    .wrap {
-        width: 100%;
-        height: 188px;
-        position: absolute;
-        top: -8px;
-        left: 8px;
-        overflow: hidden;
-      }
-      .wrap:before, .wrap:after {
-        content: ""; 
-        position: absolute;
-      }
-      h3{
-        color:rgb(226, 103, 103);
+ .card-sl {
+   border-radius: 8px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   min-height: 300px;
+   cursor: pointer;
+ }
 
-      }
-      .wrap:before {
-        width: 40px;
-        height: 8px;
-        right: 150px;
-        background: rgb(194, 6, 6);
-        border-radius: 8px 8px 0px 0px;
-      }
-      .wrap:after {
-        width: 15px;
-        height: 40px;
-        right: 0px;
-        top: 120px;
-        background: rgb(194, 6, 6);
-        border-radius: 0px 8px 8px 0px;
-      }
-      .ribbon6 {
-        width: 200px;
-        height: 40px;
-        line-height: 40px;
-        position: absolute;
-        top: 40px;
-        right: -43px;
-        z-index: 2;
-        overflow: hidden;
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-        border: 1px dashed;
-        box-shadow:0 0 0 3px rgb(219, 43, 43),  0px 21px 5px -18px rgba(0,0,0,0.6);
-        background: rgb(228, 64, 64);
-        text-align: center;
-        color: white;
-      }
-      @media (min-width: 500px) {
-        .ribbons-wrapper {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-        }
-        .ribbon {
-          width: 48%;
-        }}
-  
+ .card-image img {
+   max-height: 50%;
+   max-width: 100%;
+   border-radius: 8px 8px 0px 0;
+ }
+
+ .card-action {
+   position: relative;
+   float: right;
+   margin-top: -25px;
+   margin-right: 20px;
+   z-index: 2;
+   color: rgb(226, 103, 103);
+   background: #fff;
+   border-radius: 100%;
+   padding: 15px;
+   font-size: 15px;
+   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+ }
+
+ .card-action:hover {
+   color: #fff;
+   background: #E26D5C;
+   -webkit-animation: pulse 1.5s infinite;
+ }
+
+ .card-heading {
+   font-size: 18px;
+   font-weight: bold;
+   background: #fff;
+   padding: 10px 15px;
+ }
+
+ .card-text {
+   padding: 10px 15px;
+   background: #fff;
+   font-size: 14px;
+   color: #636262;
+ }
+
+ .card-button {
+   display: flex;
+   justify-content: center;
+   padding: 10px 0;
+   width: 100%;
+   color: white;
+   background-color: rgb(243, 111, 111);
+   border-radius: 0 0 8px 8px;
+ }
+
+ .card-button:hover {
+   text-decoration: none;
+   color: white;
+   background-color: rgb(226, 103, 103);
+   color: #fff;
+ }
+
+ .product-old-price {
+   position: relative;
+   padding: 0 7px;
+   margin-right: 2px;
+   opacity: 0.6;
+ }
+
+ .product-old-price::after {
+   position: absolute;
+   content: "";
+   top: 50%;
+   left: 0;
+   width: 100%;
+   height: 1px;
+   background-color: #444444;
+   transform: translateY(-50%);
+ }
+
+ @-webkit-keyframes pulse {
+   0% {
+     -moz-transform: scale(0.9);
+     -ms-transform: scale(0.9);
+     -webkit-transform: scale(0.9);
+     transform: scale(0.9);
+   }
+
+   70% {
+     -moz-transform: scale(1);
+     -ms-transform: scale(1);
+     -webkit-transform: scale(1);
+     transform: scale(1);
+     box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+   }
+
+   100% {
+     -moz-transform: scale(0.9);
+     -ms-transform: scale(0.9);
+     -webkit-transform: scale(0.9);
+     transform: scale(0.9);
+     box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+   }
+ }
+
+ .wrap {
+   width: 100%;
+   height: 188px;
+   position: absolute;
+   top: -8px;
+   left: 8px;
+   overflow: hidden;
+ }
+
+ .wrap:before,
+ .wrap:after {
+   content: "";
+   position: absolute;
+ }
+
+ h3 {
+   color: rgb(226, 103, 103);
+
+ }
+
+ .wrap:before {
+   width: 40px;
+   height: 8px;
+   right: 150px;
+   background: rgb(194, 6, 6);
+   border-radius: 8px 8px 0px 0px;
+ }
+
+ .wrap:after {
+   width: 15px;
+   height: 40px;
+   right: 0px;
+   top: 120px;
+   background: rgb(194, 6, 6);
+   border-radius: 0px 8px 8px 0px;
+ }
+
+ .ribbon6 {
+   width: 200px;
+   height: 40px;
+   line-height: 40px;
+   position: absolute;
+   top: 40px;
+   right: -43px;
+   z-index: 2;
+   overflow: hidden;
+   -webkit-transform: rotate(45deg);
+   transform: rotate(45deg);
+   border: 1px dashed;
+   box-shadow: 0 0 0 3px rgb(219, 43, 43), 0px 21px 5px -18px rgba(0, 0, 0, 0.6);
+   background: rgb(228, 64, 64);
+   text-align: center;
+   color: white;
+ }
+
+ @media (min-width: 500px) {
+   .ribbons-wrapper {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+   }
+
+   .ribbon {
+     width: 48%;
+   }
+ }

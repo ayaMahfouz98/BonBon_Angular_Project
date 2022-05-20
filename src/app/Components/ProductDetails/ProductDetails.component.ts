@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
 import { OrderService } from 'src/app/Services/Order.service';
 
@@ -16,13 +16,13 @@ ProductId:any;
 Product:any;
 ProductFromApi:any;
 quantity:any;
-  constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
+  constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService,private router:Router) {
    this.ProductId= ActivatedRoute.snapshot.params["id"];
   }
 
   ngOnInit() {
     this.service.GetProductById(this.ProductId).subscribe(
-      
+
       (data)=>{
         console.log(JSON.stringify(data));
         this.Product=data;
@@ -32,7 +32,7 @@ quantity:any;
       (err)=>{console.log(err)}
     );
   }
-  
+
   AddToCart(){
         this.quantity = this.Product.quantity;
         if(this.Product.amount != this.quantity){
@@ -40,6 +40,13 @@ quantity:any;
           this.orderService.AddToShoppingCart(this.Product.id,localStorage.getItem('cartToken')).subscribe();
         }
       }
-    
+
+      Delete(id:any){
+        this.service.DeleteProduct(id).subscribe();
+       this.router.navigate(['/Products']);
+      //window.location.reload();
+
+      }
+
 
 }

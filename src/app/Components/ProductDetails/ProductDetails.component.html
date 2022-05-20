@@ -40,6 +40,9 @@
      					<div class="action">
 							<button class="add-to-cart btn btn-default" type="button" onclick="bootstapAlert()"  (click)="AddToCart()">Add to cart</button>
                             <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+
+                            <a class="btn btn-dark m-2" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
+                            <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
 						</div>
 					</div>
 				</div>

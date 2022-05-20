@@ -27,7 +27,7 @@ export class OrderService {
     }
     
   GetShoppingCartItems(id:any){
-    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartItems/${id}`,id);
+    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartItems/${id}`);
   }
 
   GetShoppingCart(){

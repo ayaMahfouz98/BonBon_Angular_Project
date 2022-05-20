@@ -42,11 +42,9 @@ const routes: Routes = [
   {path:"",component:LayoutComponent,children:[
     {path: '',redirectTo:'/Home',pathMatch:'full'},
     {path:'Home',component:HomeComponent},
-    {path:'Promoted',component:PromotionsComponent},
+    {path:'Promoted',component:PromotionsComponent}
   ]},
 
-  {path:"Login",component:LoginComponent},
-  {path:"Register",component:RegisterComponent},
   {path:"Cart",component:ShoppingCartComponent},
   {path:"OrderPlaced",component:OrderPlacedComponent},
   {path:"CompleteOrder",component:CompleteOrderComponent},
@@ -58,10 +56,12 @@ const routes: Routes = [
   {path:"EditeProduct/:id",component:EditeProductComponent},
   {path:"searchProduct/:name",component:SearchProductComponent},
   {path:"searchProduct",component:ProductsComponent},
+  {path:"Login",component:LoginComponent},
+  {path:"Register",component:RegisterComponent},
   {path:"NewProduct",component:NewProductComponent},
   {path:"DeleteProduct",component:ProductsComponent},
-  {path:"GetUser/:email",component:UserProfileComponent},
   {path:"SearchByCategory/:id",component:SearchByCategoryComponent,canActivate:[AuthGuard]},
+  {path:"GetUser/:email",component:UserProfileComponent},
   {path:"AllCategories",component:AllCategoriesComponent},
   {path:"EditeCategory/:id",component:EditCategoryComponent},
   {path:"NewCategory",component:NewCategoryComponent},

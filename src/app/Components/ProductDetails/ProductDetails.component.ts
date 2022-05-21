@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+
 import { ProductsService } from 'src/app/Services/products.service';
 import { OrderService } from 'src/app/Services/Order.service';
 
@@ -16,6 +19,9 @@ ProductId:any;
 Product:any;
 ProductFromApi:any;
 quantity:any;
+
+  constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService,private router:Router) {
+
 OrderPrice:any;
 cartItems:any;
 enableAdd = true;
@@ -24,6 +30,7 @@ enableAdd = true;
 rating:any;
   ProductItem: any;
   constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
+
    this.ProductId= ActivatedRoute.snapshot.params["id"];
    
    this.totalPriceOnChange = new EventEmitter<number>();
@@ -38,6 +45,7 @@ rating:any;
      });
      */
     this.service.GetProductById(this.ProductId).subscribe(
+
       (data)=>{
         this.Product=data;
         this.quantity = this.Product.quantity;
@@ -46,7 +54,7 @@ rating:any;
       (err)=>{console.log(err)}
     );
   }
-  
+
   AddToCart(){
     this.service.GetProductById(this.Product.id).subscribe(
       (data)=>{
@@ -66,9 +74,19 @@ rating:any;
             this.enableAdd = false;
         }
       }
+
     );
         
 }
     
+
+
+      Delete(id:any){
+        this.service.DeleteProduct(id).subscribe();
+       this.router.navigate(['/Products']);
+      //window.location.reload();
+
+      }
+
 
 }

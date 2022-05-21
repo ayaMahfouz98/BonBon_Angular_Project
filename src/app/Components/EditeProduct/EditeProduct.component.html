@@ -9,10 +9,16 @@
       <title>Registration Form Using Bootstrap 4</title>
   </head>
   <body>
+
+
+
+      <div class="container mt-5">
+
   
   
       <div class="container mt-2">
         <h3 class="text-center">Edit Product</h3>
+
           <form>
         <div class="row jumbotron">
               <div class="col-md-6 form-group">
@@ -44,17 +50,29 @@
                   <input #promotionPercentage type="address" class="form-control d-inline" name="Sale" id="Sale" value="{{Product?.promotionPercentage}}" required>
                 </div>
                 <div class="col-6 form-group">
-  
+
                   <label for="prdCat">Category</label>
                   <select class="form-control mb-3" name="cat" id="prdCat"  [(ngModel)]="selectedCatID" >
                     <option *ngFor="let cat of AllCategories; let i = index" [value]="cat.id">{{cat.name}}</option>
                   </select>
                 </div>
-  
-                  <div class="col-6 form-group">
-                  <input [(ngModel)]="isPromoted"  type="checkbox" class="form-check d-inline"  id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
+
+                  <!-- <div class="col-6 form-group">
+                  <input [(ngModel)]="IsPromoted" checked type="checkbox" class="form-check d-inline"  id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label>
                   </div>
-  
+                  -->
+
+                  <div class="col-6 form-group">
+
+
+                    <!-- <input [(ngModel)]="isPromoted" checked type="checkbox" class="form-check d-inline"  id="chb" required><label for="chb" class="form-check-label">&nbsp;Promoted</label> -->
+                    <select #isPromoted [(ngModel)]="IsPromoted" name="Role" class=" w-25">
+                      <option  value=0>Not Promoted</option>
+                      <option  value=1>Promoted</option>
+                    </select>
+                  </div>
+
+
               <div class="mt-2 row align-items-center">
                 <button class="btn1 btn m-3 w-25"
                   (click)="Edit(Title.value,Description.value,+price.value,+quantity.value,+selectedCatID.value,imageUrl.value,isPromoted.value,+promotionPercentage.value,+overAllRating.value )">Save
@@ -63,7 +81,7 @@
           </div>
           </form>
       </div>
-  
-  
+
+
   </body>
   </html>

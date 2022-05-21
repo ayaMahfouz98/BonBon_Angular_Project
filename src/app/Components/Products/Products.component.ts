@@ -12,15 +12,16 @@ export class ProductsComponent implements OnInit{
   totalLength:any;
   page:number = 1;
   productsSelected:string="All Products";
- 
+
   selecedSort:number=0;
   selecedCategoryid:number=0;
   constructor( private productsService:ProductsService, private categoryService:CategoryService) { }
-  
+
   AllProducts:any;
   AllCategories:any;
 
   ngOnInit() {
+
    this.productsService.GetAllProducts().subscribe(
      (data)=>{
                this.AllProducts=data;
@@ -31,6 +32,7 @@ export class ProductsComponent implements OnInit{
              for(let item of this.AllProducts)
               count++;
               this.totalLength = count;
+
               } );
 
    this.categoryService.GetAllCategories().subscribe(
@@ -46,7 +48,7 @@ export class ProductsComponent implements OnInit{
    else if(this.selecedSort==1)this.getBestSelling();
    else if(this.selecedSort==2 || this.selecedSort==3) this.sortByAlph();
    else if(this.selecedSort==4 || this.selecedSort==5) this.sortByPrice();
-  
+
 }
 
 private sortByAlph():void
@@ -60,7 +62,7 @@ private sortByAlph():void
             for(let item of this.AllProducts)
             {
             count++;
-  
+
              this.totalLength = count;
              }
            }
@@ -75,7 +77,7 @@ private getBestSelling():void{
               for(let item of this.AllProducts)
               {
               count++;
-    
+
                this.totalLength = count;
                }
              }
@@ -92,7 +94,7 @@ this.productsService.SortProductByPrice(cheap,this.selecedCategoryid).subscribe(
             for(let item of this.AllProducts)
             {
             count++;
-  
+
              this.totalLength = count;
              }
            }
@@ -108,7 +110,7 @@ private filterAllProducts()
               for(let item of this.AllProducts)
               {
               count++;
-    
+
                this.totalLength = count;
                }
              }

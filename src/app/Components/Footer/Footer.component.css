@@ -12,12 +12,15 @@ footer{
     width: 102.8%;
 
 } */
+a{
+  text-decoration: none;
+}
+
 
 #footer {
   /* background: #404040; */
   background: #ffede7;
   padding: 0 0 30px 0;
-  /* color: #fff; */
   color: #404040;
   font-size: 14px;
 }
@@ -160,14 +163,15 @@ footer{
 #footer .footer-top .footer-contact p {
   line-height: 26px;
 }
-#footer .copyright {
+
+/* #footer .copyright {
   text-align: center;
   padding-top: 30px;
-}
-#footer .credits {
+} */
+
+/* #footer .credits {
   padding-top: 10px;
   text-align: center;
   font-size: 13px;
-  /* color: #fff; */
   color: #404040;
-}
+} */

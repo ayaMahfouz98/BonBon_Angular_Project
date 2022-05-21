@@ -18,6 +18,9 @@ export class RegisterComponent implements OnInit {
   Email = '';
   User = '';
   message: any;
+  EmailMSG: any;
+  UsernameMSG: any;
+  PasswordMSG: any;
   isUserLogged: boolean = false;
 
   constructor(private userService: UserService, private router: Router, private socialAuthService: SocialAuthService) {
@@ -66,8 +69,17 @@ export class RegisterComponent implements OnInit {
       }
     }
     else {
-      this.message = "You miss some fields, Please enter all required data"
+      this.message = "You miss some fields, Please enter all the required data";
     }
+
+    if(this.Email == '')
+      this.EmailMSG = "Email is required!";
+
+    if(this.User == '')
+      this.UsernameMSG = "Username is required without any spaces!";
+
+    if(this.Password == '' || this.Password.length < 5)
+      this.PasswordMSG = "Password must have at least one non-alphanumeric, an uppercase, and a lowercase characters";
   }
 
   signInWithGoogle() {

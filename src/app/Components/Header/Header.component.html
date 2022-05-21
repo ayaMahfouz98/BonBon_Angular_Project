@@ -1,28 +1,31 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oleo+Script&display=swap" />
 
-<nav class="navbar navbar-expand-md navbar-scroll shadow-0" style="background-color: #ffede7">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-scroll shadow-0" style="background-color: #ffede7">
+  <div class="container-fluid mb-0">
     <!-- <img src="../../../assets/icons8-candy-58.png" class="logo mr-5"/>-->
-    <a class="navbar-brand ml-5" href="/Home">BonBon</a>
-    <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+    <a class="navbar-brand ml-5" href="/Home">{{'BONBON' | translate}}</a>
+    <!-- <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
       aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="d-flex justify-content-start align-items-center">
         <i class="fa fa-bars"></i>
       </span>
+    </button> -->
+    <button class="navbar-toggler ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarExample01">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/Products">Products</a>
+          <a class="nav-link" routerLink="/Products">{{'PRODUCTS' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/AboutUs">About Us</a>
+          <a class="nav-link" href="/AboutUs">{{'ABOUTUS' | translate}}</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        <li class="nav-item dropdown" *ngIf="role=='Admin'">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" 
             aria-expanded="false">
-            Admin(For admins)
+            {{'MANAGE' | translate}} (For admins)
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
@@ -40,7 +43,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Category
+            {{'CATEGORY' | translate}}
           </a>
           <!-- (change)="GetProductByCategory()" -->
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -57,22 +60,22 @@
 
         <!-- [(ngModel)]="Pname" -->
         <!-- [value]="Pname" -->
-        <input #Pname class="form-control me-2 inp" type="search" placeholder="Search" aria-label="Search" />
+        <input #Pname class="form-control me-2 inp" type="search" placeholder="{{'SEARCH' | translate}}" aria-label="Search" />
         <input class="search p-1 btn btn-default" type="button" routerLink="/searchProduct/{{ Pname.value }}"
-          value="Search" (click)="SendName(Pname.value)" />
+          value="{{'SEARCH' | translate}}" (click)="SendName(Pname.value)" />
       </form>
 
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" [hidden]="isUserLogged" routerLink="/Login" routerLinkActive="active">Login</a>
+          <a class="nav-link" [hidden]="isUserLogged" routerLink="/Login" routerLinkActive="active">{{'LOGIN' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [hidden]="isUserLogged" routerLink="/Register" routerLinkActive="active">Register</a>
+          <a class="nav-link" [hidden]="isUserLogged" routerLink="/Register" routerLinkActive="active">{{'REGISTER' | translate}}</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" [hidden]="!isUserLogged" id="navbarDropdown"
               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Hello, {{ user }}
+              {{'HELLO' | translate}}, {{ user }}
             <!-- Hello, {{ UserEmail }} -->
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -84,7 +87,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" [hidden]="!isUserLogged" routerLink="/Home" routerLinkActive="active"
-            (click)="Logout()">Logout</a>
+            (click)="Logout()">{{'LOGOUT' | translate}}</a>
         </li>
       </ul>
 

@@ -25,7 +25,7 @@ export class ShoppingCartitemComponent implements OnInit {
       (data)=>{
         this.product = data;
         this.quantity = this.product.quantity;
-        if(this.pd.amount != this.quantity){
+        if(this.pd.amount < this.quantity){
           this.pd.amount++;
           this.OrderPrice = this.pd.product.price;
           this.totalPriceOnChange.emit(this.OrderPrice);

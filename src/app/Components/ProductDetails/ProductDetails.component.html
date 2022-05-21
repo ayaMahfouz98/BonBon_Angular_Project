@@ -13,28 +13,25 @@
 
 					</div>
 					<div class="details col-md-6">
-						<h3 class="product-title">{{Product.title}}</h3>
-            <h6 class="product-code">Product code: {{Product.id}}</h6>
+						<h3 class="product-title">{{Product?.title}}</h3>
+            <h6 class="product-code">Product code: {{Product?.id}}</h6>
 
 						<div class="rating">
 							<div class="stars">
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
+								<ngb-rating [max]="5" [(rate)]="rating" [readonly]="true" style="color:rgb(247, 140, 18); font-size: large;"></ngb-rating>
 							</div>
 						</div>
-						<h4 class="price"><span>{{Product.price| currency:'USD'}}</span></h4>
+						<h4 class="price"><span>{{Product?.price| currency:'USD'}}</span></h4>
 
-						<p class="product-description">{{Product.description}}</p>
-						<div class="available" [ngSwitch]=" Product.quantity">
+						<p class="product-description">{{Product?.description}}</p>
+						<div class="available" [ngSwitch]=" Product?.quantity">
 							<div class="text-danger" *ngSwitchCase="0">Out Of Stock</div>
 							<div class="text-warning"*ngSwitchCase="1">Last Item!</div>
 							<div class="text-warning" *ngSwitchCase="2">Last 2 items!</div>
-							<div class="avl" *ngSwitchDefault>{{Product.quantity}} Items Available.</div>
+							<div class="avl" *ngSwitchDefault>{{Product?.quantity}} Items Available.</div>
 						  </div>
 						<hr>
+
 						<h6>Qunatity</h6>
 					    <input class="quantity mb-2"type="number" value="1"/>
      					<div class="action">
@@ -43,6 +40,13 @@
 
                             <a class="btn btn-dark m-2" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
                             <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
+
+					<!--	<h6>Qunatity</h6>
+					    <input class="quantity mb-2"type="number" value="1"/>-->
+     					<div class="action mt-2">
+							<button class="add-to-cart btn btn-default" type="button"  onclick="bootstapAlert()" (click)="AddToCart()">Add to cart</button>
+                           	<!-- <a class="card-action" href="#">  <i class="fa fa-heart"></i> </a>-->
+
 						</div>
 					</div>
 				</div>

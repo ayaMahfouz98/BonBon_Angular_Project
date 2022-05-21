@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -66,12 +66,10 @@ export class UserService {
   }
 
   get UserEmail(): any {
-
     return localStorage.getItem('email');
   }
 
   get UserId(): any {
-
     return localStorage.getItem('id');
   }
 
@@ -80,9 +78,7 @@ export class UserService {
   }
 
   ForgetPassword(email: any) {
-    console.log(email);
     return this.HttpClient.get(`${this.BaseURL}/api/Auth/ForgetPassword/${email}`);
-
   }
 
   ResetPassword(ResetPasswordmodel: any) {
@@ -93,9 +89,15 @@ export class UserService {
     return this.HttpClient.put(`${this.BaseURL}/api/UserProfile/EditRole/${email}`, user);
   }
 
-
   GetRoles() {
     return this.HttpClient.get(`${this.BaseURL}/api/Auth/GetRoles`);
+  }
+
+  AddRole(role: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+    return this.HttpClient.post(`${this.BaseURL}/api/Auth/AddRole`, JSON.stringify(role), httpOptions);
   }
 
 }

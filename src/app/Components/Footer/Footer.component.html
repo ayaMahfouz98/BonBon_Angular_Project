@@ -1,17 +1,92 @@
+
+<footer id="footer">
+  <div class="footer-newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>{{'BONBON' | translate}}</h4>
+          <p>{{'BONBONFOOTER' | translate}}</p>
+        </div>
+        <div class="col-lg-6">
+          <form action="" method="post"> <input type="email" name="email"><input type="submit" value="{{'SUBSCRIBE' | translate}}">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>{{'USEFULL' | translate}}</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'HOME' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'ABOUTUS' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'PRODUCTS' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'SHIPRATE' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'HELP' | translate}}</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>{{'PRODUCTS' | translate}}</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'HAIRCARE' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'BODYCARE' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'BATH' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'SOAPS' | translate}}</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">{{'BRUSHES' | translate}}</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>{{'CONTACT' | translate}}</h4>
+          <p><i class="fa fa-home mr-3"></i> {{'NY' | translate}}, NY 10012, US</p>
+          <p><i class="fa  fa-envelope mr-3"></i> info@example.com</p>
+          <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+          <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-info">
+          <h3>{{'ABOUTUS' | translate}}</h3>
+          <p>{{'FOOTERLINE' | translate}}:</p>
+          <div class="social-links mt-3">
+            <a href="" class="text-white me-3">
+              <i class="fa fa-facebook-f"></i>
+            </a>
+            <a href="" class="text-white me-3">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="" class="text-white me-3">
+              <i class="fa fa-google"></i>
+            </a>
+            <a href="" class="text-white me-3">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footerSection text-center pb-4">
+    © 2022 {{'COPYRIGHTS' | translate}}:
+    <a class="mx-2" href="https://github.com/ayaMahfouz98/BonBon_Angular_Project">{{'BONBON' | translate}}</a>
+    <a class="mx-2" (click)="changeCurrLang('en')">English</a>
+    <a class="mx-2" (click)="changeCurrLang('ar')">العربية</a>
+    <!-- <button class="mx-2"(click)="translate.use('en')">English</button>
+    <button class="mx-2"(click)="translate.use('ar')">العربية</button> -->
+  </div>
+</footer>
+
+
+
+
+
 <!-- <div class="container-fluid">
 
-  <footer
-          class="text-center text-lg-start text-white"
-          style="background-color:#ffede7"
-          >
-
-    <section
-             class="d-flex justify-content-between p-4"
-             style="background-color: rgb(226, 103, 103)"
-             >
-
+  <footer class="text-center text-lg-start text-white" style="background-color:#ffede7">
+    <section class="d-flex justify-content-between p-4" style="background-color: rgb(226, 103, 103)">
       <div class="me-5">
-        <span>Get connected with us on social networks:</span>
+        <span>{{'FOOTERLINE' | translate}}:</span>
       </div>
       <div>
         <a href="" class="text-white me-4">
@@ -42,69 +117,55 @@
         <div class="row mt-3">
 
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
-            <h6 class="text-uppercase fw-bold">BonBon</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: rgb(226, 103, 103); height: 2px"
-                />
+            <h6 class="text-uppercase fw-bold">{{'BONBON' | translate}}</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: rgb(226, 103, 103); height: 2px" />
             <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+              {{'BONBONFOOTER' | translate}}
             </p>
           </div>
 
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-            <h6 class="text-uppercase fw-bold">Products</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: rgb(226, 103, 103); height: 2px"
-                />
+            <h6 class="text-uppercase fw-bold">{{'PRODUCTS' | translate}}</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: rgb(226, 103, 103); height: 2px" />
             <p>
-              <a href="#!" class="footerSection">MDBootstrap</a>
+              <a href="#!" class="footerSection">{{'HAIRCARE' | translate}}</a>
             </p>
             <p>
-              <a href="#!" class="footerSection">MDWordPress</a>
+              <a href="#!" class="footerSection">{{'BODYCARE' | translate}}</a>
             </p>
             <p>
-              <a href="#!" class="footerSection">BrandFlow</a>
+              <a href="#!" class="footerSection">{{'BATH' | translate}}</a>
             </p>
             <p>
-              <a href="#!"class="footerSection">Bootstrap Angular</a>
+              <a href="#!" class="footerSection">{{'SOAPS' | translate}}</a>
             </p>
           </div>
 
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 footerSection">
-
-            <h6 class="text-uppercase fw-bold ">Useful links</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: rgb(226, 103, 103); height: 2px"
-                />
+            <h6 class="text-uppercase fw-bold ">{{'USEFULL' | translate}}</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: rgb(226, 103, 103); height: 2px" />
             <p>
-              <a href="#!" class="footerSection">Your Account</a>
+              <a href="#!" class="footerSection">{{'ACC' | translate}}</a>
             </p>
             <p>
-              <a href="#!"class="footerSection" >Become an Affiliate</a>
+              <a href="#!" class="footerSection">{{'BA' | translate}}</a>
             </p>
             <p>
-              <a href="#!" class="footerSection">Shipping Rates</a>
+              <a href="#!" class="footerSection">{{'SHIPRATE' | translate}}</a>
             </p>
             <p>
-              <a href="#!" class="footerSection">Help</a>
+              <a href="#!" class="footerSection">{{'HELP' | translate}}</a>
             </p>
           </div>
 
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-            <h6 class="text-uppercase fw-bold">Contact</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color:  rgb(226, 103, 103); height: 2px"
-                />
-            <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+            <h6 class="text-uppercase fw-bold">{{'CONTACT' | translate}}</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color:  rgb(226, 103, 103); height: 2px" />
+            <p><i class="fa fa-home mr-3"></i> {{'NY' | translate}}, NY 10012, US</p>
             <p><i class="fa  fa-envelope mr-3"></i> info@example.com</p>
             <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
             <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
@@ -115,97 +176,13 @@
       </div>
     </section>
 
-
-
-    <div class="footerSection text-center pb-4" >
-      © 2022 Copyright:
-      <a  href="https://github.com/ayaMahfouz98/BonBon_Angular_Project"
-         >BonBon</a
-        >
+    <div class="footerSection text-center pb-4">
+      © 2022 {{'COPYRIGHTS' | translate}}:
+      <a class="mx-2" href="https://github.com/ayaMahfouz98/BonBon_Angular_Project">{{'BONBON' | translate}}</a>
+      <a class="mx-2" (click)="changeCurrLang('en')">English</a>
+      <a class="mx-2" (click)="changeCurrLang('ar')">العربية</a>
     </div>
 
   </footer>
 
 </div> -->
-
-
-
-
-
-
-
-
-<footer id="footer">
-  <div class="footer-newsletter">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <h4>BonBon</h4>
-          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-        </div>
-        <div class="col-lg-6">
-          <form action="" method="post"> <input type="email" name="email"><input type="submit" value="Subscribe">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-contact">
-          <h4>Contact Us</h4>
-          <p> A108 Adam Street <br> New York, NY 535022<br> United States <br><br> <strong>Phone:</strong> +1 5589 55488
-            55<br> <strong>Email:</strong> info@example.com<br> </p>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-info">
-          <h3>About DevVE</h3>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta
-            donna mare fermentum iaculis eu non diam phasellus.</p>
-          <div class="social-links mt-3">
-            <a href="" class="text-white me-4">
-              <i class="fa fa-facebook-f"></i>
-            </a>
-            <a href="" class="text-white me-4">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="" class="text-white me-4">
-              <i class="fa fa-google"></i>
-            </a>
-            <a href="" class="text-white me-4">
-              <i class="fa fa-instagram"></i>
-            </a>
-            <a href="" class="text-white me-4">
-              <i class="fa fa-linkedin"></i>
-            </a>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="copyright"> &copy; Copyright <strong><span>DevVE</span></strong>. All Rights Reserved </div>
-    <div class="credits"> Designed by <a href="#">SalvadorDevVE</a> </div>
-  </div>
-</footer>

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject } from 'rxjs/internal/Subject';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-
+  static cartTotal: number = 0;
 
   constructor(private HttpClient :HttpClient) { }
 
@@ -25,7 +27,7 @@ export class OrderService {
     }
     
   GetShoppingCartItems(id:any){
-    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartItems/${id}`,id);
+    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartItems/${id}`);
   }
 
   GetShoppingCart(){
@@ -59,14 +61,15 @@ get shoppingCartExists(): boolean
   CompleteOrder(email:any,shoppingCartId:any){
     return this.HttpClient.post(`${this.BaseURL}/completerOrder/${email}/${shoppingCartId}`,email);
   }
+
+  DeleteOrder(id:any){
+    return this.HttpClient.delete(`${this.BaseURL}/DeleteOrder/${id}`,id);
+  }
+
   GetOrderDetails(id:any){
     return this.HttpClient.get(`${this.BaseURL}/GetOrderDetails/${id}`);
   }
-  GetOrderTotal(shoppingCartId:any){
-    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartTotal/${shoppingCartId}`);
-  }
-
-
+ 
   /*************************Component Services*******************************/
   removeItemTotalAmount(productId:any,cartToken:any){
     this.RemoveItemTotalAmountShoppingCart(productId,cartToken).subscribe();  
@@ -74,7 +77,25 @@ get shoppingCartExists(): boolean
   }
 
 
-  PrdListTotalCost(orderProducts:any[] ){
+
+   GetOrderTotal(id:any):  Observable<string>{
+    let shoppingCartItems:any[];
+    var subject = new Subject<string>();
+    let cartTotal = 0;
+    this.GetShoppingCartItems(id).subscribe(
+      (data:any)=>{
+         shoppingCartItems=data;
+         shoppingCartItems.forEach(element => {
+         cartTotal+= element.amount * element.product.price
+         }
+         );
+         subject.next(cartTotal.toString());
+      })
+      return subject.asObservable();
+  }
+
+
+PrdListTotalCost(orderProducts:any[] ){
     let total = 0;
     orderProducts?.forEach(element => {
       console.log(element);
@@ -83,5 +104,22 @@ get shoppingCartExists(): boolean
     return total;
   }
   
-
+              /***********To prevent inserting more than the quantity************/
+  /* productAmountInShoppingCart(id:any) : Observable<string>{
+    let shoppingCartItems:any[];
+    var subject = new Subject<string>();
+    let productAmount = 0;
+    this.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe(
+      (data:any)=>{
+         shoppingCartItems=data;
+         shoppingCartItems.forEach(element => {
+           if(element.id == id){
+            productAmount = element.amount
+            console.log("cccddd"+element.amount)
+           }
+         });
+         subject.next(productAmount.toString());
+      })
+      return subject.asObservable();
+   }*/
 }

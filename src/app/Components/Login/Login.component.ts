@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   @Output() myEvent = new EventEmitter();
 
   message: any;
-  PasswordMSG: any;
+  WrongPasswordMSG: any;
   isUserLogged: boolean = false;
 
   Password = '';
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
               (data: any) => {
                 localStorage.setItem('token', data.token);
                 this.isUserLogged = this.userService.isUserLogged;
-                this.router.navigate(['/Home']); //================>   TODO ----> REDIRECT TO HOME
+                this.router.navigate(['../Home']) //================>   TODO ----> REDIRECT TO HOME
               },
               (err: any) => {
                 if (err.status == 400)
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
             );
           }
         },
-        (err: any) => { this.PasswordMSG = err.error.text; }
+        (err: any) => { this.WrongPasswordMSG = err.error.text; }
       )
     }
     else {

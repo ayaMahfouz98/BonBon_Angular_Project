@@ -30,6 +30,9 @@ import { EditUserComponent } from './Components/EditUser/EditUser.component';
 
 import { OrderDetailsComponent } from './Components/OrderDetails/OrderDetails.component';
 import { AllOrdersComponent } from './Components/all-orders/all-orders.component';
+import { CompleteOrderComponent } from './Components/CompleteOrder/CompleteOrder.component';
+import { OrderPlacedComponent } from './Components/OrderPlaced/OrderPlaced.component';
+import { AuthGuard } from './shared/auth.guard';
 
 
 
@@ -38,12 +41,15 @@ import { AllOrdersComponent } from './Components/all-orders/all-orders.component
 const routes: Routes = [
   {path:"",component:LayoutComponent,children:[
     {path: '',redirectTo:'/Home',pathMatch:'full'},
-    {path:'Home',component:HomeComponent}
-
+    {path:'Home',component:HomeComponent},
+    {path:'Promoted',component:PromotionsComponent}
   ]},
+
   {path:"Cart",component:ShoppingCartComponent},
+  {path:"OrderPlaced",component:OrderPlacedComponent},
+  {path:"CompleteOrder",component:CompleteOrderComponent},
   {path:"AboutUs",component:AboutUsDataComponent},
-  {path:"Products",component:ProductsComponent},
+  {path:"Products",component:ProductsComponent,canActivate:[AuthGuard]},
   {path:"myOrders/:id",component:UserOrderComponent},
   {path:"OrderDetails/:id",component:OrderDetailsComponent},
   {path:"Products/:id",component:ProductDetailsComponent},
@@ -54,7 +60,7 @@ const routes: Routes = [
   {path:"Register",component:RegisterComponent},
   {path:"NewProduct",component:NewProductComponent},
   {path:"DeleteProduct",component:ProductsComponent},
-  {path:"SearchByCategory/:id",component:SearchByCategoryComponent},
+  {path:"SearchByCategory/:id",component:SearchByCategoryComponent,canActivate:[AuthGuard]},
   {path:"GetUser/:email",component:UserProfileComponent},
   {path:"AllCategories",component:AllCategoriesComponent},
   {path:"EditeCategory/:id",component:EditCategoryComponent},
@@ -66,7 +72,9 @@ const routes: Routes = [
   {path:"AllOrders",component:AllOrdersComponent},
   {path:"yourProfile",component:UserProfileComponent},
   {path:"**",component:ErrorComponent}
-];
+
+]
+;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

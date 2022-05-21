@@ -1,12 +1,16 @@
 label {
     font-weight: 600;
-    color: #555;
+
 }
-body {
-  background-image:url(https://i.pinimg.com/564x/93/eb/92/93eb927bc16ec82ee48d63f218bc6386.jpg);
+input ,select{
+    border:1px solid rgb(226, 103, 103);
+
+}
+h3{
+    color: rgb(226, 103, 103);
 }
 .btn1 {
-    background-color:rgba(179, 230, 146, 0.788); 
+    background-color:rgb(226, 103, 103);
     border: none;
     text-transform: UPPERCASE;
     color: #fff;
@@ -15,6 +19,7 @@ body {
     margin-right:15px ; 
  }
 .jumbotron{
-    background-color: #c5c3ad;
-    
+        border:1px solid rgb(226, 103, 103);
+        background-color:rgb(255, 255, 255);
+
 }

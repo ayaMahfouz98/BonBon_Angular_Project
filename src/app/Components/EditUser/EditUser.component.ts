@@ -7,30 +7,24 @@ import { UserService } from 'src/app/Services/User.service';
   templateUrl: './EditUser.component.html',
   styleUrls: ['./EditUser.component.css']
 })
+
 export class EditUserComponent implements OnInit {
-  userEmail:any;
-  user:any;
-  Role:any;
-  AllRoles:any;
-  constructor(private ActivatedRoute:ActivatedRoute,private router:Router,private UserService:UserService) {
+  isNewRoleClicked = true;
+  userEmail: any;
+  user: any;
+  Role: any;
+  AllRoles: any;
+
+  constructor(private ActivatedRoute: ActivatedRoute, private router: Router, private UserService: UserService) {
     this.userEmail = ActivatedRoute.snapshot.params['email'];
+    // this.Role = "Role";
   }
 
   ngOnInit() {
     this.UserService.GetUserProfile(this.userEmail).subscribe(
       (data) => {
         this.user = data;
-        console.log(this.user);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-
-    this.UserService.GetRoles().subscribe(
-      (data) => {
-        this.AllRoles = data;
-        console.log(this.AllRoles.roles);
+        this.Role = this.user.role;
       },
       (err) => {
         console.log(err);
@@ -39,10 +33,30 @@ export class EditUserComponent implements OnInit {
 
   }
 
+  GetRoles(){
+    this.UserService.GetRoles().subscribe(
+      (data) => {
+        this.AllRoles = data;
+        // console.log(this.AllRoles.roles);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
 
+  AddRole(event:any) {
+    const role = event.target.value;
+    console.log(role);
+    this.UserService.AddRole(role).subscribe();
+    this.Role = role;
+    this.isNewRoleClicked = !this.isNewRoleClicked;
+    console.log("New role entered: ", event.target.value);
+  }
 
-  EditRole(role:any){
+
+  EditRole(role: any) {
     let user = {
       "id": "",
       "userName": "string",
@@ -62,17 +76,15 @@ export class EditUserComponent implements OnInit {
       "profileImage": "string",
       "gender": 0,
 
-      "role":role
+      "role": role
     };
 
-    this.UserService.EditRole(
-      this.user.email
-      ,user
-    ).subscribe();
+    this.UserService.EditRole(this.user.email, user).subscribe();
+
     //this.router.navigate(['/AllCategories']);
   }
 
 
-  }
+}
 
 

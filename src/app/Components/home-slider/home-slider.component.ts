@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-slider',
   templateUrl: './home-slider.component.html',
   styleUrls: ['./home-slider.component.css']
 })
+
 export class HomeSliderComponent {
 
+  constructor(public translate: TranslateService) { }
 
   images = [
     'https://assets.vogue.in/photos/5ce41d389cc0c04346f9c1a5/master/pass/Skincare-and-haircare-products-with-natural-ingredients.jpg',

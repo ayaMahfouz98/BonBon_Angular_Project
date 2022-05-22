@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
 import { OrderService } from 'src/app/Services/Order.service';
+import { UserService } from 'src/app/Services/User.service';
 
 //import { serialize } from 'v8';
 
@@ -12,22 +13,25 @@ import { OrderService } from 'src/app/Services/Order.service';
   styleUrls: ['./ProductDetails.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-ProductId:any;
-Product:any;
-ProductFromApi:any;
-quantity:any;
-OrderPrice:any;
-cartItems:any;
-enableAdd = true;
-@Output() totalPriceOnChange: EventEmitter<number>;
+  ProductId: any;
+  Product: any;
+  ProductFromApi: any;
+  quantity: any;
+  OrderPrice: any;
+  cartItems: any;
+  enableAdd = true;
+  @Output() totalPriceOnChange: EventEmitter<number>;
 
-rating:any;
+  rating: any;
   ProductItem: any;
-  constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
-   this.ProductId= ActivatedRoute.snapshot.params["id"];
-   
-   this.totalPriceOnChange = new EventEmitter<number>();
-   this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
+  isUserLogged: any;
+  constructor(private ActivatedRoute: ActivatedRoute, private router: Router, private service: ProductsService, private orderService: OrderService, private userService: UserService) {
+    this.ProductId = ActivatedRoute.snapshot.params["id"];
+    this.isUserLogged = this.userService.isUserLogged;
+
+
+    this.totalPriceOnChange = new EventEmitter<number>();
+    this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
   }
 
   ngOnInit() {
@@ -36,39 +40,47 @@ rating:any;
       if(element.id == this.ProductId)
       this.ProductItem = element;
      });
-     */
+     */    this.userService.getloggedStatus().subscribe((status: any) => {
+    this.isUserLogged = status;
+  })
     this.service.GetProductById(this.ProductId).subscribe(
-      (data)=>{
-        this.Product=data;
-        this.quantity = this.Product.quantity;
-        this.rating= this.Product.overAllRating;
-      },
-      (err)=>{console.log(err)}
-    );
-  }
-  
-  AddToCart(){
-    this.service.GetProductById(this.Product.id).subscribe(
-      (data)=>{
+      (data) => {
         this.Product = data;
         this.quantity = this.Product.quantity;
-        if(this.Product.amount == undefined){
-          this.Product.amount=0;
-          this.enableAdd = true;
-        }
-        if(this.Product.amount < this.quantity){
-          this.Product.amount++;
-          this.OrderPrice = this.Product.price;
-          this.totalPriceOnChange.emit(this.OrderPrice);
-          this.orderService.AddToShoppingCart(this.Product.id,localStorage.getItem('cartToken')).subscribe();
-        }
-        else{
-            this.enableAdd = false;
-        }
-      }
+        this.rating = this.Product.overAllRating;
+      },
+      (err) => { console.log(err) }
     );
-        
-}
-    
+  }
+
+  AddToCart() {
+    if (!this.isUserLogged){
+      this.router.navigate(['/Login']);
+
+    }
+    else
+    {
+      this.service.GetProductById(this.Product.id).subscribe(
+        (data) => {
+          this.Product = data;
+          this.quantity = this.Product.quantity;
+          if (this.Product.amount == undefined) {
+            this.Product.amount = 0;
+            this.enableAdd = true;
+          }
+          if (this.Product.amount < this.quantity) {
+            this.Product.amount++;
+            this.OrderPrice = this.Product.price;
+            this.totalPriceOnChange.emit(this.OrderPrice);
+            this.orderService.AddToShoppingCart(this.Product.id, localStorage.getItem('cartToken')).subscribe();
+          }
+          else {
+            this.enableAdd = false;
+          }
+        }
+      );
+    }
+  }
+
 
 }

@@ -34,8 +34,9 @@
 					<!--	<h6>Qunatity</h6>
 					    <input class="quantity mb-2"type="number" value="1"/>-->
      					<div class="action mt-2">
-							<button class="add-to-cart btn btn-default" type="button"  onclick="bootstapAlert()" (click)="AddToCart()">Add to cart</button>
-                           	<!-- <a class="card-action" href="#">  <i class="fa fa-heart"></i> </a>-->
+							<button class="add-to-cart btn btn-default" type="button"  onclick="bootstapAlert()"  (click)="AddToCart()">Add to cart</button>
+                            <div><span *ngIf="!isUserLogged"><i class="fa fa-warning text-warning text-center"></i> You're not authorized !</span></div>
+							<!-- <a class="card-action" href="#">  <i class="fa fa-heart"></i> </a>-->
 						</div>
 					</div>
 				</div>

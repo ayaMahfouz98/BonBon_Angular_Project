@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   AllCategories: any;
   ID:any;
   user:any;
-  role:any;
+  role?:any;
   @Output() myEvent = new EventEmitter();
 
   constructor(private userService: UserService, private router: Router, private CategoryService: CategoryService, private activatedRoute: ActivatedRoute, public translate: TranslateService) {

@@ -19,17 +19,14 @@ ProductId:any;
 Product:any;
 ProductFromApi:any;
 quantity:any;
-
-  constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService,private router:Router) {
-
 OrderPrice:any;
 cartItems:any;
 enableAdd = true;
 @Output() totalPriceOnChange: EventEmitter<number>;
 
-rating:any;
+  rating:any;
   ProductItem: any;
-  constructor(private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
+  constructor(private router:Router,private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
 
    this.ProductId= ActivatedRoute.snapshot.params["id"];
    
@@ -38,12 +35,6 @@ rating:any;
   }
 
   ngOnInit() {
-    /*
-    Array(this.cartItems).forEach( (element: any)=>{
-      if(element.id == this.ProductId)
-      this.ProductItem = element;
-     });
-     */
     this.service.GetProductById(this.ProductId).subscribe(
 
       (data)=>{
@@ -75,12 +66,9 @@ rating:any;
         }
       }
 
-    );
-        
+    );    
 }
     
-
-
       Delete(id:any){
         this.service.DeleteProduct(id).subscribe();
        this.router.navigate(['/Products']);

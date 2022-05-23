@@ -47,7 +47,7 @@ const routes: Routes = [
 
   {path:"Cart",component:ShoppingCartComponent},
   {path:"OrderPlaced",component:OrderPlacedComponent},
-  {path:"CompleteOrder",component:CompleteOrderComponent},
+  {path:"CompleteOrder",component:CompleteOrderComponent,canActivate:[AuthGuard]},
   {path:"AboutUs",component:AboutUsDataComponent},
   {path:"Products",component:ProductsComponent,canActivate:[AuthGuard]},
   {path:"myOrders/:id",component:UserOrderComponent},

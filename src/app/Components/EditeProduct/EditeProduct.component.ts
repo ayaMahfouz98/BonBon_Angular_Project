@@ -51,7 +51,7 @@ this.servicePrd.GetProductById(this.ProductId).subscribe(
     );
    }
 
-   Edit(Title:any,Description:any,price:any,quantity:any,selectedCatID:any,imageUrl:any,isPromoted:boolean,promotionPercentage:any,overAllRating:any){
+   Edit(Title:any,Description:any,price:any,quantity:any,selectedCatID:any,imageUrl:any,isPromoted:any,promotionPercentage:any,overAllRating:any){
     let product={
       "id":this.ProductId,
       "title": Title,

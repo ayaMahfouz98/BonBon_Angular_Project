@@ -29,11 +29,14 @@ enableAdd = true;
   rating: any;
   ProductItem: any;
   isUserLogged: any;
+  UserID:any;
+  role:any;
+  
   constructor(private ActivatedRoute: ActivatedRoute, private router: Router, private service: ProductsService, private orderService: OrderService, private userService: UserService) {
     this.ProductId = ActivatedRoute.snapshot.params["id"];
     this.isUserLogged = this.userService.isUserLogged;
 
-
+    this.UserID = this.userService.UserId;
     this.totalPriceOnChange = new EventEmitter<number>();
     this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
   }
@@ -44,7 +47,20 @@ enableAdd = true;
       if(element.id == this.ProductId)
       this.ProductItem = element;
      });
-     */    this.userService.getloggedStatus().subscribe((status: any) => {
+
+     
+     */  
+    
+     this.userService.GetUserById(this.UserID).subscribe(
+      (data:any)=>{
+        if(data != null)
+          this.role = data.role;
+      },
+      (err)=>{
+        console.log(err);
+      }
+    );
+     this.userService.getloggedStatus().subscribe((status: any) => {
     this.isUserLogged = status;
   })
     this.service.GetProductById(this.ProductId).subscribe(

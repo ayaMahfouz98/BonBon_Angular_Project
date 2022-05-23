@@ -19,11 +19,10 @@ ProductId:any;
 Product:any;
 ProductFromApi:any;
 quantity:any;
-
-
 OrderPrice:any;
 cartItems:any;
 enableAdd = true;
+isLoggedIn:any;
 @Output() totalPriceOnChange: EventEmitter<number>;
 
   rating: any;

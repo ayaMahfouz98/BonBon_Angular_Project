@@ -1,9 +1,7 @@
 console.log("cccc");
-function bootstapAlert(){
-   //  if(isLoggedIn== true)
+function bootstapAlert(isLogged){
+   if(isLogged == true)
       $.notify("Added to cart!");
-   //  else
-      // window.location.href = "Login.html"
+  else
+      $.notify("Log In First!");
 }
-
-/***********Paypal********* */

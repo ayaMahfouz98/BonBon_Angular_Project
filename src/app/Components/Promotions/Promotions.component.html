@@ -1,9 +1,9 @@
 <h4 class="text-center m-3">{{'ONSALE' | translate}}</h4>
 <hr>
-<owl-carousel-o [options]="customOptions" class="col-lg-2">
+<owl-carousel-o [options]="customOptions" class="col-lg-1">
   <ng-container *ngFor="let prd of AllProductsWithPormotion?.value; let i = index">
     <ng-template carouselSlide>
-      <div class="card-sl m-3 " routerLink="/Products/{{prd.id}}">
+      <div class="card-sl m-4 " routerLink="/Products/{{prd.id}}">
 
         <!-- <div class="ribbon">
           <div class="">
@@ -12,7 +12,7 @@
           </div>
         </div> -->
 
-        <div class="card-image">
+        <div class="card-image w-100">
           <img src={{prd?.imageUrl}} />
         </div>
         <a class="card-action" href="#"><i class="fa fa-heart"></i></a>

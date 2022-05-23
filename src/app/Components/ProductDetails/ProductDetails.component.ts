@@ -1,4 +1,6 @@
 import { HttpClient } from '@angular/common/http';
+
+
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
@@ -13,14 +15,16 @@ import { UserService } from 'src/app/Services/User.service';
   styleUrls: ['./ProductDetails.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  ProductId: any;
-  Product: any;
-  ProductFromApi: any;
-  quantity: any;
-  OrderPrice: any;
-  cartItems: any;
-  enableAdd = true;
-  @Output() totalPriceOnChange: EventEmitter<number>;
+ProductId:any;
+Product:any;
+ProductFromApi:any;
+quantity:any;
+
+
+OrderPrice:any;
+cartItems:any;
+enableAdd = true;
+@Output() totalPriceOnChange: EventEmitter<number>;
 
   rating: any;
   ProductItem: any;
@@ -44,8 +48,9 @@ export class ProductDetailsComponent implements OnInit {
     this.isUserLogged = status;
   })
     this.service.GetProductById(this.ProductId).subscribe(
-      (data) => {
-        this.Product = data;
+
+      (data)=>{
+        this.Product=data;
         this.quantity = this.Product.quantity;
         this.rating = this.Product.overAllRating;
       },
@@ -53,34 +58,37 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  AddToCart() {
-    if (!this.isUserLogged){
-      this.router.navigate(['/Login']);
-
-    }
-    else
-    {
-      this.service.GetProductById(this.Product.id).subscribe(
-        (data) => {
-          this.Product = data;
-          this.quantity = this.Product.quantity;
-          if (this.Product.amount == undefined) {
-            this.Product.amount = 0;
-            this.enableAdd = true;
-          }
-          if (this.Product.amount < this.quantity) {
-            this.Product.amount++;
-            this.OrderPrice = this.Product.price;
-            this.totalPriceOnChange.emit(this.OrderPrice);
-            this.orderService.AddToShoppingCart(this.Product.id, localStorage.getItem('cartToken')).subscribe();
-          }
-          else {
+  AddToCart(){
+    this.service.GetProductById(this.Product.id).subscribe(
+      (data)=>{
+        this.Product = data;
+        this.quantity = this.Product.quantity;
+        if(this.Product.amount == undefined){
+          this.Product.amount=0;
+          this.enableAdd = true;
+        }
+        if(this.Product.amount < this.quantity){
+          this.Product.amount++;
+          this.OrderPrice = this.Product.price;
+          this.totalPriceOnChange.emit(this.OrderPrice);
+          this.orderService.AddToShoppingCart(this.Product.id,localStorage.getItem('cartToken')).subscribe();
+        }
+        else{
             this.enableAdd = false;
           }
         }
       );
     }
-  }
+  
+
+
+
+      Delete(id:any){
+        this.service.DeleteProduct(id).subscribe();
+       this.router.navigate(['/Products']);
+      //window.location.reload();
+
+      }
 
 
 }

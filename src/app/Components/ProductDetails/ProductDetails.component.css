@@ -1,6 +1,9 @@
 
 /*****************globals*************/
-
+.error{
+  color: rgb(123, 123, 123);
+  font-size: small;
+}
 .preview {
     display: -webkit-box;
     display: -webkit-flex;

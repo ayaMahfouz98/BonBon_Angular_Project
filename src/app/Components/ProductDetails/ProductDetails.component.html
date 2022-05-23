@@ -35,16 +35,16 @@
 						<h6>Qunatity</h6>
 					    <input class="quantity mb-2"type="number" value="1"/>
      					<div class="action">
-							<button class="add-to-cart btn btn-default" type="button" onclick="bootstapAlert()"  (click)="AddToCart()">Add to cart</button>
-                            <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+							<button class="add-to-cart btn btn-default" type="button" onclick="bootstapAlert(isLoggedIn)" [disabled]="!isLoggedIn" (click)="AddToCart()">Add to cart</button>
+							<div class="error" *ngIf="!isLoggedIn" >*Please Login to add to cart!<a class="nav-link d-inline" [hidden]="isLoggedIn" routerLink="/Login" routerLinkActive="active">{{'Login'}}</a></div>
 
+							<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
                             <a class="btn btn-dark m-2" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
                             <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
 
 					<!--	<h6>Qunatity</h6>
 					    <input class="quantity mb-2"type="number" value="1"/>-->
      					<div class="action mt-2">
-							<button class="add-to-cart btn btn-default" type="button"  onclick="bootstapAlert()" (click)="AddToCart()">Add to cart</button>
                            	<!-- <a class="card-action" href="#">  <i class="fa fa-heart"></i> </a>-->
 
 						</div>

@@ -6,6 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { ProductsService } from 'src/app/Services/products.service';
 import { OrderService } from 'src/app/Services/Order.service';
+import { UserService } from 'src/app/Services/User.service';
 
 //import { serialize } from 'v8';
 
@@ -22,14 +23,15 @@ quantity:any;
 OrderPrice:any;
 cartItems:any;
 enableAdd = true;
+isLoggedIn:any;
 @Output() totalPriceOnChange: EventEmitter<number>;
 
   rating:any;
   ProductItem: any;
-  constructor(private router:Router,private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
+  constructor(private userService:UserService,private router:Router,private ActivatedRoute:ActivatedRoute,private service:ProductsService,private orderService :OrderService) {
 
    this.ProductId= ActivatedRoute.snapshot.params["id"];
-   
+   this.isLoggedIn = this.userService.isUserLogged;
    this.totalPriceOnChange = new EventEmitter<number>();
    this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
   }

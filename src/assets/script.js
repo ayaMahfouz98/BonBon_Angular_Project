@@ -1,10 +1,7 @@
 console.log("cccc");
-function bootstapAlert(){
-   // if(add== true)
+function bootstapAlert(isLogged){
+   if(isLogged == true)
       $.notify("Added to cart!");
-  //  else
-   //   $.notify("Out of Stock!");
-
+  else
+      $.notify("Log In First!");
 }
-
-/***********Paypal********* */

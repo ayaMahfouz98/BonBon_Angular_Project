@@ -29,15 +29,15 @@ export class HeaderComponent implements OnInit, OnChanges {
   Email: any;
   UserEmail: any;
   AllCategories: any;
-  ID:any;
-  user:any;
-  role?:any;
+  ID: any;
+  user: any;
+  role?: any;
   @Output() myEvent = new EventEmitter();
 
   constructor(private userService: UserService, private router: Router, private CategoryService: CategoryService, private activatedRoute: ActivatedRoute, public translate: TranslateService) {
     this.isUserLogged = this.userService.isUserLogged;
     this.Email = this.userService.UserEmail;
-    this.ID=this.userService.UserId;
+    this.ID = this.userService.UserId;
 
   }
 
@@ -55,42 +55,42 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.storage_facebook = localStorage.getItem('facebook_auth');
 
     this.CategoryService.GetAllCategories().subscribe(
-      (data:any) => {
+      (data: any) => {
         this.AllCategories = data;
       },
-      (err:any) => {
+      (err: any) => {
         console.log(err);
       }
     );
 
-    this.userService.getloggedStatus().subscribe((status:any) => {
+    this.userService.getloggedStatus().subscribe((status: any) => {
       this.isUserLogged = status;
 
-      if(this.storage_google)
+      if (this.storage_google)
         this.isUserLogged = true;
 
-      if(this.storage_facebook)
+      if (this.storage_facebook)
         this.isUserLogged = true;
 
     });
 
     this.userService.GetUserById(this.ID).subscribe(
-      (data:any)=>{
-        if(data != null)
+      (data: any) => {
+        if (data != null)
           this.user = data.userName;
-          this.role = data.role;
+        this.role = data?.role;
       },
-      (err)=>{
+      (err) => {
         this.user = "";
       }
     );
 
-    if(this.storage_google){
+    if (this.storage_google) {
       // this.userDetails = JSON.parse(storage_google);
       this.user = JSON.parse(this.storage_google).name;
     }
 
-    if(this.storage_facebook){
+    if (this.storage_facebook) {
       // this.userDetails = JSON.parse(storage_facebook);
       this.user = JSON.parse(this.storage_facebook).name;
     }
@@ -104,6 +104,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     localStorage.removeItem('id');
     localStorage.removeItem('google_auth');
     localStorage.removeItem('facebook_auth');
+    localStorage.removeItem('cartToken')
     localStorage.clear();
 
     this.userService.Logout().subscribe();

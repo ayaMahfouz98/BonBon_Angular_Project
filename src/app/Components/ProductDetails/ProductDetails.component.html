@@ -1,63 +1,67 @@
-
 <div class="container">
-		<div class="card">
-			<div class="container-fliud">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
+	<div class="card">
+		<div class="container-fliud">
+			<div class="wrapper row">
+				<div class="preview col-md-6">
 
-						<div class="preview-pic tab-content">
-						  <div class="card-image">
-                <img class="h-100"src={{Product?.imageUrl}}  />
-              </div>
+					<div class="preview-pic tab-content">
+						<div class="card-image">
+							<img class="h-100" src={{Product?.imageUrl}} />
 						</div>
-
 					</div>
-					<div class="details col-md-6">
-						<h3 class="product-title">{{Product?.title}}</h3>
-            <h6 class="product-code">Product code: {{Product?.id}}</h6>
 
-						<div class="rating">
-							<div class="stars">
-								<ngb-rating [max]="5" [(rate)]="rating" [readonly]="true" style="color:rgb(247, 140, 18); font-size: large;"></ngb-rating>
-							</div>
+				</div>
+				<div class="details col-md-6">
+					<h3 class="product-title">{{Product?.title}}</h3>
+					<h6 class="product-code">Product code: {{Product?.id}}</h6>
+
+					<div class="rating">
+						<div class="stars">
+							<ngb-rating [max]="5" [(rate)]="rating" [readonly]="true"
+								style="color:rgb(247, 140, 18); font-size: large;"></ngb-rating>
 						</div>
-						<h4 class="price"><span>{{Product?.price| currency:'USD'}}</span></h4>
+					</div>
+					<h4 class="price"><span>{{Product?.price| currency:'USD'}}</span></h4>
 
-						<p class="product-description">{{Product?.description}}</p>
-						<div class="available" [ngSwitch]=" Product?.quantity">
-							<div class="text-danger" *ngSwitchCase="0">Out Of Stock</div>
-							<div class="text-warning"*ngSwitchCase="1">Last Item!</div>
-							<div class="text-warning" *ngSwitchCase="2">Last 2 items!</div>
-							<div class="avl" *ngSwitchDefault>{{Product?.quantity}} Items Available.</div>
-						  </div>
-						<hr>
+					<p class="product-description">{{Product?.description}}</p>
+					<div class="available" [ngSwitch]=" Product?.quantity">
+						<div class="text-danger" *ngSwitchCase="0">Out Of Stock</div>
+						<div class="text-warning" *ngSwitchCase="1">Last Item!</div>
+						<div class="text-warning" *ngSwitchCase="2">Last 2 items!</div>
+						<div class="avl" *ngSwitchDefault>{{Product?.quantity}} Items Available.</div>
+					</div>
+					<hr>
 
-						<h6>Qunatity</h6>
-					    <input class="quantity mb-2"type="number" value="1"/>
-     					<div class="action">
-							<button class="add-to-cart btn btn-default" type="button" onclick="bootstapAlert(isLoggedIn)" [disabled]="!isLoggedIn" (click)="AddToCart()">Add to cart</button>
-							<div class="error" *ngIf="!isLoggedIn" >*Please Login to add to cart!<a class="nav-link d-inline" [hidden]="isLoggedIn" routerLink="/Login" routerLinkActive="active">{{'Login'}}</a></div>
+					<h6>Qunatity</h6>
+					<input class="quantity mb-2" type="number" value="1" />
+					<div class="action">
+						<button class="add-to-cart btn btn-default" type="button" onclick="bootstapAlert()"
+							[disabled]="!isUserLogged" (click)="AddToCart()">Add to cart</button>
+						<div class="error" *ngIf="!isUserLogged">*Please Login to add to cart!<a
+								class="nav-link d-inline" [hidden]="isUserLogged" routerLink="/Login"
+								routerLinkActive="active">{{'Login'}}</a></div>
+						<br>
+						<a class="btn btn-dark m-2" *ngIf="role=='Admin'" routerLink="/EditeProduct/{{Product.id}}"
+							role="button">Update Product</a>
+						<a class="btn btn-dark m-2" *ngIf="role=='Admin'" routerLink="/Products/{{Product.id}}"
+							(click)="Delete(Product.id)" role="button">Delete Product</a>
 
-                            <a class="btn btn-dark m-2" *ngIf="role=='Admin'" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
-                            <a class="btn btn-dark m-2" *ngIf="role=='Admin'" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
-
-					<!--	<h6>Qunatity</h6>
+						<!--	<h6>Qunatity</h6>
 					    <input class="quantity mb-2"type="number" value="1"/>-->
-     					<!-- <div class="action mt-2">
+						<!-- <div class="action mt-2">
 							<button class="add-to-cart btn btn-default" type="button"  onclick="bootstapAlert()" (click)="AddToCart()">Add to cart</button>
                            	<a class="card-action" href="#">  <i class="fa fa-heart"></i> </a>
 							<a class="card-action" href="#"><i class="fa fa-heart"></i></a>
                             <a class="btn btn-dark m-2" routerLink="/EditeProduct/{{Product.id}}" role="button">Update Product</a>
                             <a class="btn btn-dark m-2" routerLink="/Products/{{Product.id}}" (click)="Delete(Product.id)" role="button">Delete Product</a>
-
-					<!--	<h6>Qunatity</h6>
+						<h6>Qunatity</h6>
 					    <input class="quantity mb-2"type="number" value="1"/>-->
-     					<div class="action mt-2">
-                           	<!-- <a class="card-action" href="#">  <i class="fa fa-heart"></i> </a>-->
+						<div class="action mt-2">
+							<!-- <a class="card-action" href="#">  <i class="fa fa-heart"></i> </a>-->
 
-						</div> -->
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-  </div>
+	</div>

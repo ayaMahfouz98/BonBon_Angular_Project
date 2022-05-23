@@ -1,7 +1,9 @@
 console.log("cccc");
-function bootstapAlert(isLogged){
-   if(isLogged == true)
-      $.notify("Added to cart!");
-  else
-      $.notify("Log In First!");
+function bootstapAlert() {
+    $.notify("Added to cart!");
+
+}
+
+function confirmMessage() {
+    $.notify("Please check your email, We've sent an email to you.");
 }

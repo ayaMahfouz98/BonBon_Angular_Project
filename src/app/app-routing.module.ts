@@ -39,42 +39,44 @@ import { AuthGuard } from './shared/auth.guard';
 
 
 const routes: Routes = [
-  {path:"",component:LayoutComponent,children:[
-    {path: '',redirectTo:'/Home',pathMatch:'full'},
-    {path:'Home',component:HomeComponent},
-    {path:'Promoted',component:PromotionsComponent}
-  ]},
+  {
+    path: "", component: LayoutComponent, children: [
+      { path: '', redirectTo: '/Home', pathMatch: 'full' },
+      { path: 'Home', component: HomeComponent },
+      { path: 'Promoted', component: PromotionsComponent }
+    ]
+  },
+  { path: "AboutUs", component: AboutUsDataComponent },
 
-  {path:"Cart",component:ShoppingCartComponent},
-  {path:"OrderPlaced",component:OrderPlacedComponent},
-  {path:"CompleteOrder",component:CompleteOrderComponent,canActivate:[AuthGuard]},
-  {path:"AboutUs",component:AboutUsDataComponent},
-  {path:"Products",component:ProductsComponent,canActivate:[AuthGuard]},
-  {path:"myOrders/:id",component:UserOrderComponent},
-  {path:"OrderDetails/:id",component:OrderDetailsComponent},
-  {path:"Products/:id",component:ProductDetailsComponent},
-  {path:"EditeProduct/:id",component:EditeProductComponent},
-  {path:"searchProduct/:name",component:SearchProductComponent},
-  {path:"searchProduct",component:ProductsComponent},
-  {path:"Login",component:LoginComponent},
-  {path:"Register",component:RegisterComponent},
-  {path:"NewProduct",component:NewProductComponent},
-  {path:"DeleteProduct",component:ProductsComponent},
-  {path:"SearchByCategory/:id",component:SearchByCategoryComponent,canActivate:[AuthGuard]},
-  {path:"GetUser/:email",component:UserProfileComponent},
-  {path:"AllCategories",component:AllCategoriesComponent},
-  {path:"EditeCategory/:id",component:EditCategoryComponent},
-  {path:"NewCategory",component:NewCategoryComponent},
-  {path:"ForgetPassword",component:ForgetPasswordComponent},
-  {path:"ResetPassword",component:ResetPasswordComponent},
-  {path:"AllUsers",component:AllUsersComponent},
-  {path:"EditUser/:email",component:EditUserComponent},
-  {path:"AllOrders",component:AllOrdersComponent},
-  {path:"yourProfile",component:UserProfileComponent},
-  {path:"**",component:ErrorComponent}
+  { path: "Products", component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: "Products/:id", component: ProductDetailsComponent },
+  { path: "EditeProduct/:id", component: EditeProductComponent },
+  { path: "searchProduct/:name", component: SearchProductComponent },
+  { path: "Cart", component: ShoppingCartComponent },
+  { path: "OrderPlaced", component: OrderPlacedComponent },
+  { path: "CompleteOrder", component: CompleteOrderComponent, canActivate: [AuthGuard] },
+  { path: "searchProduct", component: ProductsComponent },
+  { path: "myOrders/:id", component: UserOrderComponent },
+  { path: "OrderDetails/:id", component: OrderDetailsComponent },
+  { path: "Login", component: LoginComponent },
+  { path: "Register", component: RegisterComponent },
+  { path: "NewProduct", component: NewProductComponent },
+  { path: "DeleteProduct", component: ProductsComponent },
+  { path: "SearchByCategory/:id", component: SearchByCategoryComponent, canActivate: [AuthGuard] },
+  { path: "GetUser/:email", component: UserProfileComponent },
+  { path: "AllCategories", component: AllCategoriesComponent },
+  { path: "EditeCategory/:id", component: EditCategoryComponent },
+  { path: "NewCategory", component: NewCategoryComponent },
+  { path: "ForgetPassword", component: ForgetPasswordComponent },
+  { path: "ResetPassword", component: ResetPasswordComponent },
+  { path: "AllUsers", component: AllUsersComponent },
+  { path: "EditUser/:email", component: EditUserComponent },
+  { path: "AllOrders", component: AllOrdersComponent },
+  { path: "yourProfile", component: UserProfileComponent },
+  { path: "**", component: ErrorComponent }
 
 ]
-;
+  ;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

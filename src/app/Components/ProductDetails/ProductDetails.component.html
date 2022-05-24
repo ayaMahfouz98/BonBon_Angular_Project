@@ -32,7 +32,7 @@
 					</div>
 					<hr>
 
-				
+
 					<div class="action">
 						<button class="add-to-cart btn btn-default" type="button" onclick="bootstapAlert()"
 							[disabled]="!isUserLogged" (click)="AddToCart()">Add to cart</button>
@@ -42,7 +42,7 @@
 						<br>
 						<a class="btn btn-dark m-2" *ngIf="role=='Admin'" routerLink="/EditeProduct/{{Product.id}}"
 							role="button">Update Product</a>
-						<a class="btn btn-dark m-2" *ngIf="role=='Admin'" routerLink="/Products/{{Product.id}}"
+						<a class="btn btn-dark m-2" *ngIf="role=='Admin'" routerLink="/Products"
 							(click)="Delete(Product.id)" role="button">Delete Product</a>
 
 						<!--	<h6>Qunatity</h6>

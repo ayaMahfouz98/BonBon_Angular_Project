@@ -15,22 +15,22 @@ import { UserService } from 'src/app/Services/User.service';
   styleUrls: ['./ProductDetails.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-ProductId:any;
-Product:any;
-ProductFromApi:any;
-quantity:any;
-OrderPrice:any;
-cartItems:any;
-enableAdd = true;
-isLoggedIn:any;
-@Output() totalPriceOnChange: EventEmitter<number>;
+  ProductId: any;
+  Product: any;
+  ProductFromApi: any;
+  quantity: any;
+  OrderPrice: any;
+  cartItems: any;
+  enableAdd = true;
+  isLoggedIn: any;
+  @Output() totalPriceOnChange: EventEmitter<number>;
 
   rating: any;
   ProductItem: any;
   isUserLogged: any;
-  UserID:any;
-  role:any;
-  
+  UserID: any;
+  role: any;
+
   constructor(private ActivatedRoute: ActivatedRoute, private router: Router, private service: ProductsService, private orderService: OrderService, private userService: UserService) {
     this.ProductId = ActivatedRoute.snapshot.params["id"];
     this.isUserLogged = this.userService.isUserLogged;
@@ -47,25 +47,25 @@ isLoggedIn:any;
       this.ProductItem = element;
      });
 
-     
-     */  
-    
-     this.userService.GetUserById(this.UserID).subscribe(
-      (data:any)=>{
-        if(data != null)
+
+     */
+
+    this.userService.GetUserById(this.UserID).subscribe(
+      (data: any) => {
+        if (data != null)
           this.role = data.role;
       },
-      (err)=>{
+      (err) => {
         console.log(err);
       }
     );
-     this.userService.getloggedStatus().subscribe((status: any) => {
-    this.isUserLogged = status;
-  })
+    this.userService.getloggedStatus().subscribe((status: any) => {
+      this.isUserLogged = status;
+    })
     this.service.GetProductById(this.ProductId).subscribe(
 
-      (data)=>{
-        this.Product=data;
+      (data) => {
+        this.Product = data;
         this.quantity = this.Product.quantity;
         this.rating = this.Product.overAllRating;
       },
@@ -73,37 +73,35 @@ isLoggedIn:any;
     );
   }
 
-  AddToCart(){
+  AddToCart() {
     this.service.GetProductById(this.Product.id).subscribe(
-      (data)=>{
+      (data) => {
         this.Product = data;
         this.quantity = this.Product.quantity;
-        if(this.Product.amount == undefined){
-          this.Product.amount=0;
+        if (this.Product.amount == undefined) {
+          this.Product.amount = 0;
           this.enableAdd = true;
         }
-        if(this.Product.amount < this.quantity){
+        if (this.Product.amount < this.quantity) {
           this.Product.amount++;
           this.OrderPrice = this.Product.price;
           this.totalPriceOnChange.emit(this.OrderPrice);
-          this.orderService.AddToShoppingCart(this.Product.id,localStorage.getItem('cartToken')).subscribe();
+          this.orderService.AddToShoppingCart(this.Product.id, localStorage.getItem('cartToken')).subscribe();
         }
-        else{
-            this.enableAdd = false;
-          }
+        else {
+          this.enableAdd = false;
         }
-      );
-    }
-  
-
-
-
-      Delete(id:any){
-        this.service.DeleteProduct(id).subscribe();
-       this.router.navigate(['/Products']);
-      //window.location.reload();
-
       }
+    );
+  }
 
+
+  Delete(id: any) {
+    this.service.DeleteProduct(id).subscribe();
+
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+      this.router.navigate(["Products"])
+    );
+  }
 
 }

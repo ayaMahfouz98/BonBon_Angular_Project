@@ -17,12 +17,11 @@ export class ShoppingCartComponent implements OnInit,OnChanges {
     if(this.orderService.shoppingCartExists == false){
       this.orderService.GetShoppingCart().subscribe(
         (data:any)=>{
-          this.currentshoppingCart = data;
+          this.currentshoppingCart = data.ShoppingCartId;
           localStorage.setItem('cartToken', data)
         });
      }
   }
-
 
   ngOnInit() {
 

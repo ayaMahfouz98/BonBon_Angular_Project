@@ -42,6 +42,7 @@ export class CompleteOrderComponent implements OnInit {
   }
   CompleteOrder(){
     this.orderService.CompleteOrder(localStorage.getItem('email'),localStorage.getItem('cartToken')).subscribe();
+    this.orderService.DeleteShoppingCart(localStorage.getItem('cartToken')).subscribe();
     this.router.navigate(['/OrderPlaced']);
   }
 

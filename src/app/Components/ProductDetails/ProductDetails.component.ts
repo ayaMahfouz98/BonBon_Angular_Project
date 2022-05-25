@@ -59,6 +59,7 @@ export class ProductDetailsComponent implements OnInit {
         console.log(err);
       }
     );
+
     this.userService.getloggedStatus().subscribe((status: any) => {
       this.isUserLogged = status;
     })

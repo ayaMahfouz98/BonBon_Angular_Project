@@ -48,7 +48,7 @@ const routes: Routes = [
   },
   { path: "AboutUs", component: AboutUsDataComponent },
 
-  { path: "Products", component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: "Products", component: ProductsComponent },
   { path: "Products/:id", component: ProductDetailsComponent },
   { path: "EditeProduct/:id", component: EditeProductComponent },
   { path: "searchProduct/:name", component: SearchProductComponent },

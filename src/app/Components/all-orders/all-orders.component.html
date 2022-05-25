@@ -52,6 +52,7 @@
         <div class="form-input">
           <span class="input-group-addon"><i class="fa fa-chevron-circle-down"></i></span><br>
           <select [(ngModel)]="Status" name="status" class=" w-25" (change)="selectChange()">
+            <option selected >Select Status</option>
             <option  #status value="Pending">Pending</option>
             <option #status value="Accepted">Accepted</option>
             <option #status value="cancelled">Canceled</option>

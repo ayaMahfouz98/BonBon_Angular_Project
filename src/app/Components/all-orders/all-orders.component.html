@@ -4,7 +4,7 @@
     <tr>
       <th>Order Id</th>
       <th>OrderDate</th>
-      <th>State</th>
+      <th>Status</th>
       <th>UserEmail</th>
       <th>Actions</th>
 
@@ -21,9 +21,9 @@
       <td><div class="action m-auto">
          <a class="actions mb-2" routerLink="/OrderDetails/{{order.id}}"  role="button"><i class="fa fa-info-circle"></i></a>
          <a class="actions mb-2 mx-4" role="button" (click)="open(content)"><i class="fa fa-edit" aria-hidden="true"></i></a>
-         
+
         </div></td>
-        
+
 <ng-template #content let-modal>
   <div class="modal-headers">
     <h4 class="modal-title my-4" id="modal-basic-title" style="color:#7f4722"><span class="mx-3">Edit Order Status </span> <i
@@ -52,10 +52,14 @@
         <div class="form-input">
           <span class="input-group-addon"><i class="fa fa-chevron-circle-down"></i></span><br>
           <select [(ngModel)]="Status" name="status" class=" w-25" (change)="selectChange()">
+            <option [value]="a" [hidden]="a=='Order Status'" *ngFor="let a of StatusArr">{{a}}</option>
+          </select>
+          <!-- <select [(ngModel)]="Status" ng-init="Order Status" name="status" class=" w-25" (change)="selectChange()">
+            <option selected disabled>Order Status</option>
             <option  #status value="Pending">Pending</option>
             <option #status value="Accepted">Accepted</option>
             <option #status value="cancelled">Canceled</option>
-          </select>
+          </select> -->
         </div>
       </div>
     </form>

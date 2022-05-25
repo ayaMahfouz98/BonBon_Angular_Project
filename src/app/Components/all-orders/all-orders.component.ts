@@ -8,28 +8,28 @@ import { UserService } from 'src/app/Services/User.service';
   templateUrl: './all-orders.component.html',
   styleUrls: ['./all-orders.component.css']
 })
+
 export class AllOrdersComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private ordeService: OrderService, private userService: UserService) { }
 
   orders: any;
-  Status: any;
+  Status = "Order Status";
   ID: any;
   User: any;
   closeResult = '';
   Order: any;
 
+  StatusArr = ['Order Status', 'Pending', 'Accepted', 'Canceled'];
 
   ngOnInit(): void {
     this.ordeService.GetAllOrders().subscribe(
       (data) => {
         this.orders = data;
-        console.log(this.orders)
         for (let order of this.orders) {
           this.userService.GetUserById(order.userId).subscribe(
             (data) => {
               this.User = data;
-              //console.log(this.User)
             },
             (err) => {
               console.log(err);
@@ -42,6 +42,7 @@ export class AllOrdersComponent implements OnInit {
       }
     )
   }
+
   open(content: any) {
     //console.log(content)
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -60,15 +61,12 @@ export class AllOrdersComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  SaveData(
-    id: any
-  ) {
 
+  SaveData(id: any) {
     var status: any;
     if (this.Status == 'Pending') {
       status = 0;
     }
-
     else if (this.Status == 'Accepted') {
       status = 1;
     }

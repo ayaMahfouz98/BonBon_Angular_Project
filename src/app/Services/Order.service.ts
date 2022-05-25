@@ -39,6 +39,10 @@ get shoppingCartExists(): boolean
   return  (localStorage.getItem('cartToken'))? true: false
 }
 
+DeleteShoppingCart(shoppingCartId:any)
+{
+  return this.HttpClient.delete(`${this.BaseURL}/Orders/DeleteCart/${shoppingCartId}`);
+}
   
   AddToShoppingCart(id:number, shoppingCartId:any){
     return this.HttpClient.post(`${this.BaseURL}/AddItem/${id}/${shoppingCartId}`,id);

@@ -12,6 +12,8 @@ export class ShoppingCartitemComponent implements OnInit {
   product:any;
   OrderPrice:any;
   @Input() pd:any;
+  CartID:any;
+
 
   @Output() totalPriceOnChange: EventEmitter<number>;
   

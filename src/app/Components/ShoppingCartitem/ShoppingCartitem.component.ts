@@ -16,7 +16,7 @@ export class ShoppingCartitemComponent implements OnInit {
 
 
   @Output() totalPriceOnChange: EventEmitter<number>;
-  
+
   constructor(private productService:ProductsService,private orderService:OrderService) {
    this.totalPriceOnChange = new EventEmitter<number>();
   }
@@ -44,7 +44,7 @@ export class ShoppingCartitemComponent implements OnInit {
       this.totalPriceOnChange.emit(this.OrderPrice);
       this.orderService.RemoveItemFromShoppingCart(this.pd.product.id,localStorage.getItem('cartToken')).subscribe();
     }
-    if(this.pd.amount == 1)
+    if(this.pd.amount == 0)
       this.removeItemTotalAmount()
   }
 

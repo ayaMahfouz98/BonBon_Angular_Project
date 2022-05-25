@@ -8,52 +8,50 @@ import { Observable } from 'rxjs';
 export class OrderService {
   static cartTotal: number = 0;
 
-  constructor(private HttpClient :HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
 
-  BaseURL="https://localhost:7154/api/Orders";
+  BaseURL = "https://localhost:7154/api/Orders";
 
   //admin
-  GetAllOrders(){
+  GetAllOrders() {
     return this.HttpClient.get(this.BaseURL);
   }
-  ChangeOrderState (id:any,orderState:any){
-    return this.HttpClient.put(`${this.BaseURL}/changeOrderStateById/${id}`,orderState);
-    }
-   
+  ChangeOrderState(id: any, orderState: any) {
+    return this.HttpClient.put(`${this.BaseURL}/changeOrderStateById/${id}`, orderState);
+  }
+
 
   //user
-    GetOrdersByUserId(id:any){
-      return this.HttpClient.get(`${this.BaseURL}/GetOrdersByUserId/${id}`);
-    }
-    
-  GetShoppingCartItems(id:any){
+  GetOrdersByUserId(id: any) {
+    return this.HttpClient.get(`${this.BaseURL}/GetOrdersByUserId/${id}`);
+  }
+
+  GetShoppingCartItems(id: any) {
     return this.HttpClient.get(`${this.BaseURL}/GetShoppingCartItems/${id}`);
   }
 
-  GetShoppingCart(){
-    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCart`,{responseType: 'text'});
+  GetShoppingCart() {
+    return this.HttpClient.get(`${this.BaseURL}/GetShoppingCart`, { responseType: 'text' });
   }
 
-get shoppingCartExists(): boolean
-{
-  return  (localStorage.getItem('cartToken'))? true: false
-}
-
-DeleteShoppingCart(shoppingCartId:any)
-{
-  return this.HttpClient.delete(`${this.BaseURL}/Orders/DeleteCart/${shoppingCartId}`);
-}
-  
-  AddToShoppingCart(id:number, shoppingCartId:any){
-    return this.HttpClient.post(`${this.BaseURL}/AddItem/${id}/${shoppingCartId}`,id);
+  get shoppingCartExists(): boolean {
+    return (localStorage.getItem('cartToken')) ? true : false
   }
 
-  RemoveItemFromShoppingCart(id:any,shoppingCartId:any){
-    return this.HttpClient.post(`${this.BaseURL}/RemoveItem/${id}/${shoppingCartId}`,id);
+  DeleteShoppingCart(shoppingCartId: any) {
+    return this.HttpClient.delete(`${this.BaseURL}/Orders/DeleteCart/${shoppingCartId}`);
+  }
+
+  AddToShoppingCart(id: number, shoppingCartId: any) {
+    return this.HttpClient.post(`${this.BaseURL}/AddItem/${id}/${shoppingCartId}`, id);
+  }
+
+  RemoveItemFromShoppingCart(id: any, shoppingCartId: any) {
+    return this.HttpClient.post(`${this.BaseURL}/RemoveItem/${id}/${shoppingCartId}`, id);
 
   }
-  RemoveItemTotalAmountShoppingCart(id:any,shoppingCartId:any){
-    return this.HttpClient.post(`${this.BaseURL}/RemoveItemTotalAmount/${id}/${shoppingCartId}`,id);
+  RemoveItemTotalAmountShoppingCart(id: any, shoppingCartId: any) {
+    return this.HttpClient.post(`${this.BaseURL}/RemoveItemTotalAmount/${id}/${shoppingCartId}`, id);
 
   }
   /* best practise but error status code 415
@@ -62,53 +60,53 @@ DeleteShoppingCart(shoppingCartId:any)
   }
 */
 
-  CompleteOrder(email:any,shoppingCartId:any){
-    return this.HttpClient.post(`${this.BaseURL}/completerOrder/${email}/${shoppingCartId}`,email);
+  CompleteOrder(email: any, shoppingCartId: any) {
+    return this.HttpClient.post(`${this.BaseURL}/completerOrder/${email}/${shoppingCartId}`, email);
   }
 
-  DeleteOrder(id:any){
-    return this.HttpClient.delete(`${this.BaseURL}/DeleteOrder/${id}`,id);
+  DeleteOrder(id: any) {
+    return this.HttpClient.delete(`${this.BaseURL}/DeleteOrder/${id}`, id);
   }
 
-  GetOrderDetails(id:any){
+  GetOrderDetails(id: any) {
     return this.HttpClient.get(`${this.BaseURL}/GetOrderDetails/${id}`);
   }
- 
+
   /*************************Component Services*******************************/
-  removeItemTotalAmount(productId:any,cartToken:any){
-    this.RemoveItemTotalAmountShoppingCart(productId,cartToken).subscribe();  
-    window.location.reload();    
+  removeItemTotalAmount(productId: any, cartToken: any) {
+    this.RemoveItemTotalAmountShoppingCart(productId, cartToken).subscribe();
+    window.location.reload();
   }
 
 
 
-   GetOrderTotal(id:any):  Observable<string>{
-    let shoppingCartItems:any[];
+  GetOrderTotal(id: any): Observable<string> {
+    let shoppingCartItems: any[];
     var subject = new Subject<string>();
     let cartTotal = 0;
     this.GetShoppingCartItems(id).subscribe(
-      (data:any)=>{
-         shoppingCartItems=data;
-         shoppingCartItems.forEach(element => {
-         cartTotal+= element.amount * element.product.price
-         }
-         );
-         subject.next(cartTotal.toString());
+      (data: any) => {
+        shoppingCartItems = data;
+        shoppingCartItems.forEach(element => {
+          cartTotal += element.amount * element.product.price
+        }
+        );
+        subject.next(cartTotal.toString());
       })
-      return subject.asObservable();
+    return subject.asObservable();
   }
 
 
-PrdListTotalCost(orderProducts:any[] ){
+  PrdListTotalCost(orderProducts: any[]) {
     let total = 0;
     orderProducts?.forEach(element => {
       console.log(element);
-        total = total + (Number(element.amount) * Number(element.product.price));
-   })
+      total = total + (Number(element.amount) * Number(element.product.price));
+    })
     return total;
   }
-  
-              /***********To prevent inserting more than the quantity************/
+
+  /***********To prevent inserting more than the quantity************/
   /* productAmountInShoppingCart(id:any) : Observable<string>{
     let shoppingCartItems:any[];
     var subject = new Subject<string>();

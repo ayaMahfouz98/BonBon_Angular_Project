@@ -19,14 +19,11 @@
       </div>
 </div> -->
 
-<!-- <a  class="btn btn-dark m-t-5" routerLink="/NewProduct/" role="button">Add New Product</a>
-<div class="container">
-<div class="row ">
-  <div > -->
 
-<br><br><br>
+<br><br>
 <!-- must show the category by filter -->
 
+<a class="btn" routerLink="/NewProduct/" role="button" *ngIf="role=='Admin'" >Add New Product</a>
 
 <hr>
 
@@ -37,6 +34,7 @@
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select> -->
+
 <div class=" row text-center">
   <div class="col-4 offset-2">
     <label class=" m-2">FILTER BY</label>

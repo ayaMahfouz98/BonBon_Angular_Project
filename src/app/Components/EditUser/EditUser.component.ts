@@ -15,16 +15,17 @@ export class EditUserComponent implements OnInit {
   Role: any;
   AllRoles: any;
 
-  constructor(private ActivatedRoute: ActivatedRoute, private router: Router, private UserService: UserService) {
-    this.userEmail = ActivatedRoute.snapshot.params['email'];
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private UserService: UserService) {
     // this.Role = "Role";
   }
 
   ngOnInit() {
+    this.userEmail = this.activatedRoute.snapshot.params['email'];
     this.UserService.GetUserProfile(this.userEmail).subscribe(
-      (data) => {
-        this.user = data;
-        this.Role = this.user.role;
+      (data:any) => {
+        // this.user = data;
+        this.Role = data.role;
+        console.log(this.Role);
       },
       (err) => {
         console.log(err);

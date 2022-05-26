@@ -76,7 +76,7 @@ export class OrderService {
   /*************************Component Services*******************************/
   removeItemTotalAmount(productId: any, cartToken: any) {
     this.RemoveItemTotalAmountShoppingCart(productId, cartToken).subscribe();
-   // window.location.reload();
+     //window.location.reload();
    // this.router.navigate(['/Cart']);
 
   }

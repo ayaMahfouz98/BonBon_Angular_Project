@@ -26,7 +26,7 @@
                   </div>
                 </span>
               </h5>
-              <h5 class="mb-0 ms-0">
+              <h5 class="mb-0 ms-0  d-none d-sm-none d-md-block d-lg-block">
                 Date:<span>{{ orderObj[0].orderDate | date: "longDate" }}</span>
               </h5>
               <h5 class="mb-0 ms-0">
@@ -44,9 +44,9 @@
           <tr class="bg-light">
             <th scope="col" width="30%">Name</th>
             <th scope="col" width="25%">Product</th>
-            <th scope="col" width="15%">Amount</th>
+            <th scope="col" class="d-none d-sm-none d-md-block d-lg-block" width="15%">Amount</th>
             <th scope="col" width="15%">Price</th>
-            <th scope="col" width="20%">Total Price</th>
+            <th scope="col" class="d-none d-sm-none d-md-block d-lg-block" width="20%">Total Price</th>
           </tr>
         </thead>
         <tbody>
@@ -55,11 +55,11 @@
             <td scope="col" width="25%">
               <img class="rounded" src="{{ p.product.imageUrl }}" width="100" />
             </td>
-            <th class="tt" scope="col" width="15%">{{ p.amount }}</th>
+            <th class=" tt d-none d-sm-none d-md-block d-lg-block" scope="col" width="15%">{{ p.amount }}</th>
             <th class="tt" scope="col" width="15%">
               {{ p.price | currency: "USD" }}
             </th>
-            <th class="tt" scope="col" width="20%">
+            <th class=" tt d-none d-sm-none d-md-block d-lg-block" scope="col" width="20%">
               {{ p.price * p.amount | currency: "USD" }}
             </th>
           </tr>

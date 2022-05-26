@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output,OnChanges } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
 import { OrderService} from 'src/app/Services/Order.service';
 import { Router } from '@angular/router';
@@ -21,8 +21,10 @@ export class ShoppingCartitemComponent implements OnInit {
   constructor(private productService:ProductsService,private orderService:OrderService,private router:Router) {
    this.totalPriceOnChange = new EventEmitter<number>();
   }
-  ngOnInit() {}
-                /**To be handled in services */
+  ngOnInit() {
+    
+  }
+          /**To be handled in services */
   increaseAmount(){
     this.productService.GetProductById(this.pd.product.id).subscribe(
       (data)=>{

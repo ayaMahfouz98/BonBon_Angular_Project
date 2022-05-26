@@ -37,7 +37,8 @@ export class ProductDetailsComponent implements OnInit {
 
     this.UserID = this.userService.UserId;
     this.totalPriceOnChange = new EventEmitter<number>();
-    this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
+    if(localStorage.getItem('cartToken') == null)
+        this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
   }
 
   ngOnInit() {
@@ -88,6 +89,9 @@ export class ProductDetailsComponent implements OnInit {
           this.OrderPrice = this.Product.price;
           this.totalPriceOnChange.emit(this.OrderPrice);
           this.orderService.AddToShoppingCart(this.Product.id, localStorage.getItem('cartToken')).subscribe();
+          /*this.router.navigateByUrl('/', {skipLocationChange: false}).then(() => {
+            this.router.navigate(["Products/"+this.ProductId]);
+        });*/
         }
         else {
           this.enableAdd = false;

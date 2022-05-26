@@ -44,7 +44,7 @@ export class OrderService {
   }
 
   AddToShoppingCart(id: number, shoppingCartId: any) {
-    return this.HttpClient.post(`${this.BaseURL}/AddItem/${id}/${shoppingCartId}`, id);
+    return  this.HttpClient.post(`${this.BaseURL}/AddItem/${id}/${shoppingCartId}`, id);
   }
 
   RemoveItemFromShoppingCart(id: any, shoppingCartId: any) {

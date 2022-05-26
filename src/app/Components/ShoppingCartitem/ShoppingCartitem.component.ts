@@ -51,7 +51,7 @@ export class ShoppingCartitemComponent implements OnInit {
 
   removeItemTotalAmount(){
     this.orderService.removeItemTotalAmount(this.pd.product.id,localStorage.getItem('cartToken'));
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+    this.router.navigateByUrl('/', {skipLocationChange: false}).then(() => {
       this.router.navigate(["Cart"]);
   });
   }

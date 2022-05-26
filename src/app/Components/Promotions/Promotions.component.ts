@@ -38,7 +38,7 @@ customOptions: any = {
       items: 4
     },
     940: {
-      items: 5
+      items: 4
     }
   },
   nav: true

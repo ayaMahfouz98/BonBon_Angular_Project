@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
 import { OrderService} from 'src/app/Services/Order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ShoppingCartitem',
@@ -17,7 +18,7 @@ export class ShoppingCartitemComponent implements OnInit {
 
   @Output() totalPriceOnChange: EventEmitter<number>;
 
-  constructor(private productService:ProductsService,private orderService:OrderService) {
+  constructor(private productService:ProductsService,private orderService:OrderService,private router:Router) {
    this.totalPriceOnChange = new EventEmitter<number>();
   }
   ngOnInit() {}
@@ -40,7 +41,7 @@ export class ShoppingCartitemComponent implements OnInit {
   removeItem(){
     if(this.pd.amount != 1){
       this.pd.amount--;
-      this.OrderPrice = -1*this.pd.product.price;
+      this.OrderPrice = -1 * this.pd.product.price;
       this.totalPriceOnChange.emit(this.OrderPrice);
       this.orderService.RemoveItemFromShoppingCart(this.pd.product.id,localStorage.getItem('cartToken')).subscribe();
     }
@@ -50,6 +51,9 @@ export class ShoppingCartitemComponent implements OnInit {
 
   removeItemTotalAmount(){
     this.orderService.removeItemTotalAmount(this.pd.product.id,localStorage.getItem('cartToken'));
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(["Cart"]);
+  });
   }
 
 

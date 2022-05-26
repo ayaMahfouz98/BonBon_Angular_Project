@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs/internal/Subject';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   static cartTotal: number = 0;
 
-  constructor(private HttpClient: HttpClient) { }
+  constructor(private HttpClient: HttpClient,private router:Router) { }
 
   BaseURL = "https://localhost:7154/api/Orders";
 
@@ -75,7 +76,9 @@ export class OrderService {
   /*************************Component Services*******************************/
   removeItemTotalAmount(productId: any, cartToken: any) {
     this.RemoveItemTotalAmountShoppingCart(productId, cartToken).subscribe();
-    window.location.reload();
+   // window.location.reload();
+   // this.router.navigate(['/Cart']);
+
   }
 
 

@@ -37,8 +37,11 @@ export class ProductDetailsComponent implements OnInit {
 
     this.UserID = this.userService.UserId;
     this.totalPriceOnChange = new EventEmitter<number>();
-    if(localStorage.getItem('cartToken') == null)
-        this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
+    if(localStorage.getItem('cartToken') != null){
+      this.cartItems = orderService.GetShoppingCartItems(localStorage.getItem('cartToken')).subscribe();
+    }
+   
+
   }
 
   ngOnInit() {

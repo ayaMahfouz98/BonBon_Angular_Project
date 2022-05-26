@@ -15,8 +15,10 @@
         </div>
       </div>
       
-        <div class="mb-0 d-none d-lg-block col-2"><h5 class="d-inline amt">{{pd.amount}} </h5><i class="fa fa-plus" (click)="increaseAmount()"></i> <span class="vl"></span>
-        <a > <i class="fa fa-minus"  (click)="removeItem()" aria-hidden="true"></i></a> </div>
+        <div class="mb-0 d-none d-lg-block col-3"><h5 class="d-inline amt">{{pd.amount}} </h5><i class="fa fa-plus" (click)="increaseAmount()"></i> <span class="vl"></span>
+        <a > <i class="fa fa-minus"  (click)="removeItem()" aria-hidden="true"></i></a> 
+        <div class="error mt-2">{{Alert}}</div>
+      </div>
          <h5 class="mb-0 col-2">{{pd.product.price | currency:"USD"}}<a> <i class="fa fa-times ms-5" (click)="removeItemTotalAmount()"  aria-hidden="true"></i></a></h5>
    </div>
    

@@ -14,15 +14,16 @@ export class ShoppingCartitemComponent implements OnInit {
   OrderPrice:any;
   @Input() pd:any;
   CartID:any;
-
+  Alert:any;
 
   @Output() totalPriceOnChange: EventEmitter<number>;
 
   constructor(private productService:ProductsService,private orderService:OrderService,private router:Router) {
    this.totalPriceOnChange = new EventEmitter<number>();
+  this.Alert = " ";
   }
   ngOnInit() {
-    
+  
   }
           /**To be handled in services */
   increaseAmount(){
@@ -36,6 +37,9 @@ export class ShoppingCartitemComponent implements OnInit {
           this.totalPriceOnChange.emit(this.OrderPrice);
           this.orderService.AddToShoppingCart(this.pd.product.id,localStorage.getItem('cartToken')).subscribe();
         }
+        else{
+          this.Alert = "No enough Quantity available!";
+        }
       }
     );
   }
@@ -45,6 +49,7 @@ export class ShoppingCartitemComponent implements OnInit {
       this.pd.amount--;
       this.OrderPrice = -1 * this.pd.product.price;
       this.totalPriceOnChange.emit(this.OrderPrice);
+      this.Alert = "";
       this.orderService.RemoveItemFromShoppingCart(this.pd.product.id,localStorage.getItem('cartToken')).subscribe();
     }
     if(this.pd.amount == 0)

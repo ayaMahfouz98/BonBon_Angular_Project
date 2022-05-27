@@ -62,7 +62,7 @@ const routes: Routes = [
   { path: "Register", component: RegisterComponent },
   { path: "NewProduct", component: NewProductComponent },
   { path: "DeleteProduct", component: ProductsComponent },
-  { path: "SearchByCategory/:id", component: SearchByCategoryComponent, canActivate: [AuthGuard] },
+  { path: "SearchByCategory/:id", component: SearchByCategoryComponent},
   { path: "GetUser/:email", component: UserProfileComponent },
   { path: "AllCategories", component: AllCategoriesComponent },
   { path: "EditeCategory/:id", component: EditCategoryComponent },

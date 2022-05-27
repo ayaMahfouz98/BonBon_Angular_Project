@@ -12,7 +12,11 @@
         width: 100%;      
         margin-right:15px ; 
      }
-
+     .error {
+        color: rgb(123, 123, 123);
+        font-size: small;
+      }
+      
      .vl {
         border-left: 1px solid rgb(203, 196, 196);
         margin: 5px;

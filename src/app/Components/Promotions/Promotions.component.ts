@@ -32,7 +32,7 @@ customOptions: any = {
       items: 1
     },
     400: {
-      items: 4
+      items: 2
     },
     740: {
       items: 4

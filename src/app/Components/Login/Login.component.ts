@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/User.service';
 import { ActivatedRoute } from '@angular/router';
 import { GoogleLoginProvider, FacebookLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
+import { OrderService } from 'src/app/Services/Order.service';
 
 
 @Component({
@@ -17,11 +18,18 @@ export class LoginComponent implements OnInit {
   message: any;
   WrongPasswordMSG: any;
   isUserLogged: boolean = false;
-
+  currentshoppingCart:any;
   Password = '';
   Email = '';
 
-  constructor(private userService: UserService, private router: Router, private socialAuthService: SocialAuthService) {
+  constructor(private userService: UserService, private router: Router, private socialAuthService: SocialAuthService,private orderService:OrderService) {
+    if(this.orderService.shoppingCartExists == false){
+      this.orderService.GetShoppingCart().subscribe(
+        (data:any)=>{
+          this.currentshoppingCart = data.ShoppingCartId;
+          localStorage.setItem('cartToken', data)
+        });
+     }
     this.isUserLogged = this.userService.isUserLogged;
   }
 

@@ -27,11 +27,15 @@
         <br>
         <span class="text-secondary info ms-3">5% is added when complete with cash on delivery.</span>
         <div >
-          <a><button type="submit" [disabled]="!addAddress.valid"  (click)="CompleteOrder()" type="button"class="complete ps-4 pe-4 m-3">  
-          <div class="d-flex ">
-            <span class="text-center" >Complete Order</span>
+          <a>
+             <button type="submit"  [disabled]="!addAddress.valid"  (click)="EnableOrder()" type="button"class="complete ps-4 pe-4 m-3">
+             <div class="d-flex ">
+            <span class="text-center" >Add Address</span>
           </div>
          </button>
+         <button type="submit" [disabled]="!Enable" (click)="CompleteOrder()"  type="button"class="complete ps-4 pe-4 m-3">  
+         Submit Order  </button>
+
          <div class="error" *ngIf="!addAddress.valid" >*Please Enter correct Address.</div>
 
          </a>
@@ -42,7 +46,7 @@
       </div>
 
       <div class="col-sm-5 ms-2 mt-5">
-         <div id="paypal" class="mt-5" ></div>
+         <div id="paypal"  class="mt-5" ></div>
          </div>
       </div>
       </div>

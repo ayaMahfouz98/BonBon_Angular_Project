@@ -29,6 +29,9 @@ a{
   /* background: #404040; */
   background: #ffede7;
 }
+a{
+  cursor: pointer;
+}
 #footer .footer-newsletter h4 {
   font-size: 24px;
   margin: 0 0 20px 0;

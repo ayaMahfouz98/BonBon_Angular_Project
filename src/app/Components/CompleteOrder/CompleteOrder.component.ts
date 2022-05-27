@@ -13,7 +13,7 @@ import {FormControl,FormGroup,Validators} from '@angular/forms';
 export class CompleteOrderComponent implements OnInit {
   totalPlusShipping:any;
   total:any;
-
+  Enable = false;
   addAddress = new FormGroup({
     street: new FormControl('',Validators.required),
     city: new FormControl('',Validators.required),
@@ -39,6 +39,10 @@ export class CompleteOrderComponent implements OnInit {
     
         })
        })
+  }
+
+  EnableOrder(){
+    this.Enable = true;
   }
   CompleteOrder(){
     this.orderService.CompleteOrder(localStorage.getItem('email'),localStorage.getItem('cartToken')).subscribe();
